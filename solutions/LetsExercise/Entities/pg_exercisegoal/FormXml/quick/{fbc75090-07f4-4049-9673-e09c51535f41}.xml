@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{fbc75090-07f4-4049-9673-e09c51535f41}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{114b2487-394d-4da4-a0aa-3fcae1206cb3}" IsUserDefined="1">
+          <labels>
+            <label description="" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{8f8dfece-77f3-48e1-9ce9-d5e45f8042d2}">
+                  <labels>
+                    <label description="GENERAL" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{d67341db-8f50-4b68-aed0-330a95237f29}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Goal Type" languagecode="1033" />
+                        </labels>
+                        <control id="pg_goaltype" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="pg_goaltype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7a076754-eddd-4634-9463-f172a87d549c}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Exercise" languagecode="1033" />
+                        </labels>
+                        <control id="pg_exercise" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="pg_exercise" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7040e7df-07ab-4303-ace0-2acdb208f43e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Score" languagecode="1033" />
+                        </labels>
+                        <control id="pg_scorenumber" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="pg_scorenumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{036368e8-8a9f-42bb-b4a5-b56a0deefa60}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

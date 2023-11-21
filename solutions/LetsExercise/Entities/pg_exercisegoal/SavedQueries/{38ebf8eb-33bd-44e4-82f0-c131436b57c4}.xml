@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{38ebf8eb-33bd-44e4-82f0-c131436b57c4}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="pg_name" select="1" icon="1" preview="1">
+        <row name="result" id="pg_exercisegoalid">
+          <cell name="pg_goaltype" width="150" />
+          <cell name="pg_exercise" width="150" />
+          <cell name="pg_scorenumber" width="150" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="pg_exercisegoal">
+          <attribute name="pg_exercisegoalid" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="pg_name" operator="like" value="{0}" />
+          </filter>
+          <attribute name="pg_scorenumber" />
+          <attribute name="pg_goaltype" />
+          <attribute name="pg_exercise" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Active Exercise Goals" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

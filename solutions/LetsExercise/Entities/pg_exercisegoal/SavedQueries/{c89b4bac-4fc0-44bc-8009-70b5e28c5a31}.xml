@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{c89b4bac-4fc0-44bc-8009-70b5e28c5a31}</savedqueryid>
+    <layoutxml>
+      <grid name="pg_exercisegoals" jump="pg_name" select="1" icon="1" preview="1">
+        <row name="pg_exercisegoal" id="pg_exercisegoalid">
+          <cell name="pg_goaltype" width="150" />
+          <cell name="pg_exercise" width="150" />
+          <cell name="pg_scorenumber" width="150" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>2</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="pg_exercisegoal">
+          <attribute name="pg_exercisegoalid" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="pg_scorenumber" />
+          <attribute name="pg_goaltype" />
+          <attribute name="pg_exercise" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Exercise Goal Associated View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

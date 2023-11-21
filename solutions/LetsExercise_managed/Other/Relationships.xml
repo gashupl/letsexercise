@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityRelationships xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <EntityRelationship Name="business_unit_pg_exercisegoal" />
+  <EntityRelationship Name="business_unit_pg_exerciserecord" />
+  <EntityRelationship Name="lk_pg_exercisegoal_createdby" />
+  <EntityRelationship Name="lk_pg_exercisegoal_modifiedby" />
+  <EntityRelationship Name="lk_pg_exerciserecord_createdby" />
+  <EntityRelationship Name="lk_pg_exerciserecord_modifiedby" />
+  <EntityRelationship Name="owner_pg_exercisegoal" />
+  <EntityRelationship Name="owner_pg_exerciserecord" />
+  <EntityRelationship Name="team_pg_exercisegoal" />
+  <EntityRelationship Name="team_pg_exerciserecord" />
+  <EntityRelationship Name="user_pg_exercisegoal" />
+  <EntityRelationship Name="user_pg_exerciserecord" />
+</EntityRelationships>
