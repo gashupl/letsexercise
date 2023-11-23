@@ -7,6 +7,9 @@ $SolutionFileName = "LetsExercise.zip"
 $exportLocation = "..\Solutions"
 $managedSolutionFolder = "LetsExercise_managed"
 $unmanagedSolutionFolder = "LetsExercise"
+$canvasAppName = "pg_letsexercise_95a73_DocumentUri";
+$canvasAppManagedFolder = "$exportLocation\$managedSolutionFolder\CanvasApps\"
+$canvasAppUnmanagedFolder = "$exportLocation\$unmanagedSolutionFolder\CanvasApps\"
 
 Write-Output "Creating solution folder if not exists..."
 If(!(test-path $exportLocation))
@@ -25,10 +28,19 @@ pac solution unpack `
 --zipfile $exportLocation\$SolutionFileName `
 --folder $exportLocation\$managedSolutionFolder `
 --packagetype Managed `
---allowDelete true `
+--allowDelete true 
 #--map ..\configs\solution-mappings.xml
 
 Write-output "extraction process completed."
+
+Write-Output "Extracting Canvas App file and removing MsApp archive..."
+pac canvas unpack `
+--msapp "$canvasAppManagedFolder\$canvasAppName.msapp"  `
+--sources $canvasAppManagedFolder\$canvasAppName
+
+Write-Output "Deleting canvas app file..."
+Remove-Item "$canvasAppManagedFolder\$canvasAppName.msapp"
+Write-Output "Operation completed."
 
 Write-Output "Deleting managed solution's file..."
 Remove-Item $exportLocation\$solutionFileName
@@ -42,10 +54,19 @@ pac solution unpack `
 --zipfile $exportLocation\$SolutionFileName `
 --folder $exportLocation\$unmanagedSolutionFolder `
 --packagetype Unmanaged `
---allowDelete true `
+--allowDelete true 
 #--map ..\configs\solution-mappings.xml
 
 Write-output "extraction process completed."
+
+Write-Output "Extracting Canvas App file and removing MsApp archive..."
+pac canvas unpack `
+--msapp "$canvasAppUnmanagedFolder\$canvasAppName.msapp"  `
+--sources $canvasAppUnmanagedFolder\$canvasAppName
+
+Write-Output "Deleting canvas app file..."
+Remove-Item "$canvasAppUnmanagedFolder\$canvasAppName.msapp"
+Write-Output "Operation completed."
 
 Write-Output "Deleting managed solution's file..."
 Remove-Item $exportLocation\$solutionFileName
