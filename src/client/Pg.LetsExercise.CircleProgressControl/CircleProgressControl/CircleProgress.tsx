@@ -14,13 +14,27 @@ export interface ICircleProgressProps {
 
 export class CircleProgress extends React.Component<ICircleProgressProps> {
   public render(): React.ReactNode {
-    return (
-      <div style={style}>
-        <Progress.Circle percent={this.props.percentage} status="success" />
-        {/* <Label>
-        {this.props.percentage}
-      </Label> */}
-    </div>
-    )
+    if(!this.props.percentage){
+      return (  
+        <div style={style}>
+          <Progress.Circle percent={0} strokeColor="#ffc107" />
+        </div>
+      ); 
+    }
+    else if(this.props.percentage && this.props.percentage < 100){
+      return (  
+        <div style={style}>
+          <Progress.Circle percent={this.props.percentage} strokeColor="#ffc107" />
+        </div>
+      ); 
+    }
+    else{
+      return (  
+        <div style={style}>
+          <Progress.Circle percent={this.props.percentage} status="success" />
+        </div>
+      ); 
+    }
+
   }
 }
