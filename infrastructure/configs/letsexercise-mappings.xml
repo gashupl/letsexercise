@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Mapping>
+	<FileToFile 
+		map="Controls\pg_Pg.LetsExercise.CircleProgressControl\bundle.js" 
+		to="..\..\src\client\Pg.LetsExercise.CircleProgressControl\out\controls\CircleProgressControl\bundle.js"/>
+	<FileToFile 
+		map="Controls\pg_Pg.LetsExercise.CircleProgressControl\ControlManifest.xml" 
+		to="..\..\src\client\Pg.LetsExercise.CircleProgressControl\out\controls\CircleProgressControl\ControlManifest.xml"/>
+	<FileToFile 
+		map="Controls\pg_Pg.LetsExercise.CircleProgressControl\styles.css" 
+		to="..\..\src\client\Pg.LetsExercise.CircleProgressControl\out\controls\CircleProgressControl\styles.css"/>
+</Mapping>

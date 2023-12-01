@@ -84,6 +84,7 @@
       <RootComponent type="1" schemaName="pg_exerciserecord" behavior="0" />
       <RootComponent type="300" schemaName="pg_letsexercise_95a73" behavior="0" />
       <RootComponent type="62" schemaName="pg_LetsExerciseAdmin" behavior="0" />
+      <RootComponent type="66" schemaName="pg_Pg.LetsExercise.CircleProgressControl" behavior="0" />
       <RootComponent type="80" schemaName="pg_LetsExerciseAdmin" behavior="0" />
       <RootComponent type="9" schemaName="pg_exercisegoaltypeset" behavior="0" />
       <RootComponent type="9" schemaName="pg_exerciseset" behavior="0" />

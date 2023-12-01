@@ -28,8 +28,8 @@ pac solution unpack `
 --zipfile $exportLocation\$SolutionFileName `
 --folder $exportLocation\$managedSolutionFolder `
 --packagetype Managed `
---allowDelete true 
-#--map ..\configs\solution-mappings.xml
+--allowDelete true `
+--map ..\infrastructure\configs\letsexercise-mappings.xml
 
 Write-output "extraction process completed."
 
@@ -54,8 +54,8 @@ pac solution unpack `
 --zipfile $exportLocation\$SolutionFileName `
 --folder $exportLocation\$unmanagedSolutionFolder `
 --packagetype Unmanaged `
---allowDelete true 
-#--map ..\configs\solution-mappings.xml
+--allowDelete true `
+--map ..\infrastructure\configs\letsexercise-mappings.xml
 
 Write-output "extraction process completed."
 
