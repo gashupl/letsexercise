@@ -42,6 +42,11 @@ Write-Output "Deleting canvas app file..."
 Remove-Item "$canvasAppManagedFolder\$canvasAppName.msapp"
 Write-Output "Operation completed."
 
+Write-Output "Deleting custom control build files..."
+Remove-Item "$exportLocation\$managedSolutionFolder\Controls\pg_Pg.LetsExercise.CircleProgressControl\bundle.js"
+Remove-Item "$exportLocation\$managedSolutionFolder\Controls\pg_Pg.LetsExercise.CircleProgressControl\styles.css"
+Write-Output "Operation completed."
+
 Write-Output "Deleting managed solution's file..."
 Remove-Item $exportLocation\$solutionFileName
 Write-Output "Operation completed."
@@ -66,6 +71,11 @@ pac canvas unpack `
 
 Write-Output "Deleting canvas app file..."
 Remove-Item "$canvasAppUnmanagedFolder\$canvasAppName.msapp"
+Write-Output "Operation completed."
+
+Write-Output "Deleting custom control build files..."
+Remove-Item "$exportLocation\$unmanagedSolutionFolder\Controls\pg_Pg.LetsExercise.CircleProgressControl\bundle.js"
+Remove-Item "$exportLocation\$unmanagedSolutionFolder\Controls\pg_Pg.LetsExercise.CircleProgressControl\styles.css"
 Write-Output "Operation completed."
 
 Write-Output "Deleting managed solution's file..."
