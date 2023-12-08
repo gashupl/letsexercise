@@ -66,6 +66,7 @@ namespace Pg.LetsExercise.Plugins.Model
 			public const string OwningBusinessUnit = "owningbusinessunit";
 			public const string OwningTeam = "owningteam";
 			public const string OwningUser = "owninguser";
+			public const string pg_completedpercentage = "pg_completedpercentage";
 			public const string pg_Exercise = "pg_exercise";
 			public const string pg_exercisegoalId = "pg_exercisegoalid";
 			public const string Id = "pg_exercisegoalid";
@@ -272,6 +273,21 @@ namespace Pg.LetsExercise.Plugins.Model
 			get
 			{
 				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("owninguser");
+			}
+		}
+		
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pg_completedpercentage")]
+		public System.Nullable<int> pg_completedpercentage
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("pg_completedpercentage");
+			}
+			set
+			{
+				this.OnPropertyChanging("pg_completedpercentage");
+				this.SetAttributeValue("pg_completedpercentage", value);
+				this.OnPropertyChanged("pg_completedpercentage");
 			}
 		}
 		

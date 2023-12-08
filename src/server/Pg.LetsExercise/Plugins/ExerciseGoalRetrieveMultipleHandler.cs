@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xrm.Sdk;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,22 @@ namespace Pg.LetsExercise.Plugins
             }
 
             var context = localPluginContext.PluginExecutionContext;
-            
+
+            if (context.OutputParameters.Contains("BusinessEntityCollection"))
+            {
+                var businessEntityCollection = (EntityCollection)context.OutputParameters["BusinessEntityCollection"];
+
+                foreach (Entity goal in businessEntityCollection.Entities)
+                {
+                    // Add code
+                }
+            }
+            else
+            {
+                throw new InvalidPluginExecutionException("Error");
+            }
+
+
         }
     }
 }
