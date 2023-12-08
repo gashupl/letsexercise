@@ -51,6 +51,14 @@
                         <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{752b8ba2-f0cc-417a-aeb3-0600cbd0d908}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="pg_completedpercentage" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="pg_completedpercentage" disabled="false" uniqueid="{ecb13174-42a5-4432-b446-33d37bb4c5ea}" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>
@@ -103,6 +111,30 @@
       <DisplayConditions Order="0" FallbackForm="true">
         <Everyone />
       </DisplayConditions>
+      <controlDescriptions>
+        <controlDescription forControl="{ecb13174-42a5-4432-b446-33d37bb4c5ea}">
+          <customControl id="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}">
+            <parameters>
+              <datafieldname>pg_completedpercentage</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="pg_Pg.LetsExercise.CircleProgressControl">
+            <parameters>
+              <percentageCompleted type="Whole.None">pg_completedpercentage</percentageCompleted>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="pg_Pg.LetsExercise.CircleProgressControl">
+            <parameters>
+              <percentageCompleted type="Whole.None">pg_completedpercentage</percentageCompleted>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="pg_Pg.LetsExercise.CircleProgressControl">
+            <parameters>
+              <percentageCompleted type="Whole.None">pg_completedpercentage</percentageCompleted>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>
