@@ -10,6 +10,11 @@ namespace Pg.LetsExercise.Plugins.Domain
             throw new NotImplementedException();
         }
 
+        public int GetCompletionPercentage(Guid goalId)
+        {
+            throw new NotImplementedException();
+        }
+
         public int GetDailyCompletionPercentage(Guid ownerId, int expectedValue, pg_exercisegoaltypeset type)
         {
             throw new NotImplementedException();

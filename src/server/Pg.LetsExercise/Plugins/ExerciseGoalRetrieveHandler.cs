@@ -1,4 +1,5 @@
 using Microsoft.Xrm.Sdk;
+using Pg.LetsExercise.Plugins.Core;
 using Pg.LetsExercise.Plugins.Model;
 using System;
 
@@ -21,11 +22,12 @@ namespace Pg.LetsExercise.Plugins
 
             var context = localPluginContext.PluginExecutionContext;
 
-            var outputEntity = (Entity)context.OutputParameters["BusinessEntity"];
+            var outputEntity = (Entity)context.OutputParameters[OutputParameters.BusinessEntity];
 
             if(outputEntity != null)
             {
                 var goal = outputEntity.ToEntity<pg_exercisegoal>();
+                goal.pg_completedpercentage = GoalCompletionService.GetCompletionPercentage(goal.Id);
             }
 
         }

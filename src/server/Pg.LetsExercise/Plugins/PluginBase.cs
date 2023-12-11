@@ -1,6 +1,7 @@
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Extensions;
 using Microsoft.Xrm.Sdk.PluginTelemetry;
+using Pg.LetsExercise.Plugins.Domain;
 using System;
 using System.Runtime.CompilerServices;
 using System.ServiceModel;
@@ -10,6 +11,7 @@ namespace Pg.LetsExercise.Plugins
     public abstract class PluginBase : IPlugin
     {
         protected string PluginClassName { get; }
+        public IGoalCompletionService GoalCompletionService { get; set; }
 
         internal PluginBase(Type pluginClassName)
         {
@@ -31,6 +33,7 @@ namespace Pg.LetsExercise.Plugins
                 $"Correlation Id: {localPluginContext.PluginExecutionContext.CorrelationId}, " +
                 $"Initiating User: {localPluginContext.PluginExecutionContext.InitiatingUserId}");
 
+            RegisterServiceIfNull();
             try
             {
                 // Invoke the custom implementation
@@ -48,6 +51,14 @@ namespace Pg.LetsExercise.Plugins
             finally
             {
                 localPluginContext.Trace($"Exiting {PluginClassName}.Execute()");
+            }
+        }
+
+        private void RegisterServiceIfNull()
+        {
+            if (GoalCompletionService == null)
+            {
+                GoalCompletionService = new GoalCompletionService();
             }
         }
 

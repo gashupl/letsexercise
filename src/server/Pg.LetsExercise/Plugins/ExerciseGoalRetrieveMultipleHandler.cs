@@ -1,4 +1,6 @@
 ﻿using Microsoft.Xrm.Sdk;
+using Pg.LetsExercise.Plugins.Core;
+using Pg.LetsExercise.Plugins.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,13 +25,15 @@ namespace Pg.LetsExercise.Plugins
 
             var context = localPluginContext.PluginExecutionContext;
 
-            if (context.OutputParameters.Contains("BusinessEntityCollection"))
+            if (context.OutputParameters.Contains(OutputParameters.BusinessEntityCollection))
             {
-                var businessEntityCollection = (EntityCollection)context.OutputParameters["BusinessEntityCollection"];
+                var businessEntityCollection 
+                    = (EntityCollection)context.OutputParameters[OutputParameters.BusinessEntityCollection];
 
-                foreach (Entity goal in businessEntityCollection.Entities)
+                foreach (Entity entity in businessEntityCollection.Entities)
                 {
-                    // Add code
+                    var goal = entity.ToEntity<pg_exercisegoal>();
+                    goal.pg_completedpercentage = GoalCompletionService.GetCompletionPercentage(goal.Id);
                 }
             }
             else
