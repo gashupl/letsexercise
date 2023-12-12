@@ -33,7 +33,7 @@ namespace Pg.LetsExercise.Plugins
                 $"Correlation Id: {localPluginContext.PluginExecutionContext.CorrelationId}, " +
                 $"Initiating User: {localPluginContext.PluginExecutionContext.InitiatingUserId}");
 
-            RegisterServiceIfNull();
+            RegisterServiceIfNull(localPluginContext);
             try
             {
                 // Invoke the custom implementation
@@ -54,11 +54,11 @@ namespace Pg.LetsExercise.Plugins
             }
         }
 
-        private void RegisterServiceIfNull()
+        private void RegisterServiceIfNull(ILocalPluginContext localPluginContext)
         {
             if (GoalCompletionService == null)
             {
-                GoalCompletionService = new GoalCompletionService();
+                GoalCompletionService = new GoalCompletionService(localPluginContext.PluginUserService);
             }
         }
 
