@@ -1,62 +1,60 @@
 ﻿using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
+using Pg.LetsExercise.Plugins.Infrastructure;
 using Pg.LetsExercise.Plugins.Model;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Pg.LetsExercise.Plugins.Domain
 {
     public class GoalCompletionService : IGoalCompletionService
     {
-        private readonly IOrganizationService _service;
+        private readonly IRepository _repository;
 
-        public GoalCompletionService(IOrganizationService service)
+        public GoalCompletionService(IRepository repository)
         {
-            _service = service;
+            _repository = repository;
         }
 
         public int GetCompletionPercentage(Guid goalId)
         {
-            var entity = _service.Retrieve(
-                pg_exercisegoal.EntityLogicalName, goalId, new ColumnSet(true));
-
-            if(entity == null)
+            var goal = _repository.GetGoal(goalId);
+            if(goal.pg_Exercise == null || goal.pg_scorenumber == null)
             {
-                throw new InvalidPluginExecutionException("Goal not found");
+                throw new InvalidPluginExecutionException("Not enogh data to calculate goal completion");
+            }
+
+            IList<pg_exerciserecord> records = null;
+            if(goal.pg_goaltype == pg_exercisegoaltypeset.Daily)
+            {
+                records 
+                    = _repository.GetCurrentDayRecords(DateTime.Now, goal.OwnerId.Id, goal.pg_Exercise.Value);            
+            }
+            else if (goal.pg_goaltype == pg_exercisegoaltypeset.Weekly)
+            {
+                records
+                    = _repository.GetCurrentWeekRecords(DateTime.Now, goal.OwnerId.Id, goal.pg_Exercise.Value);
+            }
+            else if(goal.pg_goaltype == pg_exercisegoaltypeset.Monthly)
+            {
+                records
+                    = _repository.GetCurrentMonthRecords(DateTime.Now, goal.OwnerId.Id, goal.pg_Exercise.Value);
+            }
+            else if(goal.pg_goaltype == pg_exercisegoaltypeset.Yearly)
+            {
+                records
+                    = _repository.GetCurrentYearRecords(DateTime.Now, goal.OwnerId.Id, goal.pg_Exercise.Value);
             }
             else
             {
-                var goal = entity.ToEntity<pg_exercisegoal>();
-                if(goal.pg_goaltype == pg_exercisegoaltypeset.Daily)
-                {
-                    return GetDailyCompletionPercentage(goal.OwnerId.Id, goal.pg_scorenumber, goal.pg_Exercise);
-                }
-                else if(goal.pg_goaltype == pg_exercisegoaltypeset.Monthly)
-                {
-                    return GetMonthlyCompletionPercentage(goal.OwnerId.Id, goal.pg_scorenumber, goal.pg_Exercise);
-                }
-                else if(goal.pg_goaltype == pg_exercisegoaltypeset.Yearly)
-                {
-                    return GetAnnualCompletionPercentage(goal.OwnerId.Id, goal.pg_scorenumber, goal.pg_Exercise);
-                }
-                else
-                {
-                    throw new InvalidPluginExecutionException("Invalid goal type");
-                }
+                throw new InvalidPluginExecutionException("Invalid goal type");
             }
 
+            return GetPercentage(records, goal.pg_scorenumber.Value);
         }
 
-        public int GetAnnualCompletionPercentage(Guid ownerId, int? expectedValue, pg_exerciseset?  exercise)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int GetDailyCompletionPercentage(Guid ownerId, int? expectedValue, pg_exerciseset?  exercise)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int GetMonthlyCompletionPercentage(Guid ownerId, int? expectedValue, pg_exerciseset?  exercise)
+        public int GetPercentage(IList<pg_exerciserecord> records, int expectedScore)
         {
             throw new NotImplementedException();
         }

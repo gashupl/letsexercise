@@ -2,6 +2,7 @@ using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Extensions;
 using Microsoft.Xrm.Sdk.PluginTelemetry;
 using Pg.LetsExercise.Plugins.Domain;
+using Pg.LetsExercise.Plugins.Infrastructure;
 using System;
 using System.Runtime.CompilerServices;
 using System.ServiceModel;
@@ -11,6 +12,7 @@ namespace Pg.LetsExercise.Plugins
     public abstract class PluginBase : IPlugin
     {
         protected string PluginClassName { get; }
+        public IRepository DataRepository { get; set; }
         public IGoalCompletionService GoalCompletionService { get; set; }
 
         internal PluginBase(Type pluginClassName)
@@ -56,9 +58,14 @@ namespace Pg.LetsExercise.Plugins
 
         private void RegisterServiceIfNull(ILocalPluginContext localPluginContext)
         {
+            //TODO: Replace with DI
+            if(DataRepository == null)
+            {
+                DataRepository = new DataRepository(localPluginContext.PluginUserService);
+            }
             if (GoalCompletionService == null)
             {
-                GoalCompletionService = new GoalCompletionService(localPluginContext.PluginUserService);
+                GoalCompletionService = new GoalCompletionService(DataRepository);
             }
         }
 
