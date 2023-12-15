@@ -1,6 +1,7 @@
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Extensions;
 using Microsoft.Xrm.Sdk.PluginTelemetry;
+using Pg.LetsExercise.Plugins.Core;
 using Pg.LetsExercise.Plugins.Domain;
 using Pg.LetsExercise.Plugins.Infrastructure;
 using System;
@@ -12,6 +13,7 @@ namespace Pg.LetsExercise.Plugins
     public abstract class PluginBase : IPlugin
     {
         protected string PluginClassName { get; }
+        public IDependencyLoader DependencyLoader { get; set; }
         public IRepository DataRepository { get; set; }
         public IGoalCompletionService GoalCompletionService { get; set; }
 
@@ -35,7 +37,15 @@ namespace Pg.LetsExercise.Plugins
                 $"Correlation Id: {localPluginContext.PluginExecutionContext.CorrelationId}, " +
                 $"Initiating User: {localPluginContext.PluginExecutionContext.InitiatingUserId}");
 
-            RegisterServiceIfNull(localPluginContext);
+            if(DependencyLoader == null)
+            {
+                RegisterDefaults(localPluginContext);
+            }
+            else
+            {
+                DependencyLoader.Register(localPluginContext);
+            }
+                
             try
             {
                 // Invoke the custom implementation
@@ -56,17 +66,10 @@ namespace Pg.LetsExercise.Plugins
             }
         }
 
-        private void RegisterServiceIfNull(ILocalPluginContext localPluginContext)
+        public void RegisterDefaults(ILocalPluginContext localPluginContext)
         {
-            //TODO: Replace with DI
-            if(DataRepository == null)
-            {
-                DataRepository = new DataRepository(localPluginContext.PluginUserService);
-            }
-            if (GoalCompletionService == null)
-            {
-                GoalCompletionService = new GoalCompletionService(DataRepository);
-            }
+            DataRepository = new DataRepository(localPluginContext.PluginUserService);
+            GoalCompletionService = new GoalCompletionService(DataRepository);   
         }
 
         protected virtual void ExecuteDataversePlugin(ILocalPluginContext localPluginContext)
