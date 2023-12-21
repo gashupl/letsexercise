@@ -21,7 +21,7 @@ namespace Pg.LetsExercise.Plugins.Infrastructure
             using (var context = new DataverseContext(_service))
             {
                 var query = context.pg_exerciserecordSet
-                    .Where(e => e.OwnerId.Id == ownerId && e.pg_date.Value == now)
+                    .Where(e => e.OwnerId.Id == ownerId && e.pg_exercise == exercise && e.pg_date.Value == now)
                     .Select(ep => ep);
 
                 return query.ToList<pg_exerciserecord>();
@@ -35,8 +35,8 @@ namespace Pg.LetsExercise.Plugins.Infrastructure
             using (var context = new DataverseContext(_service))
             {
                 var query = context.pg_exerciserecordSet
-                    .Where(e => e.OwnerId.Id == ownerId && e.pg_date.Value >= startOfWeek
-                        && e.pg_date.Value <= endOfWeek)
+                    .Where(e => e.OwnerId.Id == ownerId && e.pg_exercise == exercise 
+                        && e.pg_date.Value >= startOfWeek && e.pg_date.Value <= endOfWeek)
                     .Select(ep => ep);
 
                 return query.ToList<pg_exerciserecord>();
@@ -51,8 +51,8 @@ namespace Pg.LetsExercise.Plugins.Infrastructure
             using (var context = new DataverseContext(_service))
             {
                 var query = context.pg_exerciserecordSet
-                    .Where(e => e.OwnerId.Id == ownerId && e.pg_date.Value >= firstDayOfMonth
-                        && e.pg_date.Value <= lastDayOfMonth)
+                    .Where(e => e.OwnerId.Id == ownerId && e.pg_exercise == exercise 
+                        && e.pg_date.Value >= firstDayOfMonth && e.pg_date.Value <= lastDayOfMonth)
                     .Select(ep => ep);
 
                 return query.ToList<pg_exerciserecord>();
@@ -67,8 +67,8 @@ namespace Pg.LetsExercise.Plugins.Infrastructure
             using (var context = new DataverseContext(_service))
             {
                 var query = context.pg_exerciserecordSet
-                    .Where(e => e.OwnerId.Id == ownerId && e.pg_date.Value >= firstDayOfYear
-                        && e.pg_date.Value <= lastDayOfYear)
+                    .Where(e => e.OwnerId.Id == ownerId && e.pg_exercise == exercise 
+                        && e.pg_date.Value >= firstDayOfYear && e.pg_date.Value <= lastDayOfYear)
                     .Select(ep => ep);
 
                 return query.ToList<pg_exerciserecord>();
