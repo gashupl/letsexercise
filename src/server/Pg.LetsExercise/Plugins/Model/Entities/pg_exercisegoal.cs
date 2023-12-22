@@ -78,6 +78,11 @@ namespace Pg.LetsExercise.Plugins.Model
 			public const string TimeZoneRuleVersionNumber = "timezoneruleversionnumber";
 			public const string UTCConversionTimeZoneCode = "utcconversiontimezonecode";
 			public const string VersionNumber = "versionnumber";
+			public const string lk_pg_exercisegoal_createdby = "lk_pg_exercisegoal_createdby";
+			public const string lk_pg_exercisegoal_createdonbehalfby = "lk_pg_exercisegoal_createdonbehalfby";
+			public const string lk_pg_exercisegoal_modifiedby = "lk_pg_exercisegoal_modifiedby";
+			public const string lk_pg_exercisegoal_modifiedonbehalfby = "lk_pg_exercisegoal_modifiedonbehalfby";
+			public const string user_pg_exercisegoal = "user_pg_exercisegoal";
 		}
 		
 		/// <summary>
@@ -471,6 +476,71 @@ namespace Pg.LetsExercise.Plugins.Model
 			get
 			{
 				return this.GetAttributeValue<System.Nullable<long>>("versionnumber");
+			}
+		}
+		
+		/// <summary>
+		/// N:1 lk_pg_exercisegoal_createdby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_pg_exercisegoal_createdby")]
+		public Pg.LetsExercise.Plugins.Model.SystemUser lk_pg_exercisegoal_createdby
+		{
+			get
+			{
+				return this.GetRelatedEntity<Pg.LetsExercise.Plugins.Model.SystemUser>("lk_pg_exercisegoal_createdby", null);
+			}
+		}
+		
+		/// <summary>
+		/// N:1 lk_pg_exercisegoal_createdonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_pg_exercisegoal_createdonbehalfby")]
+		public Pg.LetsExercise.Plugins.Model.SystemUser lk_pg_exercisegoal_createdonbehalfby
+		{
+			get
+			{
+				return this.GetRelatedEntity<Pg.LetsExercise.Plugins.Model.SystemUser>("lk_pg_exercisegoal_createdonbehalfby", null);
+			}
+		}
+		
+		/// <summary>
+		/// N:1 lk_pg_exercisegoal_modifiedby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_pg_exercisegoal_modifiedby")]
+		public Pg.LetsExercise.Plugins.Model.SystemUser lk_pg_exercisegoal_modifiedby
+		{
+			get
+			{
+				return this.GetRelatedEntity<Pg.LetsExercise.Plugins.Model.SystemUser>("lk_pg_exercisegoal_modifiedby", null);
+			}
+		}
+		
+		/// <summary>
+		/// N:1 lk_pg_exercisegoal_modifiedonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_pg_exercisegoal_modifiedonbehalfby")]
+		public Pg.LetsExercise.Plugins.Model.SystemUser lk_pg_exercisegoal_modifiedonbehalfby
+		{
+			get
+			{
+				return this.GetRelatedEntity<Pg.LetsExercise.Plugins.Model.SystemUser>("lk_pg_exercisegoal_modifiedonbehalfby", null);
+			}
+		}
+		
+		/// <summary>
+		/// N:1 user_pg_exercisegoal
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owninguser")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_pg_exercisegoal")]
+		public Pg.LetsExercise.Plugins.Model.SystemUser user_pg_exercisegoal
+		{
+			get
+			{
+				return this.GetRelatedEntity<Pg.LetsExercise.Plugins.Model.SystemUser>("user_pg_exercisegoal", null);
 			}
 		}
 	}

@@ -51,6 +51,17 @@ namespace Pg.LetsExercise.Plugins.Model
 				return this.CreateQuery<Pg.LetsExercise.Plugins.Model.pg_exerciserecord>();
 			}
 		}
+		
+		/// <summary>
+		/// Gets a binding to the set of all <see cref="Pg.LetsExercise.Plugins.Model.SystemUser"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Pg.LetsExercise.Plugins.Model.SystemUser> SystemUserSet
+		{
+			get
+			{
+				return this.CreateQuery<Pg.LetsExercise.Plugins.Model.SystemUser>();
+			}
+		}
 	}
 }
 #pragma warning restore CS1591
