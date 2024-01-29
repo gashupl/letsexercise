@@ -29,7 +29,7 @@ namespace Pg.LetsExercise.Plugins.Infrastructure
         }
         public IList<pg_exerciserecord> GetCurrentWeekRecords(DateTime now, Guid ownerId, pg_exerciseset exercise)
         {
-            var startOfWeek = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek);
+            var startOfWeek = now.AddDays(-(int)now.DayOfWeek);
             var endOfWeek = startOfWeek.AddDays(7);
 
             using (var context = new DataverseContext(_service))
@@ -77,16 +77,16 @@ namespace Pg.LetsExercise.Plugins.Infrastructure
 
         public pg_exercisegoal GetGoal(Guid goalId)
         {
-            var entity = _service.Retrieve(
-                pg_exercisegoal.EntityLogicalName, goalId, new ColumnSet(true));
+            try
+            {
+                var entity = _service.Retrieve(
+                    pg_exercisegoal.EntityLogicalName, goalId, new ColumnSet(true));
+                return entity.ToEntity<pg_exercisegoal>();
 
-            if (entity == null)
+            }
+            catch (Exception ex)
             {
                 throw new InvalidPluginExecutionException("Goal not found");
-            }
-            else
-            {
-                return entity.ToEntity<pg_exercisegoal>();
             }
         }
     }
