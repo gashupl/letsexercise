@@ -1,7 +1,11 @@
-﻿using Pg.LetsExercise.Plugins.Domain;
+﻿using Microsoft.Xrm.Sdk;
+using Moq;
+using Pg.LetsExercise.Plugins.Domain;
+using Pg.LetsExercise.Plugins.Infrastructure;
 using Pg.LetsExercise.Plugins.Model;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using Xunit;
 
 namespace Pg.LetsExercise.Plugins.Tests.Domain
@@ -75,6 +79,115 @@ namespace Pg.LetsExercise.Plugins.Tests.Domain
 
             // Assert
             Assert.Equal(actual, expected);
+        }
+
+        [Fact]
+        public void GetCompletionPercentage_DailyGoal_ReturnPercentage()
+        {
+            //Arrange
+            var expected = 50; // 50%
+
+            //Act
+            var actual = GetActualPercentage(pg_exercisegoaltypeset.Daily); 
+
+            //Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void GetCompletionPercentage_WeeklyGoal_ReturnPercentage()
+        {
+            //Arrange
+            var expected = 50; // 50%
+
+            //Act
+            var actual = GetActualPercentage(pg_exercisegoaltypeset.Weekly);
+
+            //Assert
+            Assert.Equal(expected, actual);
+        }
+
+
+        [Fact]
+        public void GetCompletionPercentage_MonthlyGoal_ReturnPercentage()
+        {
+            //Arrange
+            var expected = 50; // 50%
+
+            //Act
+            var actual = GetActualPercentage(pg_exercisegoaltypeset.Monthly);
+
+            //Assert
+            Assert.Equal(expected, actual);
+        }
+
+
+        [Fact]
+        public void GetCompletionPercentage_AnnualGoal_ReturnPercentage()
+        {
+            //Arrange
+            var expected = 50; // 50%
+
+            //Act
+            var actual = GetActualPercentage(pg_exercisegoaltypeset.Yearly);
+
+            //Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void GetCompletionPercentage_MissingGoalParameters_ThrowsException()
+        {
+            //Arrange
+            var repo = new Mock<IRepository>();
+            repo.Setup(r => r.GetGoal(It.IsAny<Guid>())).Returns(new pg_exercisegoal());
+            var service = new GoalCompletionService(repo.Object);
+
+            //Act
+            var exception = Assert.Throws<InvalidPluginExecutionException>(() => service.GetCompletionPercentage(Guid.NewGuid()));
+
+            //Assert
+            Assert.Equal("Not enough data to calculate goal completion", exception.Message);
+        }
+
+        private int GetActualPercentage(pg_exercisegoaltypeset type)
+        {
+            var repo = GetMockedRepository(type);
+            var service = new GoalCompletionService(repo);
+            return service.GetCompletionPercentage(Guid.NewGuid());
+        }
+
+        private IRepository GetMockedRepository(pg_exercisegoaltypeset type)
+        {
+
+            var list = new List<pg_exerciserecord> { new pg_exerciserecord { pg_scorenumber = 5 } }; 
+
+            var repo = new Mock<IRepository>();
+            repo.Setup(r => r.GetGoal(It.IsAny<Guid>())).Returns(new pg_exercisegoal
+            {
+                pg_goaltype = type,
+                pg_scorenumber = 10, 
+                pg_Exercise = pg_exerciseset.Pushups, 
+                OwnerId = new EntityReference { Id = Guid.NewGuid() }   
+            });
+
+            repo.Setup(r => r.GetCurrentDayRecords(
+                It.IsAny<DateTime>(), It.IsAny<Guid>(), It.IsAny<pg_exerciseset>()))
+                .Returns(list);
+
+            repo.Setup(r => r.GetCurrentWeekRecords(
+                It.IsAny<DateTime>(), It.IsAny<Guid>(), It.IsAny<pg_exerciseset>()))
+                .Returns(list);
+
+            repo.Setup(r => r.GetCurrentMonthRecords(
+                It.IsAny<DateTime>(), It.IsAny<Guid>(), It.IsAny<pg_exerciseset>()))
+                .Returns(list);
+
+            repo.Setup(r => r.GetCurrentYearRecords(
+                It.IsAny<DateTime>(), It.IsAny<Guid>(), It.IsAny<pg_exerciseset>()))
+                .Returns(list);
+
+            return repo.Object; 
         }
     }
 }
