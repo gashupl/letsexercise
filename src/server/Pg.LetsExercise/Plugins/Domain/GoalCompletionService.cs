@@ -1,10 +1,9 @@
 ﻿using Microsoft.Xrm.Sdk;
-using Microsoft.Xrm.Sdk.Query;
 using Pg.LetsExercise.Plugins.Infrastructure;
 using Pg.LetsExercise.Plugins.Model;
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Pg.LetsExercise.Plugins.Domain
 {
@@ -22,7 +21,7 @@ namespace Pg.LetsExercise.Plugins.Domain
             var goal = _repository.GetGoal(goalId);
             if(goal.pg_Exercise == null || goal.pg_scorenumber == null)
             {
-                throw new InvalidPluginExecutionException("Not enogh data to calculate goal completion");
+                throw new InvalidPluginExecutionException("Not enough data to calculate goal completion");
             }
 
             IList<pg_exerciserecord> records = null;
@@ -56,7 +55,14 @@ namespace Pg.LetsExercise.Plugins.Domain
 
         public int GetPercentage(IList<pg_exerciserecord> records, int expectedScore)
         {
-            throw new NotImplementedException();
+            if(expectedScore <= 0)
+            {
+                throw new ArgumentException("Expected score must be greater than 0");
+            }
+
+            var completionSum = records.Sum(r => r.pg_scorenumber.Value);
+            int percentage = (completionSum * 100 / expectedScore);
+            return percentage;
         }
     }
 }
