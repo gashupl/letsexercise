@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.23105.250" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.23123.234" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>LetsExercise</UniqueName>
     <LocalizedNames>
@@ -88,6 +88,9 @@
       <RootComponent type="80" schemaName="pg_LetsExerciseAdmin" behavior="0" />
       <RootComponent type="9" schemaName="pg_exercisegoaltypeset" behavior="0" />
       <RootComponent type="9" schemaName="pg_exerciseset" behavior="0" />
+      <RootComponent type="91" id="{f0fff53c-dac1-ee11-9079-000d3a2279a0}" schemaName="Pg.LetsExercise.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6a64eaa1e1b84173" behavior="0" />
+      <RootComponent type="92" id="{17f54c80-dac1-ee11-9079-000d3a2279a0}" behavior="0" />
+      <RootComponent type="92" id="{8839a575-dac1-ee11-9079-000d3a2279a0}" behavior="0" />
     </RootComponents>
     <MissingDependencies>
       <MissingDependency>

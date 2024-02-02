@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="Pg.LetsExercise.Plugins.ExerciseGoalRetrieveMultipleHandler: RetrieveMultiple of pg_exercisegoal" SdkMessageProcessingStepId="{17f54c80-dac1-ee11-9079-000d3a2279a0}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SdkMessageId>03bebb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
+  <PluginTypeExportKey>3BA3026C927D7195D9C263E34D06B0E313F9896D493C9392090DBBB7F766C52D</PluginTypeExportKey>
+  <PrimaryEntity>pg_exercisegoal</PrimaryEntity>
+  <AsyncAutoDelete>0</AsyncAutoDelete>
+  <Description>Pg.LetsExercise.Plugins.ExerciseGoalRetrieveMultipleHandler: RetrieveMultiple of pg_exercisegoal</Description>
+  <FilteringAttributes></FilteringAttributes>
+  <InvocationSource>0</InvocationSource>
+  <Mode>0</Mode>
+  <Rank>1</Rank>
+  <EventHandlerTypeCode>4602</EventHandlerTypeCode>
+  <Stage>40</Stage>
+  <IsCustomizable>1</IsCustomizable>
+  <IsHidden>0</IsHidden>
+  <SupportedDeployment>0</SupportedDeployment>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <SdkMessageProcessingStepImages />
+</SdkMessageProcessingStep>

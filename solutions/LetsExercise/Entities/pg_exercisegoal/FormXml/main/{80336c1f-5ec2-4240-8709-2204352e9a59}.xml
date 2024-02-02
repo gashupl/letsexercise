@@ -14,11 +14,12 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{c13a36cb-d058-42f4-ae9e-ce98d4d2a38b}">
+                <section name="null_section_3" id="3c4a313c-1ec9-4c35-9232-53c8d8962e83" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
                   <labels>
-                    <label description="General" languagecode="1033" />
+                    <label description="New Section" languagecode="1033" />
                   </labels>
                   <rows>
+                    <row />
                     <row>
                       <cell id="{56f932c7-f287-4446-a6a0-98902407fbb8}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
@@ -34,6 +35,25 @@
                         </labels>
                         <control id="pg_exercise" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="pg_exercise" disabled="false" />
                       </cell>
+                      <cell id="{a135526b-8ccd-41a5-aa65-f312b94af363}" userspacer="true" showlabel="false" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0bd87f25-cddc-49c2-bee8-4fc2d991556b}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                      <cell id="{752b8ba2-f0cc-417a-aeb3-0600cbd0d908}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Completed" languagecode="1033" />
+                        </labels>
+                        <control id="pg_completedpercentage" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="pg_completedpercentage" disabled="false" uniqueid="{ecb13174-42a5-4432-b446-33d37bb4c5ea}" />
+                      </cell>
                     </row>
                     <row>
                       <cell id="{5a6d06ba-9636-4508-a983-1a6f3df01ea8}" locklevel="0" colspan="1" rowspan="1">
@@ -42,21 +62,10 @@
                         </labels>
                         <control id="pg_scorenumber" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="pg_scorenumber" disabled="false" />
                       </cell>
-                    </row>
-                    <row>
-                      <cell id="{0bd87f25-cddc-49c2-bee8-4fc2d991556b}">
+                      <cell locklevel="0" id="{c7772355-3321-4120-beb8-4b9fd16676a9}">
                         <labels>
-                          <label description="Owner" languagecode="1033" />
+                          <label description="" languagecode="1033" />
                         </labels>
-                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{752b8ba2-f0cc-417a-aeb3-0600cbd0d908}" locklevel="0" colspan="1" rowspan="1">
-                        <labels>
-                          <label description="Completed" languagecode="1033" />
-                        </labels>
-                        <control id="pg_completedpercentage" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="pg_completedpercentage" disabled="false" uniqueid="{ecb13174-42a5-4432-b446-33d37bb4c5ea}" />
                       </cell>
                     </row>
                   </rows>

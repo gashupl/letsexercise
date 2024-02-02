@@ -13,6 +13,7 @@
           <cell name="pg_goaltype" width="150" />
           <cell name="pg_exercise" width="150" />
           <cell name="pg_scorenumber" width="150" />
+          <cell name="pg_completedpercentage" width="102" />
         </row>
       </grid>
     </layoutxml>
@@ -24,6 +25,7 @@
           <attribute name="pg_scorenumber" />
           <attribute name="pg_goaltype" />
           <attribute name="pg_exercise" />
+          <attribute name="pg_completedpercentage" />
         </entity>
       </fetch>
     </fetchxml>

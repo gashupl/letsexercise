@@ -29,6 +29,7 @@
   </OrganizationSettings>
   <optionsets />
   <CustomControls />
+  <SdkMessageProcessingSteps />
   <AppModuleSiteMaps />
   <AppModules />
   <EntityDataProviders />
