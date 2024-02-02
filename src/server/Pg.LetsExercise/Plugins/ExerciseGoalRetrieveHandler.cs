@@ -17,17 +17,25 @@ namespace Pg.LetsExercise.Plugins
         {
             if (localPluginContext == null)
             {
+                localPluginContext.TracingService.Trace("LocalPluginContext is null.");
                 throw new ArgumentNullException(nameof(localPluginContext));
             }
 
             var context = localPluginContext.PluginExecutionContext;
 
-            var outputEntity = (Entity)context.OutputParameters[OutputParameters.BusinessEntity];
-
-            if(outputEntity != null)
+            if(context.Depth == 1 && context.OutputParameters.Contains(OutputParameters.BusinessEntity) && context.OutputParameters[OutputParameters.BusinessEntity] is Entity)
             {
-                var goal = outputEntity.ToEntity<pg_exercisegoal>();
-                goal.pg_completedpercentage = GoalCompletionService.GetCompletionPercentage(goal.Id);
+                var outputEntity = (Entity)context.OutputParameters[OutputParameters.BusinessEntity];
+
+                if (outputEntity != null)
+                {
+                    var goal = outputEntity.ToEntity<pg_exercisegoal>();
+                    goal.pg_completedpercentage = GoalCompletionService.GetCompletionPercentage(goal.Id);
+                }
+            }
+            else
+            {
+                localPluginContext.TracingService.Trace("Cannot read BusinessEntity output param or param is not an Entity");
             }
 
         }

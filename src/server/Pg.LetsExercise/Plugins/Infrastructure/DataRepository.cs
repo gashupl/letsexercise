@@ -86,7 +86,7 @@ namespace Pg.LetsExercise.Plugins.Infrastructure
             }
             catch (Exception ex)
             {
-                throw new InvalidPluginExecutionException("Goal not found");
+                throw new InvalidPluginExecutionException($"Goal with ID {goalId} not found");
             }
         }
     }

@@ -11,7 +11,8 @@ namespace Pg.LetsExercise.Plugins
 {
     internal class ExerciseGoalRetrieveMultipleHandler : PluginBase
     {
-        public ExerciseGoalRetrieveMultipleHandler(Type pluginClassName) : base(pluginClassName)
+        public ExerciseGoalRetrieveMultipleHandler(string unsecureConfiguration, string secureConfiguration)
+            : base(typeof(ExerciseGoalRetrieveMultipleHandler))
         {
         }
 
@@ -25,21 +26,30 @@ namespace Pg.LetsExercise.Plugins
 
             var context = localPluginContext.PluginExecutionContext;
 
-            if (context.OutputParameters.Contains(OutputParameters.BusinessEntityCollection))
+            if (context.Depth == 1 && 
+                context.OutputParameters.Contains(OutputParameters.BusinessEntityCollection) && context.OutputParameters[OutputParameters.BusinessEntityCollection] is EntityCollection)
             {
-                var businessEntityCollection 
-                    = (EntityCollection)context.OutputParameters[OutputParameters.BusinessEntityCollection];
-
-                foreach (Entity entity in businessEntityCollection.Entities)
+                if (context.OutputParameters.Contains(OutputParameters.BusinessEntityCollection))
                 {
-                    var goal = entity.ToEntity<pg_exercisegoal>();
-                    goal.pg_completedpercentage = GoalCompletionService.GetCompletionPercentage(goal.Id);
+                    var businessEntityCollection
+                        = (EntityCollection)context.OutputParameters[OutputParameters.BusinessEntityCollection];
+
+                    foreach (Entity entity in businessEntityCollection.Entities)
+                    {
+                        var goal = entity.ToEntity<pg_exercisegoal>();
+                        goal.pg_completedpercentage = GoalCompletionService.GetCompletionPercentage(goal.Id);
+                    }
+                }
+                else
+                {
+                    throw new InvalidPluginExecutionException("Error");
                 }
             }
             else
             {
-                throw new InvalidPluginExecutionException("Error");
+                localPluginContext.TracingService.Trace("Cannot read BusinessEntityCollection output param or param is not an EntityCollection");
             }
+
 
 
         }
