@@ -69,7 +69,7 @@ namespace Pg.LetsExercise.Plugins
         public void RegisterDefaults(ILocalPluginContext localPluginContext)
         {
             DataRepository = new DataRepository(localPluginContext.PluginUserService);
-            GoalCompletionService = new GoalCompletionService(DataRepository);   
+            GoalCompletionService = new GoalCompletionService(DataRepository, localPluginContext.TracingService);   
         }
 
         protected virtual void ExecuteDataversePlugin(ILocalPluginContext localPluginContext)
