@@ -18,14 +18,22 @@ namespace Pg.LetsExercise.Plugins.Infrastructure
 
         public IList<pg_exerciserecord> GetCurrentDayRecords(DateTime now, Guid ownerId, pg_exerciseset exercise)
         {
-            using (var context = new DataverseContext(_service))
-            {
-                var query = context.pg_exerciserecordSet
-                    .Where(e => e.OwnerId.Id == ownerId && e.pg_exercise == exercise && e.pg_date.Value == now)
-                    .Select(ep => ep);
+            var entities = this._service.RetrieveMultiple(
+                new QueryExpression(pg_exerciserecord.EntityLogicalName)
+                    {
+                        ColumnSet = new ColumnSet(true),
+                        Criteria = new FilterExpression
+                        {
+                            Conditions =
+                            {
+                                new ConditionExpression(pg_exerciserecord.Fields.OwnerId, ConditionOperator.Equal, ownerId),
+                                new ConditionExpression(pg_exerciserecord.Fields.pg_exercise, ConditionOperator.Equal, (int)exercise),
+                                new ConditionExpression(pg_exerciserecord.Fields.pg_date, ConditionOperator.On, now.Date)
+                            }
+                        }
+                    }); 
 
-                return query.ToList<pg_exerciserecord>();
-            }
+            return entities.Entities.Select(e => e.ToEntity<pg_exerciserecord>()).ToList();
         }
         public IList<pg_exerciserecord> GetCurrentWeekRecords(DateTime now, Guid ownerId, pg_exerciseset exercise)
         {

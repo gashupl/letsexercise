@@ -24,7 +24,7 @@ namespace Pg.LetsExercise.Plugins.Tests.Infrastructure
         public void GetCurrentDayRecords_ReturnsSingleRecord()
         {
             var repo = new DataRepository(_service); 
-            var actual = repo.GetCurrentDayRecords(new DateTime(2024, 01, 01), _ownerId, pg_exerciseset.Pushups);
+            var actual = repo.GetCurrentDayRecords(new DateTime(2024, 01, 01, 11, 22, 33), _ownerId, pg_exerciseset.Pushups);
             Assert.Single(actual); 
         }
 
@@ -32,7 +32,7 @@ namespace Pg.LetsExercise.Plugins.Tests.Infrastructure
         public void GetCurrentDayRecords_ReturnsEmptyList()
         {
             var repo = new DataRepository(_service);
-            var actual = repo.GetCurrentDayRecords(new DateTime(2023, 01, 01, 11, 22,33), _ownerId, pg_exerciseset.Pushups);
+            var actual = repo.GetCurrentDayRecords(new DateTime(2023, 01, 01), _ownerId, pg_exerciseset.Pushups);
             Assert.Empty(actual);
         }
 
