@@ -14,7 +14,7 @@
         <Titles>
           <Title LCID="1033" Title="Training Data" />
         </Titles>
-        <SubArea Id="subarea_a18b2803" Icon="/_imgs/imagestrips/transparent_spacer.gif" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" Page="pg_exercisedashboard_5d62c">
+        <SubArea Id="subarea_82d6df44" Icon="/_imgs/imagestrips/transparent_spacer.gif" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" Page="pg_exercisetabdashboard_c4be7">
           <Titles>
             <Title LCID="1033" Title="Dashboard" />
           </Titles>

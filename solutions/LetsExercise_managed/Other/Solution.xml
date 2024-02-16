@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.24012.226" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.24013.186" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>LetsExercise</UniqueName>
     <LocalizedNames>
@@ -83,6 +83,7 @@
       <RootComponent type="1" schemaName="pg_exercisegoal" behavior="0" />
       <RootComponent type="1" schemaName="pg_exerciserecord" behavior="0" />
       <RootComponent type="300" schemaName="pg_exercisedashboard_5d62c" behavior="0" />
+      <RootComponent type="300" schemaName="pg_exercisetabdashboard_c4be7" behavior="0" />
       <RootComponent type="300" schemaName="pg_letsexercise_95a73" behavior="0" />
       <RootComponent type="62" schemaName="pg_LetsExerciseAdmin" behavior="0" />
       <RootComponent type="66" schemaName="pg_Pg.LetsExercise.CircleProgressControl" behavior="0" />

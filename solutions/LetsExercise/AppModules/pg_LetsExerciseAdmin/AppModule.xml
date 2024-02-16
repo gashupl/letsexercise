@@ -29,5 +29,12 @@
       <iscustomizable>1</iscustomizable>
       <name>pg_pg_LetsExerciseAdmin_canvasappid_pg_exercisedashboard_5d62c</name>
     </appelement>
+    <appelement uniquename="pg_pg_LetsExerciseAdmin_canvasappid_pg_exercisetabdashboard_c4be7">
+      <canvasappid>
+        <name>pg_exercisetabdashboard_c4be7</name>
+      </canvasappid>
+      <iscustomizable>1</iscustomizable>
+      <name>pg_pg_LetsExerciseAdmin_canvasappid_pg_exercisetabdashboard_c4be7</name>
+    </appelement>
   </appelements>
 </AppModule>
