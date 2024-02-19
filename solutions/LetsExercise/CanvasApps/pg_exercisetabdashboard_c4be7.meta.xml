@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Name>pg_exercisetabdashboard_c4be7</Name>
-  <AppVersion>2024-02-16T14:23:28Z</AppVersion>
+  <AppVersion>2024-02-19T08:05:41Z</AppVersion>
   <Status>Ready</Status>
   <CreatedByClientVersion>3.24021.12.0</CreatedByClientVersion>
   <MinClientVersion>3.24021.12.0</MinClientVersion>
-  <Tags>{"primaryDeviceWidth":"1812","primaryDeviceHeight":"890","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","showStatusBar":"false","publisherVersion":"3.24021.12","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false","offlineLargeFilesSupport":"false","sienaVersion":"20240216T130603Z-3.24021.12.0"}</Tags>
+  <Tags>{"primaryDeviceWidth":"1812","primaryDeviceHeight":"890","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","showStatusBar":"false","publisherVersion":"3.24021.12","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false","offlineLargeFilesSupport":"false","sienaVersion":"20240219T074225Z-3.24021.12.0"}</Tags>
   <IsCdsUpgraded>0</IsCdsUpgraded>
   <GalleryItemId xsi:nil="true"></GalleryItemId>
   <BackgroundColor>RGBA(0,176,240,1)</BackgroundColor>
