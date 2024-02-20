@@ -19,7 +19,7 @@
     <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
   </AppModuleRoleMaps>
   <LocalizedNames>
-    <LocalizedName description="Let's Exercise Admin" languagecode="1033" />
+    <LocalizedName description="Let's Exercise!" languagecode="1033" />
   </LocalizedNames>
   <appelements>
     <appelement uniquename="pg_pg_LetsExerciseAdmin_canvasappid_pg_exercisedashboard_5d62c">

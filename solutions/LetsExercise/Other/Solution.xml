@@ -84,7 +84,6 @@
       <RootComponent type="1" schemaName="pg_exerciserecord" behavior="0" />
       <RootComponent type="300" schemaName="pg_exercisedashboard_5d62c" behavior="0" />
       <RootComponent type="300" schemaName="pg_exercisetabdashboard_c4be7" behavior="0" />
-      <RootComponent type="300" schemaName="pg_letsexercise_95a73" behavior="0" />
       <RootComponent type="62" schemaName="pg_LetsExerciseAdmin" behavior="0" />
       <RootComponent type="66" schemaName="pg_Pg.LetsExercise.CircleProgressControl" behavior="0" />
       <RootComponent type="80" schemaName="pg_LetsExerciseAdmin" behavior="0" />
@@ -97,7 +96,7 @@
     <MissingDependencies>
       <MissingDependency>
         <Required type="61" schemaName="msdyn_/Images/AppModule_Default_Icon.png" displayName="msdyn_/Images/AppModule_Default_Icon.png" solution="AppModuleWebResources (2.5)" />
-        <Dependent type="80" schemaName="pg_LetsExerciseAdmin" displayName="Let's Exercise Admin" />
+        <Dependent type="80" schemaName="pg_LetsExerciseAdmin" displayName="Let's Exercise!" />
       </MissingDependency>
     </MissingDependencies>
   </SolutionManifest>

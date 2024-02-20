@@ -1,0 +1,24 @@
+App As appinfo:
+    BackEnabled: =true
+    OnStart: |+
+        =Set( isDailyVisible, true ); 
+        Set( isWeeklyVisible, false ); 
+        Set( isMonthlyVisible, false ); 
+        Set( isAnnualVisible, false ); 
+        Set( selectedDate, Today()); 
+        Set(selectedFirstDayOfWeek, DateAdd(Today(), 1 - Weekday(Today(), StartOfWeek.Monday), TimeUnit.Days));
+        Set(selectedLastDayOfWeek, DateAdd(Today(), 7 - Weekday(Today(), StartOfWeek.Monday),  TimeUnit.Days));
+        Set(selectedFirstDayOfMonth, Date(Year(Today()), Month(Today()), 1)); 
+        Set(selectedLastDayOfMonth, DateAdd(Date(Year(Today()), Month(Today()) + 1, 1), -1, TimeUnit.Days)); 
+        Set(selectedFirstDayOfYear, Date(Year(Today()), 1, 1));
+        Set(selectedLastDayOfYear, Date(Year(Today()), 12, 31));
+        
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+
