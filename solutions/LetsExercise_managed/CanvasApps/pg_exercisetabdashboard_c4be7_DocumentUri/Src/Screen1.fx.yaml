@@ -1,5 +1,13 @@
 "Screen1 As screen.'autoLayout_HeaderFooter_ver1.0'":
+    Fill: |-
+        =RGBA(
+            255,
+            255,
+            255,
+            1
+        )
     LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    OnVisible: =
 
     ScreenContainer1 As groupContainer.verticalAutoLayoutContainer:
         DropShadow: =DropShadow.Light
@@ -51,7 +59,7 @@
                 RadiusTopRight: =4
                 ZIndex: =1
 
-                Button1 As Button:
+                btnDailyTab As Button:
                     AlignInContainer: =AlignInContainer.Stretch
                     BorderColor: =If(isDailyVisible = true, RGBA(255, 0, 0, 1), RGBA(255, 255, 255, 1))
                     BorderRadius: =0
@@ -89,7 +97,7 @@
                     Y: =0
                     ZIndex: =1
 
-                Button2 As Button:
+                btnWeeklyTab As Button:
                     BorderColor: =If(isWeeklyVisible = true, RGBA(255, 0, 0, 1), RGBA(255, 255, 255, 1))
                     BorderStyle: =BorderStyle.Solid
                     BorderThickness: =5
@@ -122,7 +130,7 @@
                     Y: =0
                     ZIndex: =2
 
-                Button3 As Button:
+                btnMonthlyTab As Button:
                     BorderColor: =If(isMonthlyVisible = true, RGBA(255, 0, 0, 1), RGBA(255, 255, 255, 1))
                     BorderStyle: =BorderStyle.Solid
                     BorderThickness: =5
@@ -154,7 +162,7 @@
                     Y: =0
                     ZIndex: =3
 
-                Button4 As Button:
+                btnAnnualTab As Button:
                     BorderColor: =If(isAnnualVisible = true, RGBA(255, 0, 0, 1), RGBA(255, 255, 255, 1))
                     BorderStyle: =BorderStyle.Solid
                     BorderThickness: =5
@@ -201,6 +209,7 @@
             ZIndex: =3
 
             dailyContainer As groupContainer.manualLayoutContainer:
+                AlignInContainer: =AlignInContainer.Center
                 DropShadow: =DropShadow.Light
                 Fill: =RGBA(255, 255, 255, 1)
                 LayoutMinHeight: =100
@@ -213,6 +222,7 @@
                 ZIndex: =1
 
                 lblSelectedDate As Label:
+                    Alignment: =Align.Center
                     Color: =
                     DisplayMode: =DisplayMode.Edit
                     FontSize: =16
@@ -220,10 +230,204 @@
                     OnChange: =false
                     Text: |-
                         ="Selected date: " & Text(selectedDate)
-                    Width: =366
+                    Width: =492
+                    X: =6
+                    Y: =0
+                    ZIndex: =1
+
+                btnDayAfter As Button:
+                    BorderColor: =
+                    DisabledBorderColor: =
+                    DisabledFillColor: =
+                    DisabledTextColor: =
+                    DisplayMode: =DisplayMode.Edit
+                    FillColor: =
+                    Height: =32
+                    HoverBorderColor: =
+                    HoverFillColor: =
+                    HoverTextColor: =
+                    OnChange: =false
+                    OnSelect: =Set(selectedDate, DateAdd(selectedDate, 1, TimeUnit.Days)); 
+                    PressedBorderColor: =
+                    PressedFillColor: =
+                    PressedTextColor: =
+                    Text: =">>"
+                    TextColor: =
+                    Width: =96
+                    X: =286
+                    Y: =463
+                    ZIndex: =2
+
+                btnDayBefore As Button:
+                    BorderColor: =
+                    DisabledBorderColor: =
+                    DisabledFillColor: =
+                    DisabledTextColor: =
+                    DisplayMode: =DisplayMode.Edit
+                    FillColor: =
+                    Height: =32
+                    HoverBorderColor: =
+                    HoverFillColor: =
+                    HoverTextColor: =
+                    OnChange: =false
+                    OnSelect: =Set(selectedDate, DateAdd(selectedDate, -1, TimeUnit.Days)); 
+                    PressedBorderColor: =
+                    PressedFillColor: =
+                    PressedTextColor: =
+                    Text: ="<<"
+                    TextColor: =
+                    Width: =96
+                    X: =131
+                    Y: =463
+                    ZIndex: =3
+
+                Gallery2 As gallery.BrowseLayout_Vertical_TwoTextOneImageVariant_pcfCore:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    DelayItemLoading: =true
+                    FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                    FocusedBorderThickness: =2
+                    Height: =204
+                    Items: =TempCollection
+                    Layout: =Layout.Vertical
+                    LoadingSpinner: =LoadingSpinner.Data
+                    TemplatePadding: =0
+                    TemplateSize: =48
+                    Width: =149
+                    X: =6
+                    Y: =49
+                    ZIndex: =8
+
+                    Title4 As Label:
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =10.5
+                        FontWeight: =FontWeight.Semibold
+                        Height: =24
+                        OnChange: =false
+                        OnSelect: =Select(Parent)
+                        TabIndex: =-1
+                        Text: =ThisItem.Month
+                        VerticalAlignment: =VerticalAlign.Top
+                        Width: =Parent.TemplateWidth - Self.X - 8
+                        X: =
+                        Y: =((Parent.TemplateHeight - 36) / 2) - 4
+                        ZIndex: =3
+
+                    Subtitle2 As Label:
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        FontWeight: =FontWeight.Normal
+                        Height: =24
+                        OnChange: =false
+                        OnSelect: =Select(Parent)
+                        TabIndex: =-1
+                        Text: =ThisItem.Score
+                        VerticalAlignment: =VerticalAlign.Top
+                        Width: =Title4.Width
+                        X: =Title4.X
+                        Y: =Title4.Y + Title4.Height - 6
+                        ZIndex: =4
+
+                Gallery3 As gallery.BrowseLayout_Vertical_TwoTextOneImageVariant_pcfCore:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    DelayItemLoading: =true
+                    FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                    FocusedBorderThickness: =2
+                    Height: =186
+                    Items: =GroupedCollection
+                    Layout: =Layout.Vertical
+                    LoadingSpinner: =LoadingSpinner.Data
+                    TemplatePadding: =0
+                    TemplateSize: =48
+                    Width: =266
+                    X: =234
+                    Y: =67
+                    ZIndex: =9
+
+                    Title5 As Label:
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =10.5
+                        FontWeight: =FontWeight.Semibold
+                        Height: =24
+                        OnChange: =false
+                        OnSelect: =Select(Parent)
+                        TabIndex: =-1
+                        Text: =ThisItem.Month
+                        VerticalAlignment: =VerticalAlign.Top
+                        Width: =Parent.TemplateWidth - Self.X - 8
+                        X: =
+                        Y: =((Parent.TemplateHeight - 36) / 2) - 4
+                        ZIndex: =3
+
+                    Subtitle3 As Label:
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        FontWeight: =FontWeight.Normal
+                        Height: =24
+                        OnChange: =false
+                        OnSelect: =Select(Parent)
+                        TabIndex: =-1
+                        Text: =ThisItem.'Sum of Value'
+                        VerticalAlignment: =VerticalAlign.Top
+                        Width: =Title5.Width
+                        X: =Title5.X
+                        Y: =Title5.Y + Title5.Height - 6
+                        ZIndex: =4
+
+                CompositeColumnChart3 As group:
+                    Height: =5
+                    Width: =5
                     X: =40
                     Y: =40
-                    ZIndex: =1
+                    ZIndex: =10
+
+                    Title6 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.'Segoe UI'
+                        Height: =10
+                        Text: ="Chart Title"
+                        Width: =445
+                        X: =40
+                        Y: =40
+                        ZIndex: =11
+
+                    ColumnChart3 As barChart:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        Font: =Font.'Segoe UI'
+                        Height: =166
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        ItemColorSet: =[RGBA(49, 130, 93, 1),RGBA(48,166,103, 1), RGBA(94,193,108,1), RGBA(246,199,144,1), RGBA(247,199,114,1), RGBA(247,180,91,1), RGBA(246,143,100,1), RGBA(212,96,104,1), RGBA(148, 110, 176, 1), RGBA(118, 154, 204, 1), RGBA(96, 197, 234, 1)]
+                        Items: =GroupedCollection
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        Size: =15
+                        Width: =445
+                        X: =29
+                        Y: =275
+                        ZIndex: =12
+
+                    Legend3 As legend:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(220, 220, 220, 1)
+                        Font: =Font.'Segoe UI'
+                        Height: =33
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        ItemColorSet: =ColumnChart3.ItemColorSet
+                        Items: =ColumnChart3.SeriesLabels
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        Width: =356
+                        X: =86
+                        Y: =220
+                        ZIndex: =13
 
             weeklyContainer As groupContainer.manualLayoutContainer:
                 DropShadow: =DropShadow.Light
@@ -263,7 +467,57 @@
                     Y: =88
                     ZIndex: =2
 
-            manthlyContainer As groupContainer.manualLayoutContainer:
+                btnWeekAfter As Button:
+                    BorderColor: =
+                    DisabledBorderColor: =
+                    DisabledFillColor: =
+                    DisabledTextColor: =
+                    DisplayMode: =DisplayMode.Edit
+                    FillColor: =
+                    Height: =32
+                    HoverBorderColor: =
+                    HoverFillColor: =
+                    HoverTextColor: =
+                    OnChange: =false
+                    OnSelect: |-
+                        =Set(selectedFirstDayOfWeek, DateAdd(selectedFirstDayOfWeek, 7, TimeUnit.Days)); 
+                        Set(selectedLastDayOfWeek, DateAdd(selectedLastDayOfWeek, 7, TimeUnit.Days)); 
+                    PressedBorderColor: =
+                    PressedFillColor: =
+                    PressedTextColor: =
+                    Text: =">>"
+                    TextColor: =
+                    Width: =96
+                    X: =175
+                    Y: =218
+                    ZIndex: =3
+
+                btnWeekBefore As Button:
+                    BorderColor: =
+                    DisabledBorderColor: =
+                    DisabledFillColor: =
+                    DisabledTextColor: =
+                    DisplayMode: =DisplayMode.Edit
+                    FillColor: =
+                    Height: =32
+                    HoverBorderColor: =
+                    HoverFillColor: =
+                    HoverTextColor: =
+                    OnChange: =false
+                    OnSelect: |-
+                        =Set(selectedFirstDayOfWeek, DateAdd(selectedFirstDayOfWeek, -7, TimeUnit.Days)); 
+                        Set(selectedLastDayOfWeek, DateAdd(selectedLastDayOfWeek, -7, TimeUnit.Days)); 
+                    PressedBorderColor: =
+                    PressedFillColor: =
+                    PressedTextColor: =
+                    Text: ="<<"
+                    TextColor: =
+                    Width: =96
+                    X: =40
+                    Y: =218
+                    ZIndex: =4
+
+            monthlyContainer As groupContainer.manualLayoutContainer:
                 DropShadow: =DropShadow.Light
                 Fill: =RGBA(255, 255, 255, 1)
                 LayoutMinHeight: =100
@@ -300,6 +554,58 @@
                     X: =40
                     Y: =40
                     ZIndex: =2
+
+                btnMonthAfter As Button:
+                    BorderColor: =
+                    DisabledBorderColor: =
+                    DisabledFillColor: =
+                    DisabledTextColor: =
+                    DisplayMode: =DisplayMode.Edit
+                    FillColor: =
+                    Height: =32
+                    HoverBorderColor: =
+                    HoverFillColor: =
+                    HoverTextColor: =
+                    OnChange: =false
+                    OnSelect: |-
+                        =Set(selectedFirstDayOfMonth, DateAdd(selectedFirstDayOfMonth, 1, TimeUnit.Months)); 
+                        Set(selectedLastDayOfMonth, EOMonth(selectedLastDayOfMonth, 1)); 
+                    PressedBorderColor: =
+                    PressedFillColor: =
+                    PressedTextColor: =
+                    Text: =">>"
+                    TextColor: =
+                    Width: =96
+                    X: =191
+                    Y: =168
+                    ZIndex: =3
+
+                btnMonthBefore As Button:
+                    BorderColor: =
+                    ButtonType: ="Primary"
+                    DisabledBorderColor: =
+                    DisabledFillColor: =
+                    DisabledTextColor: =
+                    DisplayMode: =DisplayMode.Edit
+                    FillColor: =
+                    Height: =32
+                    HoverBorderColor: =
+                    HoverFillColor: =
+                    HoverTextColor: =
+                    OnChange: =false
+                    OnSelect: |+
+                        =Set(selectedFirstDayOfMonth, DateAdd(selectedFirstDayOfMonth, -1, TimeUnit.Months)); 
+                        Set(selectedLastDayOfMonth, DateAdd(Date(Year(selectedLastDayOfMonth), Month(selectedLastDayOfMonth), 1), -1, TimeUnit.Days)); 
+                        
+                    PressedBorderColor: =
+                    PressedFillColor: =
+                    PressedTextColor: =
+                    Text: ="<<"
+                    TextColor: =
+                    Width: =96
+                    X: =56
+                    Y: =168
+                    ZIndex: =4
 
             annualContainer As groupContainer.manualLayoutContainer:
                 BorderColor: =RGBA(255, 255, 255, 1)
@@ -339,6 +645,56 @@
                     X: =40
                     Y: =40
                     ZIndex: =2
+
+                btnYearAfter As Button:
+                    BorderColor: =
+                    DisabledBorderColor: =
+                    DisabledFillColor: =
+                    DisabledTextColor: =
+                    DisplayMode: =DisplayMode.Edit
+                    FillColor: =
+                    Height: =32
+                    HoverBorderColor: =
+                    HoverFillColor: =
+                    HoverTextColor: =
+                    OnChange: =false
+                    OnSelect: |-
+                        =Set(selectedFirstDayOfYear, DateAdd(selectedFirstDayOfYear, 1, TimeUnit.Years)); 
+                        Set(selectedLastDayOfYear, DateAdd(selectedLastDayOfYear, 1, TimeUnit.Years)); 
+                    PressedBorderColor: =
+                    PressedFillColor: =
+                    PressedTextColor: =
+                    Text: =">>"
+                    TextColor: =
+                    Width: =96
+                    X: =175
+                    Y: =153
+                    ZIndex: =3
+
+                btnYearBefore As Button:
+                    BorderColor: =
+                    DisabledBorderColor: =
+                    DisabledFillColor: =
+                    DisabledTextColor: =
+                    DisplayMode: =DisplayMode.Edit
+                    FillColor: =
+                    Height: =32
+                    HoverBorderColor: =
+                    HoverFillColor: =
+                    HoverTextColor: =
+                    OnChange: =false
+                    OnSelect: |-
+                        =Set(selectedFirstDayOfYear, DateAdd(selectedFirstDayOfYear, -1, TimeUnit.Years)); 
+                        Set(selectedLastDayOfYear, DateAdd(selectedLastDayOfYear, -1, TimeUnit.Years)); 
+                    PressedBorderColor: =
+                    PressedFillColor: =
+                    PressedTextColor: =
+                    Text: ="<<"
+                    TextColor: =
+                    Width: =96
+                    X: =40
+                    Y: =153
+                    ZIndex: =4
 
         FooterContainer1 As groupContainer.horizontalAutoLayoutContainer:
             BorderThickness: =1

@@ -10,8 +10,32 @@ App As appinfo:
         Set(selectedLastDayOfWeek, DateAdd(Today(), 7 - Weekday(Today(), StartOfWeek.Monday),  TimeUnit.Days));
         Set(selectedFirstDayOfMonth, Date(Year(Today()), Month(Today()), 1)); 
         Set(selectedLastDayOfMonth, DateAdd(Date(Year(Today()), Month(Today()) + 1, 1), -1, TimeUnit.Days)); 
+        //Set(selectedLastDayOfMonth, Date(Year(Today()), Month(Today()) + 1, 1)); 
         Set(selectedFirstDayOfYear, Date(Year(Today()), 1, 1));
         Set(selectedLastDayOfYear, Date(Year(Today()), 12, 31));
+        
+        ClearCollect(
+            TempCollection,
+            AddColumns(
+                'Exercise Records',
+                "Month", Text(Date, "mm/yyyy")
+            )
+        );
+        
+        ClearCollect(
+            GroupedCollection,
+            DropColumns(
+                AddColumns(
+                    GroupBy(TempCollection, "Month", "GroupedItems"),
+                    "Sum of Value",Sum(GroupedItems, Score)
+                ),
+            "GroupedItems"
+            )
+        );
+        
+        
+        
+        
         
     Theme: =PowerAppsTheme
 

@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Name>pg_exercisetabdashboard_c4be7</Name>
-  <AppVersion>2024-02-19T08:05:41Z</AppVersion>
+  <AppVersion>2024-02-23T07:30:07Z</AppVersion>
   <Status>Ready</Status>
-  <CreatedByClientVersion>3.24021.12.0</CreatedByClientVersion>
-  <MinClientVersion>3.24021.12.0</MinClientVersion>
-  <Tags>{"primaryDeviceWidth":"1812","primaryDeviceHeight":"890","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","showStatusBar":"false","publisherVersion":"3.24021.12","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false","offlineLargeFilesSupport":"false","sienaVersion":"20240219T074225Z-3.24021.12.0"}</Tags>
+  <CreatedByClientVersion>3.24022.11.0</CreatedByClientVersion>
+  <MinClientVersion>3.24022.11.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"1652","primaryDeviceHeight":"684","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","showStatusBar":"false","publisherVersion":"3.24022.11","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false","offlineLargeFilesSupport":"false","sienaVersion":"20240222T073115Z-3.24021.12.0"}</Tags>
   <IsCdsUpgraded>0</IsCdsUpgraded>
   <GalleryItemId xsi:nil="true"></GalleryItemId>
   <BackgroundColor>RGBA(0,176,240,1)</BackgroundColor>
@@ -15,7 +15,7 @@
   <Publisher xsi:nil="true"></Publisher>
   <AuthorizationReferences>[]</AuthorizationReferences>
   <ConnectionReferences>{}</ConnectionReferences>
-  <DatabaseReferences>{}</DatabaseReferences>
+  <DatabaseReferences>{"default.cds":{"databaseDetails":{"referenceType":"Environmental","environmentName":"default.cds","overrideValues":{"status":"NotSpecified","environmentVariableName":""}},"dataSources":{"Exercise Records":{"entitySetName":"pg_exerciserecords","logicalName":"pg_exerciserecord"}}}}</DatabaseReferences>
   <AppComponents>[]</AppComponents>
   <AppComponentDependencies>[]</AppComponentDependencies>
   <CanConsumeAppPass>1</CanConsumeAppPass>
@@ -24,7 +24,7 @@
   <AdminControlBypassConsent>0</AdminControlBypassConsent>
   <EmbeddedApp xsi:nil="true"></EmbeddedApp>
   <IntroducedVersion>1.0</IntroducedVersion>
-  <CdsDependencies>{"cdsdependencies":[]}</CdsDependencies>
+  <CdsDependencies>{"cdsdependencies":[{"logicalname":"pg_exerciserecord","componenttype":1}]}</CdsDependencies>
   <IsCustomizable>1</IsCustomizable>
   <BackgroundImageUri>/CanvasApps/pg_exercisetabdashboard_c4be7_BackgroundImageUri</BackgroundImageUri>
   <DocumentUri>/CanvasApps/pg_exercisetabdashboard_c4be7_DocumentUri.msapp</DocumentUri>
