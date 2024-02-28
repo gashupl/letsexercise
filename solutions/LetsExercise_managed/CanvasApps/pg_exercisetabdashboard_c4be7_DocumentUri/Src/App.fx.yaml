@@ -10,26 +10,27 @@ App As appinfo:
         Set(selectedLastDayOfWeek, DateAdd(Today(), 7 - Weekday(Today(), StartOfWeek.Monday),  TimeUnit.Days));
         Set(selectedFirstDayOfMonth, Date(Year(Today()), Month(Today()), 1)); 
         Set(selectedLastDayOfMonth, DateAdd(Date(Year(Today()), Month(Today()) + 1, 1), -1, TimeUnit.Days)); 
-        //Set(selectedLastDayOfMonth, Date(Year(Today()), Month(Today()) + 1, 1)); 
         Set(selectedFirstDayOfYear, Date(Year(Today()), 1, 1));
         Set(selectedLastDayOfYear, Date(Year(Today()), 12, 31));
         
+        ClearCollect(FilteredCollection, Filter('Exercise Records', 'Date' >= selectedFirstDayOfYear && 'Date'  <= selectedLastDayOfYear)); 
+        
         ClearCollect(
-            TempCollection,
+            TempByMonthCollection,
             AddColumns(
-                'Exercise Records',
+                FilteredCollection,
                 "Month", Text(Date, "mm/yyyy")
             )
         );
         
         ClearCollect(
-            GroupedCollection,
+            GroupedByMonthCollection,
             DropColumns(
                 AddColumns(
-                    GroupBy(TempCollection, "Month", "GroupedItems"),
-                    "Sum of Value",Sum(GroupedItems, Score)
+                    GroupBy(TempByMonthCollection, "Month", "GroupedByMonthItems"),
+                    "Sum of Value", Sum(GroupedByMonthItems, Score)
                 ),
-            "GroupedItems"
+            "GroupedByMonthItems"
             )
         );
         

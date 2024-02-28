@@ -3,7 +3,7 @@
     "IsComponentScoped": false,
     "IsSampleData": false,
     "IsWritable": true,
-    "Name": "GroupedCollection",
+    "Name": "TempByMonthCollection",
     "Type": "CollectionDataSourceInfo"
   }
 ]

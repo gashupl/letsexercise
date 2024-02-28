@@ -1,4 +1,4 @@
-pac auth create --name LETSEXERCISE --url https://pg-dataverse-dev.crm4.dynamics.com/
+pac auth create --name LETSEXERCISE --environment https://pg-dataverse-dev.crm4.dynamics.com/
 pac auth list
 pac auth select --name LETSEXERCISE
 

@@ -70,20 +70,6 @@
     "OverridableProperties": {},
     "Version": "1.0"
   },
-  "group": {
-    "CustomGroupControlTemplateName": "",
-    "FirstParty": true,
-    "Id": "http://microsoft.com/appmagic/group",
-    "IsComponentTemplate": false,
-    "IsCustomGroupControlTemplate": false,
-    "IsPcfControl": false,
-    "IsPremiumPcfControl": false,
-    "IsWidgetTemplate": false,
-    "LastModifiedTimestamp": "0",
-    "Name": "group",
-    "OverridableProperties": {},
-    "Version": "1"
-  },
   "groupContainer": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,
@@ -113,19 +99,19 @@
     "OverridableProperties": {},
     "Version": "1.6.0"
   },
-  "label": {
+  "image": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,
-    "Id": "http://microsoft.com/appmagic/label",
+    "Id": "http://microsoft.com/appmagic/image",
     "IsComponentTemplate": false,
     "IsCustomGroupControlTemplate": false,
     "IsPcfControl": false,
     "IsPremiumPcfControl": false,
     "IsWidgetTemplate": true,
     "LastModifiedTimestamp": "0",
-    "Name": "label",
+    "Name": "image",
     "OverridableProperties": {},
-    "Version": "2.5.1"
+    "Version": "2.2.2"
   },
   "Label": {
     "CustomGroupControlTemplateName": "",
@@ -142,19 +128,19 @@
     "TemplateDisplayName": "Label",
     "Version": "1.6.0"
   },
-  "legend": {
+  "rectangle": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,
-    "Id": "http://microsoft.com/appmagic/legend",
+    "Id": "http://microsoft.com/appmagic/shapes/rectangle",
     "IsComponentTemplate": false,
     "IsCustomGroupControlTemplate": false,
     "IsPcfControl": false,
     "IsPremiumPcfControl": false,
     "IsWidgetTemplate": true,
     "LastModifiedTimestamp": "0",
-    "Name": "legend",
+    "Name": "rectangle",
     "OverridableProperties": {},
-    "Version": "2.1.0"
+    "Version": "2.3.0"
   },
   "screen": {
     "CustomGroupControlTemplateName": "",
