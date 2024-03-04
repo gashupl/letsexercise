@@ -254,8 +254,8 @@
                     Text: =">>"
                     TextColor: =
                     Width: =96
-                    X: =286
-                    Y: =463
+                    X: =289
+                    Y: =421
                     ZIndex: =2
 
                 btnDayBefore As Button:
@@ -277,9 +277,28 @@
                     Text: ="<<"
                     TextColor: =
                     Width: =96
-                    X: =131
-                    Y: =463
+                    X: =132
+                    Y: =421
                     ZIndex: =3
+
+                DailyColumnChart As barChart:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    Font: =Font.'Segoe UI'
+                    Height: =364
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    ItemColorSet: =[RGBA(49, 130, 93, 1),RGBA(48,166,103, 1), RGBA(94,193,108,1), RGBA(246,199,144,1), RGBA(247,199,114,1), RGBA(247,180,91,1), RGBA(246,143,100,1), RGBA(212,96,104,1), RGBA(148, 110, 176, 1), RGBA(118, 154, 204, 1), RGBA(96, 197, 234, 1)]
+                    Items: |
+                        =Filter('Exercise Records', Date = selectedDate)
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    Size: =15
+                    Width: =411
+                    X: =66
+                    Y: =48
+                    ZIndex: =4
 
             weeklyContainer As groupContainer.manualLayoutContainer:
                 DropShadow: =DropShadow.Light
@@ -302,8 +321,8 @@
                     Text: |-
                         ="End of Week: "  & Text(selectedLastDayOfWeek)
                     Width: =320
-                    X: =40
-                    Y: =145
+                    X: =248
+                    Y: =0
                     ZIndex: =1
 
                 lblSelectedStartOfWeek As Label:
@@ -315,8 +334,8 @@
                     Text: |-
                         ="Start of Week: "  & Text(selectedFirstDayOfWeek)
                     Width: =320
-                    X: =40
-                    Y: =88
+                    X: =0
+                    Y: =0
                     ZIndex: =2
 
                 btnWeekAfter As Button:
@@ -340,8 +359,8 @@
                     Text: =">>"
                     TextColor: =
                     Width: =96
-                    X: =175
-                    Y: =218
+                    X: =224
+                    Y: =368
                     ZIndex: =3
 
                 btnWeekBefore As Button:
@@ -365,9 +384,26 @@
                     Text: ="<<"
                     TextColor: =
                     Width: =96
-                    X: =40
-                    Y: =218
+                    X: =91
+                    Y: =368
                     ZIndex: =4
+
+                WeeklyColumnChart As barChart:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    Font: =Font.'Segoe UI'
+                    Height: =336
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    ItemColorSet: =[RGBA(49, 130, 93, 1),RGBA(48,166,103, 1), RGBA(94,193,108,1), RGBA(246,199,144,1), RGBA(247,199,114,1), RGBA(247,180,91,1), RGBA(246,143,100,1), RGBA(212,96,104,1), RGBA(148, 110, 176, 1), RGBA(118, 154, 204, 1), RGBA(96, 197, 234, 1)]
+                    Items: =Filter('Exercise Records', Date >= selectedFirstDayOfWeek && Date  <= selectedLastDayOfWeek)
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    Size: =15
+                    Width: =425
+                    Y: =32
+                    ZIndex: =5
 
             monthlyContainer As groupContainer.manualLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
@@ -429,8 +465,8 @@
                     Text: =">>"
                     TextColor: =
                     Width: =96
-                    X: =203
-                    Y: =470
+                    X: =249
+                    Y: =406
                     ZIndex: =3
 
                 btnMonthBefore As Button:
@@ -456,9 +492,26 @@
                     Text: ="<<"
                     TextColor: =
                     Width: =96
-                    X: =57
-                    Y: =470
+                    X: =98
+                    Y: =406
                     ZIndex: =4
+
+                MonthlyColumnChart As barChart:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    Font: =Font.'Segoe UI'
+                    Height: =398
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    ItemColorSet: =[RGBA(49, 130, 93, 1),RGBA(48,166,103, 1), RGBA(94,193,108,1), RGBA(246,199,144,1), RGBA(247,199,114,1), RGBA(247,180,91,1), RGBA(246,143,100,1), RGBA(212,96,104,1), RGBA(148, 110, 176, 1), RGBA(118, 154, 204, 1), RGBA(96, 197, 234, 1)]
+                    Items: =Filter('Exercise Records', Date >= selectedFirstDayOfMonth && Date  <= selectedLastDayOfMonth)
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    Size: =15
+                    Width: =425
+                    Y: =8
+                    ZIndex: =5
 
             annualContainer As groupContainer.manualLayoutContainer:
                 BorderColor: =RGBA(255, 255, 255, 1)

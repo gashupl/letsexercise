@@ -14,12 +14,6 @@ App As appinfo:
         Set(selectedFirstDayOfYear, Date(Year(Today()), 1, 1));
         Set(selectedLastDayOfYear, Date(Year(Today()), 12, 31));
         
-        ClearCollect(FilteredByDayCollection, Filter('Exercise Records', Date = selectedDate));
-        
-        ClearCollect(FilteredByWeekCollection, Filter('Exercise Records', Date >= selectedFirstDayOfWeek && Date  <= selectedLastDayOfWeek));
-        
-        ClearCollect(FilteredByMonthCollection, Filter('Exercise Records', Date >= selectedFirstDayOfMonth && Date  <= selectedLastDayOfMonth));
-        
         ClearCollect(FilteredByYearCollection, Filter('Exercise Records', Date >= selectedFirstDayOfYear && Date  <= selectedLastDayOfYear));
         
         ClearCollect(
