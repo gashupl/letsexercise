@@ -1,6 +1,7 @@
 App As appinfo:
     BackEnabled: =true
-    OnStart: |+
+    Formulas: =
+    OnStart: |-
         =Set( isDailyVisible, true ); 
         Set( isWeeklyVisible, false ); 
         Set( isMonthlyVisible, false ); 
@@ -13,12 +14,18 @@ App As appinfo:
         Set(selectedFirstDayOfYear, Date(Year(Today()), 1, 1));
         Set(selectedLastDayOfYear, Date(Year(Today()), 12, 31));
         
-        ClearCollect(FilteredCollection, Filter('Exercise Records', 'Date' >= selectedFirstDayOfYear && 'Date'  <= selectedLastDayOfYear)); 
+        ClearCollect(FilteredByDayCollection, Filter('Exercise Records', Date = selectedDate));
+        
+        ClearCollect(FilteredByWeekCollection, Filter('Exercise Records', Date >= selectedFirstDayOfWeek && Date  <= selectedLastDayOfWeek));
+        
+        ClearCollect(FilteredByMonthCollection, Filter('Exercise Records', Date >= selectedFirstDayOfMonth && Date  <= selectedLastDayOfMonth));
+        
+        ClearCollect(FilteredByYearCollection, Filter('Exercise Records', Date >= selectedFirstDayOfYear && Date  <= selectedLastDayOfYear));
         
         ClearCollect(
             TempByMonthCollection,
             AddColumns(
-                FilteredCollection,
+                FilteredByYearCollection,
                 "Month", Text(Date, "mm/yyyy")
             )
         );
@@ -33,11 +40,6 @@ App As appinfo:
             "GroupedByMonthItems"
             )
         );
-        
-        
-        
-        
-        
     Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:

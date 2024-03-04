@@ -163,6 +163,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.dailyContainer.btnDayBefore.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.dailyContainer.btnDayBefore.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Screen1",
+                "type": "Screen1.ScreenContainer1.MainContainer1.dailyContainer.btnDayBefore"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.dailyContainer.btnDayAfter.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.dailyContainer.btnDayAfter.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Screen1",
+                "type": "Screen1.ScreenContainer1.MainContainer1.dailyContainer.btnDayAfter"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.weeklyContainer.btnWeekBefore.AccessibleLabel"
                 }
               ],
@@ -266,66 +326,6 @@
                 "member": "AccessibleLabel",
                 "module": "Screen1",
                 "type": "Screen1.ScreenContainer1.MainContainer1.monthlyContainer.btnMonthAfter"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.annualContainer.btnYearBefore.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.annualContainer.btnYearBefore.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Screen1",
-                "type": "Screen1.ScreenContainer1.MainContainer1.annualContainer.btnYearBefore"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.annualContainer.btnYearAfter.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.annualContainer.btnYearAfter.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Screen1",
-                "type": "Screen1.ScreenContainer1.MainContainer1.annualContainer.btnYearAfter"
               }
             }
           ],
@@ -463,19 +463,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.dailyContainer.btnDayBefore.AccessibleLabel"
+                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.annualContainer.btnYearBefore.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.dailyContainer.btnDayBefore.AccessibleLabel",
+                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.annualContainer.btnYearBefore.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Screen1",
-                "type": "Screen1.ScreenContainer1.MainContainer1.dailyContainer.btnDayBefore"
+                "type": "Screen1.ScreenContainer1.MainContainer1.annualContainer.btnYearBefore"
               }
             }
           ],
@@ -493,19 +493,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.dailyContainer.btnDayAfter.AccessibleLabel"
+                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.annualContainer.btnYearAfter.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.dailyContainer.btnDayAfter.AccessibleLabel",
+                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.annualContainer.btnYearAfter.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Screen1",
-                "type": "Screen1.ScreenContainer1.MainContainer1.dailyContainer.btnDayAfter"
+                "type": "Screen1.ScreenContainer1.MainContainer1.annualContainer.btnYearAfter"
               }
             }
           ],

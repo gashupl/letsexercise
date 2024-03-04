@@ -212,6 +212,8 @@
                 AlignInContainer: =AlignInContainer.Start
                 DropShadow: =DropShadow.Light
                 Fill: =RGBA(255, 255, 255, 1)
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
                 RadiusBottomLeft: =4
                 RadiusBottomRight: =4
                 RadiusTopLeft: =4
@@ -480,8 +482,8 @@
                     Text: |-
                         ="End of Year: "  & Text(selectedLastDayOfYear)
                     Width: =320
-                    X: =4
-                    Y: =36
+                    X: =228
+                    Y: =4
                     ZIndex: =1
 
                 lblSelectedStartOfYear As Label:
@@ -513,7 +515,7 @@
                         =Set(selectedFirstDayOfYear, DateAdd(selectedFirstDayOfYear, 1, TimeUnit.Years)); 
                         Set(selectedLastDayOfYear, DateAdd(selectedLastDayOfYear, 1, TimeUnit.Years)); 
                         
-                        ClearCollect(FilteredCollection, Filter('Exercise Records', 'Date' >= selectedFirstDayOfYear && 'Date'  <= selectedLastDayOfYear)); 
+                        ClearCollect(FilteredCollection, Filter('Exercise Records', Date >= selectedFirstDayOfYear && Date  <= selectedLastDayOfYear)); 
                         
                         ClearCollect(
                             TempByMonthCollection,
@@ -542,7 +544,7 @@
                     TextColor: =
                     Width: =96
                     X: =228
-                    Y: =471
+                    Y: =421
                     ZIndex: =3
 
                 btnYearBefore As Button:
@@ -561,7 +563,7 @@
                         =Set(selectedFirstDayOfYear, DateAdd(selectedFirstDayOfYear, -1, TimeUnit.Years)); 
                         Set(selectedLastDayOfYear, DateAdd(selectedLastDayOfYear, -1, TimeUnit.Years)); 
                         
-                        ClearCollect(FilteredCollection, Filter('Exercise Records', 'Date' >= selectedFirstDayOfYear && 'Date'  <= selectedLastDayOfYear)); 
+                        ClearCollect(FilteredCollection, Filter('Exercise Records', Date >= selectedFirstDayOfYear && Date  <= selectedLastDayOfYear)); 
                         
                         ClearCollect(
                             TempByMonthCollection,
@@ -589,8 +591,8 @@
                     Text: ="<<"
                     TextColor: =
                     Width: =96
-                    X: =101
-                    Y: =471
+                    X: =73
+                    Y: =421
                     ZIndex: =4
 
                 AnnualColumnChart As barChart:
@@ -607,8 +609,8 @@
                     PressedBorderColor: =RGBA(0, 0, 0, 0)
                     Size: =15
                     Width: =425
-                    X: =29
-                    Y: =55
+                    X: =4
+                    Y: =23
                     ZIndex: =5
 
                 Gallery1 As gallery.BrowseLayout_Vertical_TwoTextOneImageVariant_pcfCore:
@@ -657,6 +659,7 @@
                         ZIndex: =2
 
                     Title1 As Label:
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =10.5
                         FontWeight: =FontWeight.Semibold
@@ -672,6 +675,7 @@
                         ZIndex: =3
 
                     Subtitle1 As Label:
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         FontWeight: =FontWeight.Normal
