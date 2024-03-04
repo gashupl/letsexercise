@@ -22,13 +22,6 @@
     <LocalizedName description="Let's Exercise!" languagecode="1033" />
   </LocalizedNames>
   <appelements>
-    <appelement uniquename="pg_pg_LetsExerciseAdmin_canvasappid_pg_exercisedashboard_5d62c">
-      <canvasappid>
-        <name>pg_exercisedashboard_5d62c</name>
-      </canvasappid>
-      <iscustomizable>1</iscustomizable>
-      <name>pg_pg_LetsExerciseAdmin_canvasappid_pg_exercisedashboard_5d62c</name>
-    </appelement>
     <appelement uniquename="pg_pg_LetsExerciseAdmin_canvasappid_pg_exercisetabdashboard_c4be7">
       <canvasappid>
         <name>pg_exercisetabdashboard_c4be7</name>

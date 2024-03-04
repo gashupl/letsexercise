@@ -82,7 +82,6 @@
     <RootComponents>
       <RootComponent type="1" schemaName="pg_exercisegoal" behavior="0" />
       <RootComponent type="1" schemaName="pg_exerciserecord" behavior="0" />
-      <RootComponent type="300" schemaName="pg_exercisedashboard_5d62c" behavior="0" />
       <RootComponent type="300" schemaName="pg_exercisetabdashboard_c4be7" behavior="0" />
       <RootComponent type="62" schemaName="pg_LetsExerciseAdmin" behavior="0" />
       <RootComponent type="66" schemaName="pg_Pg.LetsExercise.CircleProgressControl" behavior="0" />
