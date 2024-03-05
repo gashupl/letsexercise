@@ -17,11 +17,6 @@
     },
     {
       "Kind": "Page",
-      "Name": "exercise_dashboard",
-      "Value": "custompage:pg_exercisedashboard_5d62c"
-    },
-    {
-      "Kind": "Page",
       "Name": "LetsMeetWelcomePage",
       "Value": "custompage:pg_letsmeetwelcomepage_f99a3"
     },

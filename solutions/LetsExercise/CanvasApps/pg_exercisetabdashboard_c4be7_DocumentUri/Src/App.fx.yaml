@@ -20,7 +20,7 @@ App As appinfo:
             TempByMonthCollection,
             AddColumns(
                 FilteredByYearCollection,
-                "Month", Text(Date, "mm/yyyy")
+                "Month", Value(Text(Date, "mm"))
             )
         );
         
