@@ -88,7 +88,7 @@
                     PressedBorderColor: =
                     PressedFillColor: =
                     PressedTextColor: =
-                    Text: ="Daily"
+                    Text: ="Day"
                     TextColor: =
                     VerticalAlignment: =VerticalAlign.Middle
                     Width: =70
@@ -122,7 +122,7 @@
                     PressedBorderColor: =
                     PressedFillColor: =
                     PressedTextColor: =
-                    Text: ="Weekly"
+                    Text: ="Week"
                     TextColor: =
                     Width: |
                         =70
@@ -155,7 +155,7 @@
                     PressedBorderColor: =
                     PressedFillColor: =
                     PressedTextColor: =
-                    Text: ="Monthly"
+                    Text: ="Month"
                     TextColor: =
                     Width: =70
                     X: =0
@@ -187,7 +187,7 @@
                     PressedBorderColor: =
                     PressedFillColor: =
                     PressedTextColor: =
-                    Text: ="Annual"
+                    Text: ="Year"
                     TextColor: =
                     Width: =70
                     X: =0
@@ -209,7 +209,6 @@
             ZIndex: =3
 
             dailyContainer As groupContainer.manualLayoutContainer:
-                AlignInContainer: =AlignInContainer.Start
                 DropShadow: =DropShadow.Light
                 Fill: =RGBA(255, 255, 255, 1)
                 LayoutMinHeight: =100
@@ -222,11 +221,11 @@
                 ZIndex: =1
 
                 lblSelectedDate As Label:
-                    Alignment: =Align.Center
+                    Alignment: =Align.Justify
                     Color: =
                     DisplayMode: =DisplayMode.Edit
-                    FontSize: =16
-                    Height: =67
+                    FontSize: =12
+                    Height: =48
                     OnChange: =false
                     Text: |-
                         ="Selected date: " & Text(selectedDate)
@@ -254,8 +253,8 @@
                     Text: =">>"
                     TextColor: =
                     Width: =96
-                    X: =289
-                    Y: =421
+                    X: =120
+                    Y: =48
                     ZIndex: =2
 
                 btnDayBefore As Button:
@@ -277,8 +276,8 @@
                     Text: ="<<"
                     TextColor: =
                     Width: =96
-                    X: =132
-                    Y: =421
+                    X: =6
+                    Y: =48
                     ZIndex: =3
 
                 DailyColumnChart As barChart:
@@ -288,16 +287,19 @@
                     Color: =RGBA(51, 51, 51, 1)
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     Font: =Font.'Segoe UI'
-                    Height: =364
+                    Height: =Parent.Height - 90
                     HoverBorderColor: =RGBA(0, 0, 0, 0)
                     ItemColorSet: =[RGBA(49, 130, 93, 1),RGBA(48,166,103, 1), RGBA(94,193,108,1), RGBA(246,199,144,1), RGBA(247,199,114,1), RGBA(247,180,91,1), RGBA(246,143,100,1), RGBA(212,96,104,1), RGBA(148, 110, 176, 1), RGBA(118, 154, 204, 1), RGBA(96, 197, 234, 1)]
                     Items: |
                         =Filter('Exercise Records', Date = selectedDate)
+                    PaddingLeft: =1
+                    PaddingRight: =1
                     PressedBorderColor: =RGBA(0, 0, 0, 0)
                     Size: =15
-                    Width: =411
-                    X: =66
-                    Y: =48
+                    Width: |
+                        =Parent.Width
+                    X: =6
+                    Y: =90
                     ZIndex: =4
 
             weeklyContainer As groupContainer.manualLayoutContainer:
@@ -312,28 +314,15 @@
                 Visible: =isWeeklyVisible = true
                 ZIndex: =2
 
-                lblSelectedEndOfWeek As Label:
-                    Color: =
-                    DisplayMode: =DisplayMode.Edit
-                    FontSize: =16
-                    Height: =32
-                    OnChange: =false
-                    Text: |-
-                        ="End of Week: "  & Text(selectedLastDayOfWeek)
-                    Width: =320
-                    X: =248
-                    Y: =0
-                    ZIndex: =1
-
                 lblSelectedStartOfWeek As Label:
                     Color: =
                     DisplayMode: =DisplayMode.Edit
                     FontSize: =16
-                    Height: =32
+                    Height: =33
                     OnChange: =false
                     Text: |-
-                        ="Start of Week: "  & Text(selectedFirstDayOfWeek)
-                    Width: =320
+                        ="Start date: "  & Text(selectedFirstDayOfWeek) & " End date: "  & Text(selectedLastDayOfWeek)
+                    Width: =1334
                     X: =0
                     Y: =0
                     ZIndex: =2
@@ -359,8 +348,8 @@
                     Text: =">>"
                     TextColor: =
                     Width: =96
-                    X: =224
-                    Y: =368
+                    X: =124
+                    Y: =52
                     ZIndex: =3
 
                 btnWeekBefore As Button:
@@ -384,8 +373,8 @@
                     Text: ="<<"
                     TextColor: =
                     Width: =96
-                    X: =91
-                    Y: =368
+                    X: =12
+                    Y: =52
                     ZIndex: =4
 
                 WeeklyColumnChart As barChart:
@@ -395,18 +384,17 @@
                     Color: =RGBA(51, 51, 51, 1)
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     Font: =Font.'Segoe UI'
-                    Height: =336
+                    Height: =Parent.Height - 90
                     HoverBorderColor: =RGBA(0, 0, 0, 0)
                     ItemColorSet: =[RGBA(49, 130, 93, 1),RGBA(48,166,103, 1), RGBA(94,193,108,1), RGBA(246,199,144,1), RGBA(247,199,114,1), RGBA(247,180,91,1), RGBA(246,143,100,1), RGBA(212,96,104,1), RGBA(148, 110, 176, 1), RGBA(118, 154, 204, 1), RGBA(96, 197, 234, 1)]
                     Items: =Filter('Exercise Records', Date >= selectedFirstDayOfWeek && Date  <= selectedLastDayOfWeek)
                     PressedBorderColor: =RGBA(0, 0, 0, 0)
-                    Size: =15
-                    Width: =425
-                    Y: =32
+                    Size: =12
+                    Width: =Parent.Width
+                    Y: =90
                     ZIndex: =5
 
             monthlyContainer As groupContainer.manualLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.Light
                 Fill: =RGBA(255, 255, 255, 1)
                 LayoutMinHeight: =100
@@ -418,28 +406,15 @@
                 Visible: =isMonthlyVisible = true
                 ZIndex: =3
 
-                lblSelectedEndOfMonth As Label:
-                    Color: =
-                    DisplayMode: =DisplayMode.Edit
-                    FontSize: =16
-                    Height: =32
-                    OnChange: =false
-                    Text: |-
-                        ="End of Month: "  & Text(selectedLastDayOfMonth)
-                    Width: =320
-                    X: =12
-                    Y: =40
-                    ZIndex: =1
-
                 lblSelectedStartOMonth As Label:
                     Color: =
                     DisplayMode: =DisplayMode.Edit
-                    FontSize: =16
+                    FontSize: =12
                     Height: =32
                     OnChange: =false
                     Text: |-
-                        ="Start of Month: "  & Text(selectedFirstDayOfMonth)
-                    Width: =320
+                        ="Start date: "  & Text(selectedFirstDayOfMonth) & " End date: "  & Text(selectedLastDayOfMonth)
+                    Width: =1303
                     X: =12
                     Y: =8
                     ZIndex: =2
@@ -465,8 +440,8 @@
                     Text: =">>"
                     TextColor: =
                     Width: =96
-                    X: =249
-                    Y: =406
+                    X: =125
+                    Y: =52
                     ZIndex: =3
 
                 btnMonthBefore As Button:
@@ -492,8 +467,8 @@
                     Text: ="<<"
                     TextColor: =
                     Width: =96
-                    X: =98
-                    Y: =406
+                    X: =12
+                    Y: =52
                     ZIndex: =4
 
                 MonthlyColumnChart As barChart:
@@ -503,14 +478,17 @@
                     Color: =RGBA(51, 51, 51, 1)
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     Font: =Font.'Segoe UI'
-                    Height: =398
+                    Height: =Parent.Height - 90
                     HoverBorderColor: =RGBA(0, 0, 0, 0)
                     ItemColorSet: =[RGBA(49, 130, 93, 1),RGBA(48,166,103, 1), RGBA(94,193,108,1), RGBA(246,199,144,1), RGBA(247,199,114,1), RGBA(247,180,91,1), RGBA(246,143,100,1), RGBA(212,96,104,1), RGBA(148, 110, 176, 1), RGBA(118, 154, 204, 1), RGBA(96, 197, 234, 1)]
-                    Items: =Filter('Exercise Records', Date >= selectedFirstDayOfMonth && Date  <= selectedLastDayOfMonth)
+                    Items: |
+                        =Sort(Filter('Exercise Records', Date >= selectedFirstDayOfMonth && Date  <= selectedLastDayOfMonth), Date,SortOrder.Ascending)
+                    PaddingLeft: =1
+                    PaddingRight: =1
                     PressedBorderColor: =RGBA(0, 0, 0, 0)
-                    Size: =15
-                    Width: =425
-                    Y: =8
+                    Size: =12
+                    Width: =Parent.Width
+                    Y: =90
                     ZIndex: =5
 
             annualContainer As groupContainer.manualLayoutContainer:
@@ -526,28 +504,15 @@
                 Visible: =isAnnualVisible = true
                 ZIndex: =4
 
-                lblSelectedEndOfYear As Label:
-                    Color: =
-                    DisplayMode: =DisplayMode.Edit
-                    FontSize: =16
-                    Height: =32
-                    OnChange: =false
-                    Text: |-
-                        ="End of Year: "  & Text(selectedLastDayOfYear)
-                    Width: =320
-                    X: =324
-                    Y: =4
-                    ZIndex: =1
-
                 lblSelectedStartOfYear As Label:
                     Color: =
                     DisplayMode: =DisplayMode.Edit
-                    FontSize: =16
-                    Height: =32
+                    FontSize: =12
+                    Height: =40
                     OnChange: =false
                     Text: |-
-                        ="Start of Year: "  & Text(selectedFirstDayOfYear)
-                    Width: =320
+                        ="Start of Year: "  & Text(selectedFirstDayOfYear) & " End of Year: "  & Text(selectedLastDayOfYear)
+                    Width: =1330
                     X: =4
                     Y: =4
                     ZIndex: =2
@@ -596,8 +561,8 @@
                     Text: =">>"
                     TextColor: =
                     Width: =96
-                    X: =228
-                    Y: =421
+                    X: =126
+                    Y: =44
                     ZIndex: =3
 
                 btnYearBefore As Button:
@@ -644,8 +609,8 @@
                     Text: ="<<"
                     TextColor: =
                     Width: =96
-                    X: =73
-                    Y: =421
+                    X: =16
+                    Y: =44
                     ZIndex: =4
 
                 AnnualColumnChart As barChart:
@@ -655,16 +620,17 @@
                     Color: =RGBA(51, 51, 51, 1)
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     Font: =Font.'Segoe UI'
-                    Height: =398
+                    Height: =Parent.Height - 90
                     HoverBorderColor: =RGBA(0, 0, 0, 0)
                     ItemColorSet: =[RGBA(49, 130, 93, 1),RGBA(48,166,103, 1), RGBA(94,193,108,1), RGBA(246,199,144,1), RGBA(247,199,114,1), RGBA(247,180,91,1), RGBA(246,143,100,1), RGBA(212,96,104,1), RGBA(148, 110, 176, 1), RGBA(118, 154, 204, 1), RGBA(96, 197, 234, 1)]
                     Items: |
                         =SortByColumns( GroupedByMonthCollection,"Month")
+                    PaddingLeft: =1
+                    PaddingRight: =1
                     PressedBorderColor: =RGBA(0, 0, 0, 0)
-                    Size: =15
-                    Width: =425
-                    X: =4
-                    Y: =23
+                    Size: =12
+                    Width: =Parent.Width
+                    Y: =90
                     ZIndex: =5
 
                 Gallery1 As gallery.BrowseLayout_Vertical_TwoTextOneImageVariant_pcfCore:
@@ -743,19 +709,4 @@
                         X: =Title1.X
                         Y: =Title1.Y + Title1.Height - 6
                         ZIndex: =4
-
-        FooterContainer1 As groupContainer.horizontalAutoLayoutContainer:
-            BorderThickness: =1
-            DropShadow: =DropShadow.Light
-            Fill: =RGBA(255, 255, 255, 1)
-            FillPortions: =0
-            Height: =75
-            LayoutMinHeight: =100
-            LayoutMinWidth: =250
-            LayoutMode: =LayoutMode.Auto
-            RadiusBottomLeft: =8
-            RadiusBottomRight: =8
-            RadiusTopLeft: =8
-            RadiusTopRight: =8
-            ZIndex: =4
 

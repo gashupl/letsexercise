@@ -40,6 +40,7 @@
       "enablecopilotcontrol": true,
       "enabledataverseoffline": false,
       "enableeditcacherefreshfrequency": false,
+      "enableeditinmcs": false,
       "enableexcelonlinebusinessv2connector": true,
       "enableexperimentaldataverseoffline": true,
       "enableideaspanel": true,
