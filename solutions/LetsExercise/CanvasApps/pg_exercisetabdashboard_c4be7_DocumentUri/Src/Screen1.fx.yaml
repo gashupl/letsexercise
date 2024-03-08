@@ -229,6 +229,7 @@
                     OnChange: =false
                     Text: |-
                         ="Selected date: " & Text(selectedDate)
+                    VerticalAlignment: =VerticalAlign.Top
                     Width: =492
                     X: =6
                     Y: =0
@@ -254,7 +255,7 @@
                     TextColor: =
                     Width: =96
                     X: =120
-                    Y: =48
+                    Y: =40
                     ZIndex: =2
 
                 btnDayBefore As Button:
@@ -277,7 +278,7 @@
                     TextColor: =
                     Width: =96
                     X: =6
-                    Y: =48
+                    Y: =40
                     ZIndex: =3
 
                 DailyColumnChart As barChart:
@@ -317,13 +318,14 @@
                 lblSelectedStartOfWeek As Label:
                     Color: =
                     DisplayMode: =DisplayMode.Edit
-                    FontSize: =16
+                    FontSize: =12
                     Height: =33
                     OnChange: =false
                     Text: |-
                         ="Start date: "  & Text(selectedFirstDayOfWeek) & " End date: "  & Text(selectedLastDayOfWeek)
+                    VerticalAlignment: =VerticalAlign.Top
                     Width: =1334
-                    X: =0
+                    X: =6
                     Y: =0
                     ZIndex: =2
 
@@ -348,8 +350,8 @@
                     Text: =">>"
                     TextColor: =
                     Width: =96
-                    X: =124
-                    Y: =52
+                    X: =120
+                    Y: =40
                     ZIndex: =3
 
                 btnWeekBefore As Button:
@@ -373,8 +375,8 @@
                     Text: ="<<"
                     TextColor: =
                     Width: =96
-                    X: =12
-                    Y: =52
+                    X: =6
+                    Y: =40
                     ZIndex: =4
 
                 WeeklyColumnChart As barChart:
@@ -414,9 +416,10 @@
                     OnChange: =false
                     Text: |-
                         ="Start date: "  & Text(selectedFirstDayOfMonth) & " End date: "  & Text(selectedLastDayOfMonth)
+                    VerticalAlignment: =VerticalAlign.Top
                     Width: =1303
-                    X: =12
-                    Y: =8
+                    X: =6
+                    Y: =0
                     ZIndex: =2
 
                 btnMonthAfter As Button:
@@ -440,8 +443,8 @@
                     Text: =">>"
                     TextColor: =
                     Width: =96
-                    X: =125
-                    Y: =52
+                    X: =120
+                    Y: =40
                     ZIndex: =3
 
                 btnMonthBefore As Button:
@@ -467,8 +470,8 @@
                     Text: ="<<"
                     TextColor: =
                     Width: =96
-                    X: =12
-                    Y: =52
+                    X: =6
+                    Y: =40
                     ZIndex: =4
 
                 MonthlyColumnChart As barChart:
@@ -511,10 +514,11 @@
                     Height: =40
                     OnChange: =false
                     Text: |-
-                        ="Start of Year: "  & Text(selectedFirstDayOfYear) & " End of Year: "  & Text(selectedLastDayOfYear)
+                        ="Start date: "  & Text(selectedFirstDayOfYear) & " End date: "  & Text(selectedLastDayOfYear)
+                    VerticalAlignment: =VerticalAlign.Top
                     Width: =1330
-                    X: =4
-                    Y: =4
+                    X: =6
+                    Y: =0
                     ZIndex: =2
 
                 btnYearAfter As Button:
@@ -561,8 +565,8 @@
                     Text: =">>"
                     TextColor: =
                     Width: =96
-                    X: =126
-                    Y: =44
+                    X: =120
+                    Y: =40
                     ZIndex: =3
 
                 btnYearBefore As Button:
@@ -609,8 +613,8 @@
                     Text: ="<<"
                     TextColor: =
                     Width: =96
-                    X: =16
-                    Y: =44
+                    X: =6
+                    Y: =40
                     ZIndex: =4
 
                 AnnualColumnChart As barChart:

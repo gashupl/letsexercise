@@ -163,36 +163,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.dailyContainer.DailyColumnChart.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.dailyContainer.DailyColumnChart.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Screen1",
-                "type": "Screen1.ScreenContainer1.MainContainer1.dailyContainer.DailyColumnChart"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.dailyContainer.btnDayBefore.AccessibleLabel"
                 }
               ],
@@ -253,19 +223,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.weeklyContainer.WeeklyColumnChart.AccessibleLabel"
+                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.dailyContainer.DailyColumnChart.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.weeklyContainer.WeeklyColumnChart.AccessibleLabel",
+                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.dailyContainer.DailyColumnChart.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Screen1",
-                "type": "Screen1.ScreenContainer1.MainContainer1.weeklyContainer.WeeklyColumnChart"
+                "type": "Screen1.ScreenContainer1.MainContainer1.dailyContainer.DailyColumnChart"
               }
             }
           ],
@@ -343,19 +313,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.monthlyContainer.MonthlyColumnChart.AccessibleLabel"
+                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.weeklyContainer.WeeklyColumnChart.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.monthlyContainer.MonthlyColumnChart.AccessibleLabel",
+                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.weeklyContainer.WeeklyColumnChart.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Screen1",
-                "type": "Screen1.ScreenContainer1.MainContainer1.monthlyContainer.MonthlyColumnChart"
+                "type": "Screen1.ScreenContainer1.MainContainer1.weeklyContainer.WeeklyColumnChart"
               }
             }
           ],
@@ -416,6 +386,36 @@
                 "member": "AccessibleLabel",
                 "module": "Screen1",
                 "type": "Screen1.ScreenContainer1.MainContainer1.monthlyContainer.btnMonthAfter"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.monthlyContainer.MonthlyColumnChart.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.monthlyContainer.MonthlyColumnChart.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Screen1",
+                "type": "Screen1.ScreenContainer1.MainContainer1.monthlyContainer.MonthlyColumnChart"
               }
             }
           ],
@@ -523,36 +523,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.annualContainer.AnnualColumnChart.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.annualContainer.AnnualColumnChart.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Screen1",
-                "type": "Screen1.ScreenContainer1.MainContainer1.annualContainer.AnnualColumnChart"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.annualContainer.btnYearBefore.AccessibleLabel"
                 }
               ],
@@ -596,6 +566,36 @@
                 "member": "AccessibleLabel",
                 "module": "Screen1",
                 "type": "Screen1.ScreenContainer1.MainContainer1.annualContainer.btnYearAfter"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.annualContainer.AnnualColumnChart.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen1.ScreenContainer1.MainContainer1.annualContainer.AnnualColumnChart.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Screen1",
+                "type": "Screen1.ScreenContainer1.MainContainer1.annualContainer.AnnualColumnChart"
               }
             }
           ],
