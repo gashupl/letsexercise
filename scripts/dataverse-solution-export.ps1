@@ -1,4 +1,4 @@
-pac auth create --name LETSEXERCISE --url https://pg-dataverse-dev.crm4.dynamics.com/
+pac auth create --name LETSEXERCISE --environment https://pg-dataverse-dev.crm4.dynamics.com/
 pac auth list
 pac auth select --name LETSEXERCISE
 
@@ -7,7 +7,7 @@ $SolutionFileName = "LetsExercise.zip"
 $exportLocation = "..\Solutions"
 $managedSolutionFolder = "LetsExercise_managed"
 $unmanagedSolutionFolder = "LetsExercise"
-$canvasAppName = "pg_letsexercise_95a73_DocumentUri";
+$customPageDashboardName = "pg_exercisetabdashboard_c4be7_DocumentUri";
 $canvasAppManagedFolder = "$exportLocation\$managedSolutionFolder\CanvasApps\"
 $canvasAppUnmanagedFolder = "$exportLocation\$unmanagedSolutionFolder\CanvasApps\"
 
@@ -35,11 +35,11 @@ Write-output "extraction process completed."
 
 Write-Output "Extracting Canvas App file and removing MsApp archive..."
 pac canvas unpack `
---msapp "$canvasAppManagedFolder\$canvasAppName.msapp"  `
---sources $canvasAppManagedFolder\$canvasAppName
+--msapp "$canvasAppManagedFolder\$customPageDashboardName.msapp"  `
+--sources $canvasAppManagedFolder\$customPageDashboardName
 
 Write-Output "Deleting canvas app file..."
-Remove-Item "$canvasAppManagedFolder\$canvasAppName.msapp"
+Remove-Item "$canvasAppManagedFolder\$customPageDashboardName.msapp"
 Write-Output "Operation completed."
 
 Write-Output "Deleting custom control build files..."
@@ -66,11 +66,11 @@ Write-output "extraction process completed."
 
 Write-Output "Extracting Canvas App file and removing MsApp archive..."
 pac canvas unpack `
---msapp "$canvasAppUnmanagedFolder\$canvasAppName.msapp"  `
---sources $canvasAppUnmanagedFolder\$canvasAppName
+--msapp "$canvasAppUnmanagedFolder\$customPageDashboardName.msapp"  `
+--sources $canvasAppUnmanagedFolder\$customPageDashboardName
 
 Write-Output "Deleting canvas app file..."
-Remove-Item "$canvasAppUnmanagedFolder\$canvasAppName.msapp"
+Remove-Item "$canvasAppUnmanagedFolder\$customPageDashboardName.msapp"
 Write-Output "Operation completed."
 
 Write-Output "Deleting custom control build files..."
