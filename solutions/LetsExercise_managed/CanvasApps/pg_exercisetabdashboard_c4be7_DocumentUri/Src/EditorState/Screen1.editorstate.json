@@ -3289,7 +3289,7 @@
       "Properties": [
         {
           "Category": "Data",
-          "NameMap": "{\"Series1\":\"pg_scorenumber\",\"Series2\":\"versionnumber\",\"Series3\":\"versionnumber\",\"Series4\":\"versionnumber\",\"Series5\":\"versionnumber\",\"Series6\":\"versionnumber\",\"Series7\":\"versionnumber\",\"Series8\":\"versionnumber\",\"Series9\":\"versionnumber\",\"Labels\":\"pg_name\"}",
+          "NameMap": "{\"Series1\":\"pg_scorenumber\",\"Series2\":\"versionnumber\",\"Series3\":\"versionnumber\",\"Series4\":\"versionnumber\",\"Series5\":\"versionnumber\",\"Series6\":\"versionnumber\",\"Series7\":\"versionnumber\",\"Series8\":\"versionnumber\",\"Series9\":\"versionnumber\",\"Labels\":\"pg_date\"}",
           "PropertyName": "Items",
           "RuleProviderType": "Unknown"
         },
@@ -5069,7 +5069,7 @@
       "Properties": [
         {
           "Category": "Data",
-          "NameMap": "{\"Labels\":\"pg_name\",\"Series1\":\"pg_scorenumber\",\"Series2\":\"versionnumber\",\"Series3\":\"versionnumber\",\"Series4\":\"versionnumber\",\"Series5\":\"versionnumber\",\"Series6\":\"versionnumber\",\"Series7\":\"versionnumber\",\"Series8\":\"versionnumber\",\"Series9\":\"versionnumber\"}",
+          "NameMap": "{\"Labels\":\"pg_date\",\"Series1\":\"pg_scorenumber\",\"Series2\":\"versionnumber\",\"Series3\":\"versionnumber\",\"Series4\":\"versionnumber\",\"Series5\":\"versionnumber\",\"Series6\":\"versionnumber\",\"Series7\":\"versionnumber\",\"Series8\":\"versionnumber\",\"Series9\":\"versionnumber\"}",
           "PropertyName": "Items",
           "RuleProviderType": "Unknown"
         },

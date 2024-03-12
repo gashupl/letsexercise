@@ -20,29 +20,29 @@
     "Container1": 7,
     "DailyColumnChart": 17,
     "dailyContainer": 13,
-    "Gallery1": 29,
-    "galleryTemplate1": 30,
+    "Gallery1": 30,
+    "galleryTemplate1": 31,
     "HeaderContainer1": 6,
     "Host": 3,
-    "Image1": 33,
+    "Image1": 34,
     "lblSelectedDate": 14,
     "lblSelectedStartOfWeek": 19,
-    "lblSelectedStartOfYear": 35,
+    "lblSelectedStartOfYear": 29,
     "lblSelectedStartOMonth": 24,
     "MainContainer1": 12,
     "MonthlyColumnChart": 27,
     "monthlyContainer": 23,
-    "Rectangle1": 31,
+    "Rectangle1": 32,
     "Screen1": 4,
     "ScreenContainer1": 5,
-    "Subtitle1": 34,
-    "Title1": 32,
+    "Subtitle1": 35,
+    "Title1": 33,
     "WeeklyColumnChart": 22,
     "weeklyContainer": 18
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "03/08/2024 07:28:26",
+  "HeaderLastSavedDateTimeUTC": "03/12/2024 15:06:50",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {},
   "LocalDatabaseReferencesAsEmpty": false,
@@ -415,7 +415,7 @@
   "RuleScreenIdWithoutScreen": {},
   "TemplateVersions": {},
   "VolatileProperties": {
-    "AnalysisLoadTime": 0.4018214,
+    "AnalysisLoadTime": 0.34360059999999998,
     "ControlCount": {
       "barChart": 4,
       "gallery": 1,
@@ -427,7 +427,7 @@
       "rectangle": 1,
       "screen": 1
     },
-    "DeserializationLoadTime": 1.4194690999999999
+    "DeserializationLoadTime": 1.3780745999999999
   },
   "WasLocalDatabaseReferencesEmpty": false
 }
