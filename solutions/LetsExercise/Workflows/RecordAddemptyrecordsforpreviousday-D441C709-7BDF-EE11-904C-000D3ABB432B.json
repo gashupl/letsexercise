@@ -48,7 +48,11 @@
       },
       "actions": {
         "List_rows": {
-          "runAfter": {},
+          "runAfter": {
+            "Initialize_variable": [
+              "Succeeded"
+            ]
+          },
           "metadata": {
             "operationMetadataId": "7978e1d5-f2a8-4fe6-9ffd-a5a750574c7f"
           },
@@ -62,7 +66,7 @@
             "parameters": {
               "entityName": "pg_exerciserecords",
               "$select": "pg_date,pg_exerciserecordid",
-              "$filter": "Microsoft.Dynamics.CRM.Yesterday(PropertyName='pg_date')"
+              "$filter": "@variables('queryExpression')"
             },
             "authentication": "@parameters('$authentication')"
           }
@@ -109,6 +113,22 @@
             "operationMetadataId": "3b7f9629-2a2f-47b8-a8c0-a527535d6ad0"
           },
           "type": "If"
+        },
+        "Initialize_variable": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "15e934c9-1d2c-41ed-996c-df234af8045e"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "queryExpression",
+                "type": "string",
+                "value": "@{concat('Microsoft.Dynamics.CRM.On(PropertyName=''pg_date'',PropertyValue=''', formatDateTime(addDays(utcNow(),-1), 'yyyy-MM-dd'), ''')')}"
+              }
+            ]
+          }
         }
       }
     },
