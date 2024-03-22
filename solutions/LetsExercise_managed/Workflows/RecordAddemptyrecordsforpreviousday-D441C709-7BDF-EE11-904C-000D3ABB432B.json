@@ -9,15 +9,6 @@
         "api": {
           "name": "shared_commondataserviceforapps"
         }
-      },
-      "shared_commondataserviceforapps": {
-        "runtimeSource": "embedded",
-        "connection": {
-          "connectionReferenceLogicalName": "pg_sharedcommondataserviceforapps_a3e61"
-        },
-        "api": {
-          "name": "shared_commondataserviceforapps"
-        }
       }
     },
     "definition": {
@@ -88,7 +79,7 @@
                 "type": "OpenApiConnection",
                 "inputs": {
                   "host": {
-                    "connectionName": "shared_commondataserviceforapps",
+                    "connectionName": "shared_commondataserviceforapps_1",
                     "operationId": "CreateRecord",
                     "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                   },
@@ -125,7 +116,7 @@
               {
                 "name": "queryExpression",
                 "type": "string",
-                "value": "@{concat('Microsoft.Dynamics.CRM.On(PropertyName=''pg_date'',PropertyValue=''', formatDateTime(addDays(utcNow(),-1), 'yyyy-MM-dd'), ''')')}"
+                "value": "@{concat('Microsoft.Dynamics.CRM.On(PropertyName=''pg_date'',PropertyValue=''', formatDateTime(addDays(utcNow(),-2), 'yyyy-MM-dd'), ''')')}"
               }
             ]
           }

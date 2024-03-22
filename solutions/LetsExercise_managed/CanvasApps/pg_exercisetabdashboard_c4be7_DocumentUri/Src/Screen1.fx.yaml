@@ -290,9 +290,10 @@
                     Font: =Font.'Segoe UI'
                     Height: =Parent.Height - 90
                     HoverBorderColor: =RGBA(0, 0, 0, 0)
-                    ItemColorSet: =[RGBA(49, 130, 93, 1),RGBA(48,166,103, 1), RGBA(94,193,108,1), RGBA(246,199,144,1), RGBA(247,199,114,1), RGBA(247,180,91,1), RGBA(246,143,100,1), RGBA(212,96,104,1), RGBA(148, 110, 176, 1), RGBA(118, 154, 204, 1), RGBA(96, 197, 234, 1)]
+                    ItemColorSet: =[Color.Green]
                     Items: |
                         =Filter('Exercise Records', Date = selectedDate)
+                    ItemsGap: =1
                     PaddingLeft: =1
                     PaddingRight: =1
                     PressedBorderColor: =RGBA(0, 0, 0, 0)
@@ -388,8 +389,9 @@
                     Font: =Font.'Segoe UI'
                     Height: =Parent.Height - 90
                     HoverBorderColor: =RGBA(0, 0, 0, 0)
-                    ItemColorSet: =[RGBA(49, 130, 93, 1),RGBA(48,166,103, 1), RGBA(94,193,108,1), RGBA(246,199,144,1), RGBA(247,199,114,1), RGBA(247,180,91,1), RGBA(246,143,100,1), RGBA(212,96,104,1), RGBA(148, 110, 176, 1), RGBA(118, 154, 204, 1), RGBA(96, 197, 234, 1)]
+                    ItemColorSet: =[Color.Green]
                     Items: =Filter('Exercise Records', Date >= selectedFirstDayOfWeek && Date  <= selectedLastDayOfWeek)
+                    ItemsGap: =1
                     PressedBorderColor: =RGBA(0, 0, 0, 0)
                     Size: =12
                     Width: =Parent.Width
@@ -483,9 +485,10 @@
                     Font: =Font.'Segoe UI'
                     Height: =Parent.Height - 90
                     HoverBorderColor: =RGBA(0, 0, 0, 0)
-                    ItemColorSet: =[RGBA(49, 130, 93, 1),RGBA(48,166,103, 1), RGBA(94,193,108,1), RGBA(246,199,144,1), RGBA(247,199,114,1), RGBA(247,180,91,1), RGBA(246,143,100,1), RGBA(212,96,104,1), RGBA(148, 110, 176, 1), RGBA(118, 154, 204, 1), RGBA(96, 197, 234, 1)]
+                    ItemColorSet: =[Color.Green]
                     Items: |
                         =Sort(Filter('Exercise Records', Date >= selectedFirstDayOfMonth && Date  <= selectedLastDayOfMonth), Date,SortOrder.Ascending)
+                    ItemsGap: =1
                     PaddingLeft: =1
                     PaddingRight: =1
                     PressedBorderColor: =RGBA(0, 0, 0, 0)
@@ -626,9 +629,10 @@
                     Font: =Font.'Segoe UI'
                     Height: =Parent.Height - 90
                     HoverBorderColor: =RGBA(0, 0, 0, 0)
-                    ItemColorSet: =[RGBA(49, 130, 93, 1),RGBA(48,166,103, 1), RGBA(94,193,108,1), RGBA(246,199,144,1), RGBA(247,199,114,1), RGBA(247,180,91,1), RGBA(246,143,100,1), RGBA(212,96,104,1), RGBA(148, 110, 176, 1), RGBA(118, 154, 204, 1), RGBA(96, 197, 234, 1)]
+                    ItemColorSet: =[Color.Green]
                     Items: |
                         =SortByColumns( GroupedByMonthCollection,"Month")
+                    ItemsGap: =1
                     PaddingLeft: =1
                     PaddingRight: =1
                     PressedBorderColor: =RGBA(0, 0, 0, 0)
