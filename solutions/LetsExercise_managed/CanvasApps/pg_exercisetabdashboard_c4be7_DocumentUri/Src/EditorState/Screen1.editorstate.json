@@ -233,7 +233,7 @@
         {
           "Category": "Design",
           "PropertyName": "ItemsGap",
-          "RuleProviderType": "User"
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultBarChartStyle",
@@ -3431,7 +3431,7 @@
         {
           "Category": "Design",
           "PropertyName": "ItemsGap",
-          "RuleProviderType": "User"
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultBarChartStyle",
@@ -5236,7 +5236,7 @@
         {
           "Category": "Design",
           "PropertyName": "ItemsGap",
-          "RuleProviderType": "User"
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultBarChartStyle",
@@ -6277,7 +6277,7 @@
         {
           "Category": "Design",
           "PropertyName": "ItemsGap",
-          "RuleProviderType": "User"
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultBarChartStyle",

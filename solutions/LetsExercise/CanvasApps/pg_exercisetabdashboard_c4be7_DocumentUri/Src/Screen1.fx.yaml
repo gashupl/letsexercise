@@ -299,7 +299,7 @@
                     PressedBorderColor: =RGBA(0, 0, 0, 0)
                     Size: =15
                     Width: |
-                        =Parent.Width
+                        =Parent.Width - 15
                     X: =6
                     Y: =90
                     ZIndex: =4
@@ -394,7 +394,7 @@
                     ItemsGap: =1
                     PressedBorderColor: =RGBA(0, 0, 0, 0)
                     Size: =12
-                    Width: =Parent.Width
+                    Width: =Parent.Width - 15
                     Y: =90
                     ZIndex: =5
 
@@ -493,7 +493,7 @@
                     PaddingRight: =1
                     PressedBorderColor: =RGBA(0, 0, 0, 0)
                     Size: =12
-                    Width: =Parent.Width
+                    Width: =Parent.Width - 15
                     Y: =90
                     ZIndex: =5
 
@@ -637,7 +637,7 @@
                     PaddingRight: =1
                     PressedBorderColor: =RGBA(0, 0, 0, 0)
                     Size: =12
-                    Width: =Parent.Width
+                    Width: =Parent.Width - 15
                     Y: =90
                     ZIndex: =5
 
