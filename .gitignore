@@ -396,3 +396,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+src/client/Pg.LetsExercise.WebResources/WebResources/scripts/Main.js
+src/client/Pg.LetsExercise.WebResources/WebResources/scripts/maps/Main.js.map
