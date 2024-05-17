@@ -6,8 +6,8 @@ module.exports = {
         Main: "./src/Main"
     },
     output: {
-        filename: "[name].js",
-        sourceMapFilename: "maps/[name].js.map",
+        filename: "letsexercise-main.js",
+        sourceMapFilename: "maps/letsexercise-main.js.map",
         path: path.resolve(__dirname, "./Webresources/scripts"),
         library: ["LetsExercise"],
         libraryTarget: "var",

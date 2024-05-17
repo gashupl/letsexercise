@@ -103,6 +103,16 @@
       <DisplayConditions Order="0" FallbackForm="true">
         <Everyone />
       </DisplayConditions>
+      <formLibraries>
+        <Library name="pg_/scripts/letsexercise-main.js" libraryUniqueId="{00f8521e-87ed-4db2-bc2c-20a75063e58d}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="LetsExercise.ExerciseRecord.onLoad" libraryName="pg_/scripts/letsexercise-main.js" handlerUniqueId="{64491581-79d6-4c99-97ae-b0913bed0a85}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>

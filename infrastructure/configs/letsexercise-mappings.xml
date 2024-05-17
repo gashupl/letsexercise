@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Mapping>
 	<FileToFile 
+		map="WebResources\pg_\scripts\letsexercise-main.js" 
+		to="..\..\src\client\Pg.LetsExercise.WebResources\WebResources\scripts\letsexercise-main.js"/>
+	<FileToFile 
 		map="Controls\pg_Pg.LetsExercise.CircleProgressControl\bundle.js" 
 		to="..\..\src\client\Pg.LetsExercise.CircleProgressControl\out\controls\CircleProgressControl\bundle.js"/>
 	<FileToFile 

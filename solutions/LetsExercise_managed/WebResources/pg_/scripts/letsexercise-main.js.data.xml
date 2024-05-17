@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{a43d7840-2614-ef11-9f89-00224888e80c}</WebResourceId>
+  <Name>pg_/scripts/letsexercise-main.js</Name>
+  <DisplayName>pg_/scripts/letsexercise-main.js</DisplayName>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/pg_scriptsletsexercise-mainjsA43D7840-2614-EF11-9F89-00224888E80C</FileName>
+</WebResource>

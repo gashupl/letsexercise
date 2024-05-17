@@ -97,6 +97,16 @@
         <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
         <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
       </DisplayConditions>
+      <formLibraries>
+        <Library name="pg_/scripts/letsexercise-main.js" libraryUniqueId="{eae5e230-e093-4b04-8654-7e7ab73279c6}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="LetsExercise.ExerciseRecord.onLoad" libraryName="pg_/scripts/letsexercise-main.js" handlerUniqueId="{7f7cddf0-baaf-49d5-9bbd-358de98f035e}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>
