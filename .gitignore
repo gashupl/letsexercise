@@ -397,3 +397,4 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 src/client/Pg.LetsExercise.WebResources/WebResources/scripts/** 
+src/client/Pg.LetsExercise.WebResources/dvdt.linker.xml
