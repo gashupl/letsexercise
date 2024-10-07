@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.24091.196" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.24091.196" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.24091.00196">
+<ImportExportXml version="9.2.24092.184" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.24092.184" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.24092.00184">
   <SolutionManifest>
     <UniqueName>LetsExercise</UniqueName>
     <LocalizedNames>
