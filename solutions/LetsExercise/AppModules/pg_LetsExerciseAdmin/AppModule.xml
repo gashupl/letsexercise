@@ -2,7 +2,7 @@
 <AppModule>
   <UniqueName>pg_LetsExerciseAdmin</UniqueName>
   <IntroducedVersion>1.0.0.0</IntroducedVersion>
-  <WebResourceId>953b9fac-1e5e-e611-80d6-00155ded156f</WebResourceId>
+  <WebResourceId>98b0cf71-d191-ef11-8a69-6045bd9f9c28</WebResourceId>
   <OptimizedFor></OptimizedFor>
   <statecode>0</statecode>
   <statuscode>1</statuscode>
@@ -40,4 +40,14 @@
       <name>pg_pg_LetsExerciseAdmin_canvasappid_pg_exercisetabnewrecord_ebc36</name>
     </appelement>
   </appelements>
+  <appsettings>
+    <appsetting settingdefinitionid.uniquename="EnableRoleBasedOfflineProfileAccess">
+      <iscustomizable>1</iscustomizable>
+      <value>true</value>
+    </appsetting>
+    <appsetting settingdefinitionid.uniquename="ServerMode">
+      <iscustomizable>1</iscustomizable>
+      <value>false</value>
+    </appsetting>
+  </appsettings>
 </AppModule>
