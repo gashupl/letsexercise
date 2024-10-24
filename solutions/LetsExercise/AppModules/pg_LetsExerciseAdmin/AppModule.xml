@@ -2,7 +2,7 @@
 <AppModule>
   <UniqueName>pg_LetsExerciseAdmin</UniqueName>
   <IntroducedVersion>1.0.0.0</IntroducedVersion>
-  <WebResourceId>953b9fac-1e5e-e611-80d6-00155ded156f</WebResourceId>
+  <WebResourceId>98b0cf71-d191-ef11-8a69-6045bd9f9c28</WebResourceId>
   <OptimizedFor></OptimizedFor>
   <statecode>0</statecode>
   <statuscode>1</statuscode>
@@ -21,6 +21,9 @@
   <LocalizedNames>
     <LocalizedName description="Let's Exercise!" languagecode="1033" />
   </LocalizedNames>
+  <Descriptions>
+    <Description description="Empower users to efficiently track and manage their exercise goals and records with Let's Exercise!. This app provides a streamlined interface for administrators to oversee and customize exercise-related data." languagecode="1033" />
+  </Descriptions>
   <appelements>
     <appelement uniquename="pg_pg_LetsExerciseAdmin_canvasappid_pg_exercisetabdashboard_c4be7">
       <canvasappid>
@@ -29,5 +32,22 @@
       <iscustomizable>1</iscustomizable>
       <name>pg_pg_LetsExerciseAdmin_canvasappid_pg_exercisetabdashboard_c4be7</name>
     </appelement>
+    <appelement uniquename="pg_pg_LetsExerciseAdmin_canvasappid_pg_exercisetabnewrecord_ebc36">
+      <canvasappid>
+        <name>pg_exercisetabnewrecord_ebc36</name>
+      </canvasappid>
+      <iscustomizable>1</iscustomizable>
+      <name>pg_pg_LetsExerciseAdmin_canvasappid_pg_exercisetabnewrecord_ebc36</name>
+    </appelement>
   </appelements>
+  <appsettings>
+    <appsetting settingdefinitionid.uniquename="EnableRoleBasedOfflineProfileAccess">
+      <iscustomizable>1</iscustomizable>
+      <value>true</value>
+    </appsetting>
+    <appsetting settingdefinitionid.uniquename="ServerMode">
+      <iscustomizable>1</iscustomizable>
+      <value>false</value>
+    </appsetting>
+  </appsettings>
 </AppModule>

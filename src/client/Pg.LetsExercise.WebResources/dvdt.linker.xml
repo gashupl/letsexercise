@@ -1,6 +1,7 @@
 <DVDT>
   <WebResources>
     <Resource Id="367c2b17-292a-ee11-bdf4-000d3aabdfee" dvDisplayName="pg_/script/main.js" dvFilePath="pg_/script/main.js" localFileName="Main.js" localFilePath="//WebResources/scripts/Main.js"></Resource>
+    <Resource Id="ecda3760-9e75-ef11-a670-6045bd8c7e6d" dvDisplayName="pg_/html/newrecord.html" dvFilePath="pg_/html/newrecord.html" localFileName="newrecord.html" localFilePath="//html/newrecord.html"></Resource>
   </WebResources>
   <Settings></Settings>
 </DVDT>

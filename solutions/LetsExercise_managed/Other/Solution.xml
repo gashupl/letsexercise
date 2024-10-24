@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.24044.202" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.24094.212" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.24094.212" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.24094.00212">
   <SolutionManifest>
     <UniqueName>LetsExercise</UniqueName>
     <LocalizedNames>
@@ -84,6 +84,9 @@
       <RootComponent type="1" schemaName="pg_exerciserecord" behavior="0" />
       <RootComponent type="29" id="{d441c709-7bdf-ee11-904c-000d3abb432b}" behavior="0" />
       <RootComponent type="300" schemaName="pg_exercisetabdashboard_c4be7" behavior="0" />
+      <RootComponent type="300" schemaName="pg_exercisetabnewrecord_ebc36" behavior="0" />
+      <RootComponent type="61" schemaName="pg_/img/pushups-icon128.png" behavior="0" />
+      <RootComponent type="61" schemaName="pg_/img/pushups-icon-red.svg" behavior="0" />
       <RootComponent type="61" schemaName="pg_/scripts/letsexercise-main.js" behavior="0" />
       <RootComponent type="62" schemaName="pg_LetsExerciseAdmin" behavior="0" />
       <RootComponent type="66" schemaName="pg_Pg.LetsExercise.CircleProgressControl" behavior="0" />
@@ -96,8 +99,12 @@
     </RootComponents>
     <MissingDependencies>
       <MissingDependency>
-        <Required type="61" schemaName="msdyn_/Images/AppModule_Default_Icon.png" displayName="msdyn_/Images/AppModule_Default_Icon.png" solution="AppModuleWebResources (2.5)" />
-        <Dependent type="80" schemaName="pg_LetsExerciseAdmin" displayName="Let's Exercise!" />
+        <Required type="SettingDefinition" displayName="EnableRoleBasedOfflineProfileAccess" solution="SettingDefinitionsData (9.2.2409.2409111)" id.uniquename="EnableRoleBasedOfflineProfileAccess" />
+        <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=pg_LetsExerciseAdmin,settingdefinitionid.uniquename=EnableRoleBasedOfflineProfileAccess" id.parentappmoduleid.uniquename="pg_LetsExerciseAdmin" id.settingdefinitionid.uniquename="EnableRoleBasedOfflineProfileAccess" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="SettingDefinition" displayName="ServerMode" solution="SettingDefinitionsData (9.2.2409.2409111)" id.uniquename="ServerMode" />
+        <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=pg_LetsExerciseAdmin,settingdefinitionid.uniquename=ServerMode" id.parentappmoduleid.uniquename="pg_LetsExerciseAdmin" id.settingdefinitionid.uniquename="ServerMode" />
       </MissingDependency>
     </MissingDependencies>
   </SolutionManifest>
