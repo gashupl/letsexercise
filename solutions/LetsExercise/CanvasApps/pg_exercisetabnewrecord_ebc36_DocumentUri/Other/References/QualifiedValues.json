@@ -1,0 +1,19 @@
+{
+  "QualifiedValues": [
+    {
+      "Kind": "default.cds_pg_exerciserecord_forms",
+      "Namespace": "Exercise Records (Forms)",
+      "Values": {
+        "Exercise Record quick create form": "60579ebe-3f93-ee11-be37-000d3a2279a0",
+        "Information": "6bcd3dc4-f098-4d5d-a162-f8fe64261087"
+      }
+    },
+    {
+      "Kind": "default.cds_pg_exercisegoal_forms",
+      "Namespace": "Exercise Goals (Forms)",
+      "Values": {
+        "Information": "fbc75090-07f4-4049-9673-e09c51535f41"
+      }
+    }
+  ]
+}

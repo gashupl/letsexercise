@@ -7,7 +7,7 @@ $SolutionFileName = "LetsExercise.zip"
 $exportLocation = "..\Solutions"
 $managedSolutionFolder = "LetsExercise_managed"
 $unmanagedSolutionFolder = "LetsExercise"
-$customPageDashboardName = "pg_exercisetabdashboard_c4be7_DocumentUri";
+$customPageDashboardName = "pg_exercisetabnewrecord_ebc36_DocumentUri";
 $canvasAppManagedFolder = "$exportLocation\$managedSolutionFolder\CanvasApps\"
 $canvasAppUnmanagedFolder = "$exportLocation\$unmanagedSolutionFolder\CanvasApps\"
 
@@ -17,7 +17,7 @@ If(!(test-path $exportLocation))
 		New-Item -ItemType Directory -Force -Path $exportLocation
 }
 
-cls;
+Clear-Host;
 
 Write-Output "exporting managed customization file..."
 

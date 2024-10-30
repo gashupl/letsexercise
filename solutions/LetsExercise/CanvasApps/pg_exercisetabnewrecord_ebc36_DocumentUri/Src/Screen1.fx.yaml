@@ -1,0 +1,98 @@
+Screen1 As screen:
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+
+    Button1 As Button:
+        DisplayMode: =DisplayMode.Edit
+        Height: =28
+        OnChange: =false
+        OnSelect: =Navigate(Defaults('Exercise Records'));
+        Text: ="Create new record"
+        Width: =158
+        X: =21
+        Y: =36
+        ZIndex: =1
+
+    Label1 As Label:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        OnChange: =false
+        Text: |-
+            ="Monthly goal competion: " & First(Filter('Exercise Goals', 'Goal Type' = 3)).Completed
+        Width: =200
+        X: =21
+        Y: =283
+        ZIndex: =2
+
+    Label1_1 As Label:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        OnChange: =false
+        Text: |-
+            ="Weekly goal competion: " & First(Filter('Exercise Goals', 'Goal Type' = 2)).Completed
+        Width: =200
+        X: =208
+        Y: =90
+        ZIndex: =3
+
+    Label1_2 As Label:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        OnChange: =false
+        Text: |-
+            ="Daily goal competion: " & First(Filter('Exercise Goals', 'Goal Type' = 1)).Completed
+        Width: =200
+        X: =21
+        Y: =90
+        ZIndex: =4
+
+    Label1_3 As Label:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        OnChange: =false
+        Text: |-
+            ="Yearly goal competion: " & First(Filter('Exercise Goals', 'Goal Type' = 4)).Completed
+        Width: =200
+        X: =208
+        Y: =283
+        ZIndex: =5
+
+    CircleProgressControl1 As CircleProgressControl:
+        DisplayMode: =DisplayMode.Edit
+        Height: =134
+        percentageCompleted: |
+            =First(Filter('Exercise Goals', 'Goal Type' = 4)).Completed
+        Width: =200
+        X: =208
+        Y: =333
+        ZIndex: =6
+
+    CircleProgressControl2 As CircleProgressControl:
+        DisplayMode: =DisplayMode.Edit
+        Height: =140
+        percentageCompleted: |
+            =First(Filter('Exercise Goals', 'Goal Type' = 1)).Completed
+        Width: =200
+        X: =21
+        Y: =143
+        ZIndex: =7
+
+    CircleProgressControl3 As CircleProgressControl:
+        DisplayMode: =DisplayMode.Edit
+        Height: =140
+        percentageCompleted: |
+            =First(Filter('Exercise Goals', 'Goal Type' = 2)).Completed
+        Width: =200
+        X: =208
+        Y: =143
+        ZIndex: =8
+
+    CircleProgressControl4 As CircleProgressControl:
+        DisplayMode: =DisplayMode.Edit
+        Height: =134
+        percentageCompleted: |
+            =First(Filter('Exercise Goals', 'Goal Type' = 3)).Completed
+        Width: =200
+        X: =21
+        Y: =333
+        ZIndex: =9
+

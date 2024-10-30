@@ -1,0 +1,40 @@
+{
+  "ClientPerFileChecksums": {
+    ".gitignore": "C8_VaC8EcEG56Ufcy1DFyC8Ky19iV9xSsXMDIAcmF2GTj8=",
+    "AppCheckerResult.sarif": "C8_O+tUf4KjepIg0K+wq4CHiGUHvw2PyaGuds6KTPJNsas=",
+    "Controls\\1.json": "C8_oZeGrJGH83yuiaVBkTM9YQoDLiCeuZ2d+PQgT/nmPIc=",
+    "Controls\\4.json": "C8_ty1udOeZTtWqF//s+9Qe6BLxkWd1PdU5DqjLCEsrSBg=",
+    "Header.json": "C8_Z62xA74F1a0SUfodSoVTTm2n1dv/7dTwk3Wa0KKWWiY=",
+    "Properties.json": "C8_FQXpkmUKfI7jIVHcUuCzq+xscKQITOkAmukRmQK/H+c=",
+    "References\\DataSources.json": "C8_DRatJS0d196Ps5bb4KQZimLob24JHu/85EjdBb/MER0=",
+    "References\\ModernThemes.json": "C8_KDQJ/3t27vgKx25iCQB/PGqxkWE34ZB7Eyb+RxNxY0k=",
+    "References\\NamedValues.json": "C8_Qz3eWDKdVgYXg4z3WX1wClySe3RTA0XXRC2F97ykZW0=",
+    "References\\QualifiedValues.json": "C8_uqSRFcr0TeE6VRaLl9vE87aQGdXjq3WxwYnz+56w+so=",
+    "References\\Resources.json": "C8_o8YVeUoBOQZMN+H7s7E9s1TDtWtrOeuiBA3wJXAjo2Y=",
+    "References\\Templates.json": "C8_PRP2P6c2+QmluNMej0bEunO3dNkV/0AX1BS/vRU6xy8=",
+    "References\\Themes.json": "C8_wGrCe72XXpLWteDRMJhjwWERxMAuX+ON/OVrFh3lsbk=",
+    "Resources\\Controls\\Pg.LetsExercise.CircleProgressControl.bundle.js": "C8_/s4C1zZyVUNYVAjID/Q7k796/XjdQkYTFZyy4yTny+g=",
+    "Resources\\Controls\\Pg.LetsExercise.CircleProgressControl.styles.css": "C8_vWgl8chzoZP3x97Hn3gIiXyvr74kHtMsiNltsLAMq4k=",
+    "Resources\\PublishInfo.json": "C8_T1Z9h1gvD5QjBul0BgBy7w9wXEa4ppaHzaGw30pJpas="
+  },
+  "ClientStampedChecksum": "C8_iU+FDNisAhzla1c5LhDS9T/Tir4zC+o3i91F9suh+ws=",
+  "ServerPerFileChecksums": {
+    ".gitignore": "C8_VaC8EcEG56Ufcy1DFyC8Ky19iV9xSsXMDIAcmF2GTj8=",
+    "AppCheckerResult.sarif": "C8_O+tUf4KjepIg0K+wq4CHiGUHvw2PyaGuds6KTPJNsas=",
+    "Controls\\1.json": "C8_oZeGrJGH83yuiaVBkTM9YQoDLiCeuZ2d+PQgT/nmPIc=",
+    "Controls\\4.json": "C8_ty1udOeZTtWqF//s+9Qe6BLxkWd1PdU5DqjLCEsrSBg=",
+    "Header.json": "C8_Z62xA74F1a0SUfodSoVTTm2n1dv/7dTwk3Wa0KKWWiY=",
+    "Properties.json": "C8_FQXpkmUKfI7jIVHcUuCzq+xscKQITOkAmukRmQK/H+c=",
+    "References\\DataSources.json": "C8_DRatJS0d196Ps5bb4KQZimLob24JHu/85EjdBb/MER0=",
+    "References\\ModernThemes.json": "C8_KDQJ/3t27vgKx25iCQB/PGqxkWE34ZB7Eyb+RxNxY0k=",
+    "References\\NamedValues.json": "C8_Qz3eWDKdVgYXg4z3WX1wClySe3RTA0XXRC2F97ykZW0=",
+    "References\\QualifiedValues.json": "C8_uqSRFcr0TeE6VRaLl9vE87aQGdXjq3WxwYnz+56w+so=",
+    "References\\Resources.json": "C8_o8YVeUoBOQZMN+H7s7E9s1TDtWtrOeuiBA3wJXAjo2Y=",
+    "References\\Templates.json": "C8_PRP2P6c2+QmluNMej0bEunO3dNkV/0AX1BS/vRU6xy8=",
+    "References\\Themes.json": "C8_wGrCe72XXpLWteDRMJhjwWERxMAuX+ON/OVrFh3lsbk=",
+    "Resources\\Controls\\Pg.LetsExercise.CircleProgressControl.bundle.js": "C8_/s4C1zZyVUNYVAjID/Q7k796/XjdQkYTFZyy4yTny+g=",
+    "Resources\\Controls\\Pg.LetsExercise.CircleProgressControl.styles.css": "C8_vWgl8chzoZP3x97Hn3gIiXyvr74kHtMsiNltsLAMq4k=",
+    "Resources\\PublishInfo.json": "C8_T1Z9h1gvD5QjBul0BgBy7w9wXEa4ppaHzaGw30pJpas="
+  },
+  "ServerStampedChecksum": "C8_iU+FDNisAhzla1c5LhDS9T/Tir4zC+o3i91F9suh+ws="
+}

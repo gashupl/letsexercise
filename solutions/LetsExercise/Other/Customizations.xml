@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.24094.212" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.24094.00212">
+<ImportExportXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.24094.212" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.24095.00200">
   <Entities />
   <Roles />
   <Workflows />
@@ -16,22 +16,6 @@
   <AppModules />
   <EntityDataProviders />
   <CanvasApps />
-  <connectionreferences>
-    <connectionreference connectionreferencelogicalname="pg_sharedcommondataserviceforapps_9ee29">
-      <connectionreferencedisplayname>Microsoft Dataverse LetsExercise-9ee29</connectionreferencedisplayname>
-      <connectorid>/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps</connectorid>
-      <iscustomizable>1</iscustomizable>
-      <statecode>0</statecode>
-      <statuscode>1</statuscode>
-    </connectionreference>
-    <connectionreference connectionreferencelogicalname="pg_sharedcommondataserviceforapps_a3e61">
-      <connectionreferencedisplayname>Microsoft Dataverse LetsExercise-a3e61</connectionreferencedisplayname>
-      <connectorid>/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps</connectorid>
-      <iscustomizable>1</iscustomizable>
-      <statecode>0</statecode>
-      <statuscode>1</statuscode>
-    </connectionreference>
-  </connectionreferences>
   <Languages>
     <Language>1033</Language>
   </Languages>

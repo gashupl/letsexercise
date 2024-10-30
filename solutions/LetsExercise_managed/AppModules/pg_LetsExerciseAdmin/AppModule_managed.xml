@@ -25,13 +25,6 @@
     <Description description="Empower users to efficiently track and manage their exercise goals and records with Let's Exercise!. This app provides a streamlined interface for administrators to oversee and customize exercise-related data." languagecode="1033" />
   </Descriptions>
   <appelements>
-    <appelement uniquename="pg_pg_LetsExerciseAdmin_canvasappid_pg_exercisetabdashboard_c4be7">
-      <canvasappid>
-        <name>pg_exercisetabdashboard_c4be7</name>
-      </canvasappid>
-      <iscustomizable>1</iscustomizable>
-      <name>pg_pg_LetsExerciseAdmin_canvasappid_pg_exercisetabdashboard_c4be7</name>
-    </appelement>
     <appelement uniquename="pg_pg_LetsExerciseAdmin_canvasappid_pg_exercisetabnewrecord_ebc36">
       <canvasappid>
         <name>pg_exercisetabnewrecord_ebc36</name>
