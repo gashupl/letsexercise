@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Mapping>
 	<FileToFile 
-		map="WebResources\pg_\html\goalsmonthlychart.hyml" 
-		to="..\..\src\client\Pg.LetsExercise.WebResources\html\goalsmonthlychart.html"/>
+		map="WebResources\pg_\pages\goalsmonthlychart.html" 
+		to="..\..\src\client\Pg.LetsExercise.WebResources\WebResources\pages\goalsmonthlychart.html"/>
 	<FileToFile 
 		map="WebResources\pg_\scripts\goalsmonthlychart.js" 
 		to="..\..\src\client\Pg.LetsExercise.WebResources\WebResources\scripts\goalsmonthlychart.js"/>
