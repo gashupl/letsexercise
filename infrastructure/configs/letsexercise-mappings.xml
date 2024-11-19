@@ -2,7 +2,7 @@
 <Mapping>
 	<FileToFile 
 		map="WebResources\pg_\html\goalsmonthlychart.hyml" 
-		to="..\..\src\client\Pg.LetsExercise.WebResources\WebResources\html\goalsmonthlychart.html"/>
+		to="..\..\src\client\Pg.LetsExercise.WebResources\html\goalsmonthlychart.html"/>
 	<FileToFile 
 		map="WebResources\pg_\scripts\goalsmonthlychart.js" 
 		to="..\..\src\client\Pg.LetsExercise.WebResources\WebResources\scripts\goalsmonthlychart.js"/>

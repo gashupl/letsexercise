@@ -4,7 +4,7 @@ module.exports = {
     devtool: "source-map",
     entry: {
         Main: "./src/Main", 
-        GoalsMonthlyChart: "./src/pages/goalsmonthlychart.ts"
+        goalsmonthlychart: "./src/pages/goalsmonthlychart.ts"
     },
     output: {
         filename: "[name].js", // Use [name] to dynamically name the output files
