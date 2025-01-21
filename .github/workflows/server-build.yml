@@ -39,5 +39,13 @@ jobs:
         run: |
           $testAssemblies = Get-ChildItem -Path "${{ env.TEST_ASSEMBLY_PATH }}" -Recurse
           foreach ($assembly in $testAssemblies) {
-            & "${{ env.VSTEST_CONSOLE }}" $assembly.FullName
+            & "${{ env.VSTEST_CONSOLE }}" $assembly.FullName /Logger:trx
           }
+
+      - name: Publish Test Results
+        uses: dorny/test-reporter@v1
+        if: always()  # Ensures test results are published even if tests fail
+        with:
+          name: xUnit Test Results
+          path: "**/*.trx"
+          reporter: dotnet-trx
