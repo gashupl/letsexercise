@@ -5,7 +5,7 @@ name: .NET-Server-Build
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "feature/power-platform-build" ]
   pull_request:
     branches: [ "main" ]
 
