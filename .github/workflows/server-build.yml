@@ -57,7 +57,7 @@ jobs:
           reporter: dotnet-trx
 
       - name: Install Power Platform Tools
-        uses: microsoft/powerplatform-actions/actions-install@v1
+        uses: microsoft/powerplatform-actions/actions-install@v1.7.3
 
       - name: Pack Unmanaged Solution
         run: |
