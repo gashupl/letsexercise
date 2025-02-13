@@ -58,7 +58,7 @@ jobs:
 
       - name: powerplatform-actions
         uses: microsoft/powerplatform-actions@v1.7.0  
-        
+
       - name: Pack Unmanaged Solution
         run: |
           mkdir -p artifacts/unmanaged
@@ -70,13 +70,13 @@ jobs:
           pac solution pack --zipfile artifacts/managed/${{ env.PP_SOLUTION_NAME }}_managed.zip --folder solutions --packagetype Managed --map ${{ env.PP_MAPPINGS_FILE }}
 
       - name: Upload Unmanaged Solution Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: unmanaged-solution
           path: artifacts/unmanaged/${{ env.PP_SOLUTION_NAME }}_unmanaged.zip
 
       - name: Upload Managed Solution Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: managed-solution
           path: artifacts/managed/${{ env.PP_SOLUTION_NAME }}_managed.zip
