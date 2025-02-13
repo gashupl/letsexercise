@@ -56,6 +56,9 @@ jobs:
           path: "**/*.trx"
           reporter: dotnet-trx
 
+      - name: powerplatform-actions
+        uses: microsoft/powerplatform-actions@v1.7.0  
+        
       - name: Pack Unmanaged Solution
         run: |
           mkdir -p artifacts/unmanaged
