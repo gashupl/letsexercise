@@ -42,14 +42,26 @@ jobs:
         shell: pwsh
         run: |
           $actionsPath = "${{ runner.temp }}".Replace("_temp","_actions")
+          Write-Host "Actions Path: $actionsPath"
           if ($env:RUNNER_OS -eq "Windows") {
+            Write-Host "Actions executed on Windows"
+            $array1 = Get-ChildItem $actionsPath -Recurse
+             Write-Host "Contents of array1:"
+            $array1 | ForEach-Object { Write-Host $_.FullName }         
             $array = Get-ChildItem $actionsPath -Recurse | Where-Object{$_.FullName.EndsWith('pac\tools\pac.exe')}
           }
           else {
             $array = Get-ChildItem $actionsPath -Recurse | Where-Object{$_.FullName.EndsWith('pac_linux/tools/pac')}
           }
+          if ($array -eq $null -or $array.Count -eq 0) {
+            Write-Error "PAC executable not found"
+            exit 1
+          }
           $pacPath = $array[0].Directory.FullName
-          "$pacPath" >> $env:GITHUB_PATH
+          Write-Host "PAC Path: $pacPath"
+          echo "$pacPath" >> $env:GITHUB_PATH
+          echo "##vso[task.setvariable variable=PATH]$pacPath;$env:PATH"
+
 
       - name: Restore NuGet packages
         run: nuget restore ${{ env.SOLUTION_PATH }}
