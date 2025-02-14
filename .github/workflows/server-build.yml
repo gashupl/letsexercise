@@ -38,6 +38,14 @@ jobs:
       - name: Install Power Platform Tools
         uses: microsoft/powerplatform-actions/actions-install@v1
 
+      # hack, but necessary until GitHub Actions for Power Platform support all pac commands
+      - if: ${{ false }} # this will never run, but will force powerplatform-actions to download
+        name: force-pac-download
+        uses: microsoft/powerplatform-actions/unpack-solution@latest
+        with:
+          solution-file: fake.zip
+          solution-folder: fake
+
       - name: Set PAC path
         shell: pwsh
         run: |
