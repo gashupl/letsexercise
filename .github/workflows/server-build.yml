@@ -38,6 +38,19 @@ jobs:
       - name: Install Power Platform Tools
         uses: microsoft/powerplatform-actions/actions-install@v1
 
+      - name: Set PAC path
+        shell: pwsh
+        run: |
+          $actionsPath = "${{ runner.temp }}".Replace("_temp","_actions")
+          if ($env:RUNNER_OS -eq "Windows") {
+            $array = Get-ChildItem $actionsPath -Recurse | Where-Object{$_.FullName.EndsWith('pac\tools\pac.exe')}
+          }
+          else {
+            $array = Get-ChildItem $actionsPath -Recurse | Where-Object{$_.FullName.EndsWith('pac_linux/tools/pac')}
+          }
+          $pacPath = $array[0].Directory.FullName
+          "$pacPath" >> $env:GITHUB_PATH
+
       - name: Restore NuGet packages
         run: nuget restore ${{ env.SOLUTION_PATH }}
 
