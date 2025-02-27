@@ -23,7 +23,7 @@ jobs:
       TEST_ASSEMBLY_PATH: src\server\Pg.LetsExercise\**\bin\Release\*.Tests.dll
       VSTEST_CONSOLE: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\TestPlatform\vstest.console.exe
       PP_SOLUTION_NAME: LetsExercise
-      PP_MAPPINGS_FILE: infrastructure\configs\lets-exercise-mappings.xml
+      PP_MAPPINGS_FILE: infrastructure\configs\letsexercise-mappings.xml
 
     steps:
       - name: Checkout repository
