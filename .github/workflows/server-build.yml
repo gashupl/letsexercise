@@ -60,14 +60,14 @@ jobs:
           reporter: dotnet-trx
 
       - name: Pack Unmanaged Solution
-        uses: microsoft/powerplatform-actions/pack-solution
+        uses: microsoft/powerplatform-actions/pack-solution@v1
         with:
           solution-folder: solutions/${{ env.PP_SOLUTION_NAME }}
           solution-file: artifacts/unmanaged/${{ env.PP_SOLUTION_NAME }}_unmanaged.zip
           solution-type: Unmanaged
 
       - name: Pack Managed Solution
-        uses: microsoft/powerplatform-actions/pack-solution
+        uses: microsoft/powerplatform-actions/pack-solution@v1
         with:
           solution-folder: solutions/${{ env.PP_SOLUTION_NAME }}_managed
           solution-file: artifacts/managed/${{ env.PP_SOLUTION_NAME }}_managed.zip
