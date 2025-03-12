@@ -62,7 +62,7 @@ jobs:
 
       - name: Build npm project (PCF)
         run: |
-          cd ${{env.WEB_RESOURCE_FOLDER}}
+          cd ${{env.CIRCLE_PROGRESS_CONTROL_FOLDER}}
           npm run build
           
       - name: Restore NuGet packages
