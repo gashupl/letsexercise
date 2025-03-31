@@ -42,16 +42,9 @@ jobs:
         uses: NuGet/setup-nuget@v2
 
       - name: Install Power Platform Tools
-        uses: microsoft/powerplatform-actions/actions-install@v1
-
-      - name: Set PAC CLI Path
-        shell: pwsh
-        run: |
-          $actionsPath = "${{ runner.temp }}".Replace("_temp","_actions")
-          Write-Host "Actions Path: $actionsPath"
-          $pacPath = Get-ChildItem -Path $actionsPath -Recurse -Filter "pac.exe" | Select-Object -First 1 -ExpandProperty Directory
-          Write-Host "PAC Path: $pacPath"
-          echo "$pacPath" >> $env:GITHUB_PATH
+        uses: microsoft/powerplatform-actions/actions-install@v1.8.0
+        with:
+           add-tools-to-path: true
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
