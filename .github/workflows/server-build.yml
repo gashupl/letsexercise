@@ -26,6 +26,10 @@ jobs:
       VSTEST_CONSOLE: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\TestPlatform\vstest.console.exe
       PP_SOLUTION_NAME: LetsExercise
       PP_MAPPINGS_FILE: infrastructure\configs\letsexercise-mappings.xml
+      CANVASAPP_UNMANAGED_SOURCE_FOLDER: solutions\LetsExercise\CanvasApps
+      CANVASAPP_UNMANAGED_OUTPUT_FILE: solutions\LetsExercise\CanvasApps\pg_exercisetabnewrecord_ebc36_DocumentUri.msapp
+      CANVASAPP_MANAGED_SOURCE_FOLDER: solutions\LetsExercise_managed\CanvasApps
+      CANVASAPP_MANAGED_OUTPUT_FILE: solutions\LetsExercise_managed\CanvasApps\pg_exercisetabnewrecord_ebc36_DocumentUri.msapp
 
     steps:
       - name: Checkout repository
@@ -86,6 +90,26 @@ jobs:
           path: "**/*.trx"
           reporter: dotnet-trx
 
+      - name: Pack unmanaged Canvas App into .msapp
+        run: |
+          # Create output directory if it doesn't exist
+          New-Item -ItemType Directory -Force -Path (Split-Path -Parent ${{ env.CANVASAPP_UNMANAGED_OUTPUT_FILE }})
+          
+          # Pack canvas app
+          pac canvas pack `
+            --msapp ${{ env.CANVASAPP_UNMANAGED_OUTPUT_FILE }} `
+            --sources ${{ env.CANVASAPP_UNMANAGED_SOURCE_FOLDER }}
+  
+      - name: Pack managed Canvas App into .msapp
+        run: |
+          # Create output directory if it doesn't exist
+          New-Item -ItemType Directory -Force -Path (Split-Path -Parent ${{ env.CANVASAPP_MANAGED_OUTPUT_FILE }})
+          
+          # Pack canvas app
+          pac canvas pack `
+            --msapp ${{ env.CANVASAPP_MANAGED_OUTPUT_FILE }} `
+            --sources ${{ env.CANVASAPP_MANAGED_SOURCE_FOLDER }}
+
       - name: Pack Unmanaged Solution
         uses: microsoft/powerplatform-actions/pack-solution@v1
         with:
@@ -101,6 +125,12 @@ jobs:
           solution-file: artifacts/managed/${{ env.PP_SOLUTION_NAME }}_managed.zip
           solution-type: Managed
           map-file: ${{ env.PP_MAPPINGS_FILE }}
+
+      - name: Upload Canvas App Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: canvas-app
+          path: artifacts/canvas-app/LetsExercise_CanvasPss.msapp
 
       - name: Upload Unmanaged Solution Artifact
         uses: actions/upload-artifact@v4
