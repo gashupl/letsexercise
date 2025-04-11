@@ -12,6 +12,7 @@ on:
 permissions:
   checks: write  # Allows writing test reports
   pull-requests: write  # Allows reporting results on PRs
+  statuses: write  # Add this permission
   
 jobs:
   build:
