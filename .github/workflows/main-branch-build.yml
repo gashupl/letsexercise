@@ -141,3 +141,18 @@ jobs:
           name: managed-solution
           path: artifacts/managed/${{ env.PP_SOLUTION_NAME }}_managed.zip
 
+      - name: Report Status
+        if: always()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const conclusion = '${{ job.status }}'.toLowerCase();
+            await github.rest.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              sha: context.sha,
+              state: conclusion === 'success' ? 'success' : 'failure',
+              context: 'Main-Branch-Build',
+              description: conclusion === 'success' ? 'All checks passed' : 'Some checks failed'
+            });
+
