@@ -1,0 +1,142 @@
+# This workflow will build a .NET project and pack Power Platform solutions
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: Main-Branch-Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  checks: write  # Allows writing test reports
+  pull-requests: write  # Allows reporting results on PRs
+  
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    env:
+      SOLUTION_PATH: src\server\Pg.LetsExercise\Pg.LetsExercise.sln
+      TEST_ASSEMBLY_PATH: src\server\Pg.LetsExercise\**\bin\Release\*.Tests.dll
+      WEB_RESOURCE_FOLDER: src\client\Pg.LetsExercise.WebResources  
+      CIRCLE_PROGRESS_CONTROL_FOLDER: src\client\Pg.LetsExercise.CircleProgressControl
+      VSTEST_CONSOLE: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\TestPlatform\vstest.console.exe
+      PP_SOLUTION_NAME: LetsExercise
+      PP_MAPPINGS_FILE: infrastructure\configs\letsexercise-mappings.xml
+      CANVASAPP_UNMANAGED_SOURCE_FOLDER: solutions\LetsExercise\CanvasApps\pg_exercisetabnewrecord_ebc36_DocumentUri
+      CANVASAPP_UNMANAGED_OUTPUT_FILE: solutions\LetsExercise\CanvasApps\pg_exercisetabnewrecord_ebc36_DocumentUri.msapp
+      CANVASAPP_MANAGED_SOURCE_FOLDER: solutions\LetsExercise_managed\CanvasApps\pg_exercisetabnewrecord_ebc36_DocumentUri
+      CANVASAPP_MANAGED_OUTPUT_FILE: solutions\LetsExercise_managed\CanvasApps\pg_exercisetabnewrecord_ebc36_DocumentUri.msapp
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v2
+
+      - name: Install Power Platform Tools
+        uses: microsoft/powerplatform-actions/actions-install@v1.8.0
+        with:
+           add-tools-to-path: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install npm dependencies (WR)
+        run: |
+          cd ${{env.WEB_RESOURCE_FOLDER}}
+          npm install
+
+      - name: Build npm project (WR)
+        run: |
+          cd ${{env.WEB_RESOURCE_FOLDER}}
+          npm run build
+  
+      - name: Install npm dependencies (PCF)
+        run: |
+          cd ${{env.CIRCLE_PROGRESS_CONTROL_FOLDER}}
+          npm install
+
+      - name: Build npm project (PCF)
+        run: |
+          cd ${{env.CIRCLE_PROGRESS_CONTROL_FOLDER}}
+          npm run build
+          
+      - name: Restore NuGet packages
+        run: nuget restore ${{ env.SOLUTION_PATH }}
+
+      - name: Build solution
+        run: msbuild ${{ env.SOLUTION_PATH }} /p:Configuration=Release /p:Platform="Any CPU"
+
+      - name: Run xUnit tests with Visual Studio 2022 Test Runner
+        run: |
+          $testAssemblies = Get-ChildItem -Path "${{ env.TEST_ASSEMBLY_PATH }}" -Recurse
+          foreach ($assembly in $testAssemblies) {
+            & "${{ env.VSTEST_CONSOLE }}" $assembly.FullName /Logger:trx
+          }
+
+      - name: Publish Test Results
+        uses: dorny/test-reporter@v1
+        if: always()  # Ensures test results are published even if tests fail
+        with:
+          name: xUnit Test Results
+          path: "**/*.trx"
+          reporter: dotnet-trx
+
+      - name: Pack unmanaged Canvas App into .msapp
+        run: |
+          # Create output directory if it doesn't exist
+          New-Item -ItemType Directory -Force -Path (Split-Path -Parent ${{ env.CANVASAPP_UNMANAGED_OUTPUT_FILE }})
+          
+          # Pack canvas app
+          pac canvas pack `
+            --msapp ${{ env.CANVASAPP_UNMANAGED_OUTPUT_FILE }} `
+            --sources ${{ env.CANVASAPP_UNMANAGED_SOURCE_FOLDER }}
+  
+      - name: Pack managed Canvas App into .msapp
+        run: |
+          # Create output directory if it doesn't exist
+          New-Item -ItemType Directory -Force -Path (Split-Path -Parent ${{ env.CANVASAPP_MANAGED_OUTPUT_FILE }})
+          
+          # Pack canvas app
+          pac canvas pack `
+            --msapp ${{ env.CANVASAPP_MANAGED_OUTPUT_FILE }} `
+            --sources ${{ env.CANVASAPP_MANAGED_SOURCE_FOLDER }}
+
+      - name: Pack Unmanaged Solution
+        uses: microsoft/powerplatform-actions/pack-solution@v1
+        with:
+          solution-folder: solutions/${{ env.PP_SOLUTION_NAME }}
+          solution-file: artifacts/unmanaged/${{ env.PP_SOLUTION_NAME }}_unmanaged.zip
+          solution-type: Unmanaged
+          map-file: ${{ env.PP_MAPPINGS_FILE }}
+
+      - name: Pack Managed Solution
+        uses: microsoft/powerplatform-actions/pack-solution@v1
+        with:
+          solution-folder: solutions/${{ env.PP_SOLUTION_NAME }}_managed
+          solution-file: artifacts/managed/${{ env.PP_SOLUTION_NAME }}_managed.zip
+          solution-type: Managed
+          map-file: ${{ env.PP_MAPPINGS_FILE }}
+
+      - name: Upload Unmanaged Solution Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: unmanaged-solution
+          path: artifacts/unmanaged/${{ env.PP_SOLUTION_NAME }}_unmanaged.zip
+
+      - name: Upload Managed Solution Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: managed-solution
+          path: artifacts/managed/${{ env.PP_SOLUTION_NAME }}_managed.zip
+
