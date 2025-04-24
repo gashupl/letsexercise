@@ -1,7 +1,8 @@
 ﻿using FakeXrmEasy;
 using Microsoft.Xrm.Sdk;
-using Pg.LetsExercise.Plugins.Infrastructure;
-using Pg.LetsExercise.Plugins.Model;
+using Pg.LetsExercise.Infrastructure.Repositories;
+using Pg.LetsExercise.Infrastructure;
+using Pg.LetsExercise.Model;
 using System;
 using System.Collections.Generic;
 using System.Reflection;

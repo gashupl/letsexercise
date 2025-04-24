@@ -1,8 +1,8 @@
 ﻿using Microsoft.Xrm.Sdk;
 using Moq;
-using Pg.LetsExercise.Plugins.Domain;
-using Pg.LetsExercise.Plugins.Infrastructure;
-using Pg.LetsExercise.Plugins.Model;
+using Pg.LetsExercis.Domain.Services;
+using Pg.LetsExercise.Domain.Repositories;
+using Pg.LetsExercise.Model;
 using System;
 using System.Collections.Generic;
 using Xunit;

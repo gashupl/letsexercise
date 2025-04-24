@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AECD79A5-77F3-44E1-BB55-E21003630D5E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Pg.LetsExercise.Model</RootNamespace>
+    <AssemblyName>Pg.LetsExercise.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Crm.Sdk.Proxy, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CrmSdk.CoreAssemblies.9.0.2.59\lib\net462\Microsoft.Crm.Sdk.Proxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Sdk, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CrmSdk.CoreAssemblies.9.0.2.59\lib\net462\Microsoft.Xrm.Sdk.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Http, Version=4.10.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Http.4.10.3\lib\net461\System.ServiceModel.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Primitives, Version=4.10.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Primitives.4.10.3\lib\net461\System.ServiceModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.8.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=8.0.0.5, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.8.0.5\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataverseContext.cs" />
+    <Compile Include="Entities\pg_exercisegoal.cs" />
+    <Compile Include="Entities\pg_exerciserecord.cs" />
+    <Compile Include="Entities\systemuser.cs" />
+    <Compile Include="EntityOptionSetEnum.cs" />
+    <Compile Include="OptionSets\activityfileattachment_objectcode.cs" />
+    <Compile Include="OptionSets\activitypointer_activitytypecode.cs" />
+    <Compile Include="OptionSets\activitypointer_deliveryprioritycode.cs" />
+    <Compile Include="OptionSets\aioperationoverridetype.cs" />
+    <Compile Include="OptionSets\aiplugintype.cs" />
+    <Compile Include="OptionSets\botcomponentreusepolicy.cs" />
+    <Compile Include="OptionSets\botsharingroletypes.cs" />
+    <Compile Include="OptionSets\bulkemail_recipient.cs" />
+    <Compile Include="OptionSets\bulkemail_recipients.cs" />
+    <Compile Include="OptionSets\capability.cs" />
+    <Compile Include="OptionSets\chatbotlanguage.cs" />
+    <Compile Include="OptionSets\componentstate.cs" />
+    <Compile Include="OptionSets\componenttype.cs" />
+    <Compile Include="OptionSets\connectionrole_category.cs" />
+    <Compile Include="OptionSets\connectortype.cs" />
+    <Compile Include="OptionSets\convertrule_channelactivity.cs" />
+    <Compile Include="OptionSets\customapifieldtype.cs" />
+    <Compile Include="OptionSets\delete_recurringappointmentmaster.cs" />
+    <Compile Include="OptionSets\dependencytype.cs" />
+    <Compile Include="OptionSets\emailserverprofile_authenticationprotocol.cs" />
+    <Compile Include="OptionSets\field_security_permission_readunmasked.cs" />
+    <Compile Include="OptionSets\field_security_permission_type.cs" />
+    <Compile Include="OptionSets\flipswitch_options.cs" />
+    <Compile Include="OptionSets\fullsyncstate.cs" />
+    <Compile Include="OptionSets\goal_fiscalperiod.cs" />
+    <Compile Include="OptionSets\goal_fiscalyear.cs" />
+    <Compile Include="OptionSets\isinherited.cs" />
+    <Compile Include="OptionSets\knowledgearticle_expirationstate.cs" />
+    <Compile Include="OptionSets\mainfewshotentitytype.cs" />
+    <Compile Include="OptionSets\makerfewshotsqlcorrectness.cs" />
+    <Compile Include="OptionSets\metric_goaltype.cs" />
+    <Compile Include="OptionSets\mobileofflineenabledentities.cs" />
+    <Compile Include="OptionSets\msdynce_contentstate.cs" />
+    <Compile Include="OptionSets\msdyn_dataflowtemplatestate.cs" />
+    <Compile Include="OptionSets\msdyn_numberofsearchresults.cs" />
+    <Compile Include="OptionSets\mspp_columnpermissionvalues.cs" />
+    <Compile Include="OptionSets\officedocument_documenttype.cs" />
+    <Compile Include="OptionSets\onlinemeetingtype.cs" />
+    <Compile Include="OptionSets\openaischemaversion.cs" />
+    <Compile Include="OptionSets\orginsightsconfiguration_lookback.cs" />
+    <Compile Include="OptionSets\orginsightsconfiguration_plotoption.cs" />
+    <Compile Include="OptionSets\pg_exercisegoaltypeset.cs" />
+    <Compile Include="OptionSets\pg_exerciseset.cs" />
+    <Compile Include="OptionSets\photo_resolution.cs" />
+    <Compile Include="OptionSets\powerbimashupparametervaluesource.cs" />
+    <Compile Include="OptionSets\powerpagecomponenttype.cs" />
+    <Compile Include="OptionSets\powerpagelanguages.cs" />
+    <Compile Include="OptionSets\principalsyncattributemapping_syncdirection.cs" />
+    <Compile Include="OptionSets\processstage_category.cs" />
+    <Compile Include="OptionSets\rangeends_options.cs" />
+    <Compile Include="OptionSets\recurrencerule_monthofyear.cs" />
+    <Compile Include="OptionSets\registrationstatustype.cs" />
+    <Compile Include="OptionSets\repeatpattern_options.cs" />
+    <Compile Include="OptionSets\rundesktopflowconnectiontype.cs" />
+    <Compile Include="OptionSets\sameweekday_options.cs" />
+    <Compile Include="OptionSets\sameweekweek_options.cs" />
+    <Compile Include="OptionSets\searchentity.cs" />
+    <Compile Include="OptionSets\sharepointdocumentlocation_locationtype.cs" />
+    <Compile Include="OptionSets\sharepointsite_servicetype.cs" />
+    <Compile Include="OptionSets\sharepoint_validationstatus.cs" />
+    <Compile Include="OptionSets\sharepoint_validationstatusreason.cs" />
+    <Compile Include="OptionSets\socialactivity_postmessagetype.cs" />
+    <Compile Include="OptionSets\socialprofile_community.cs" />
+    <Compile Include="OptionSets\synapselinkdestinationsyncstate.cs" />
+    <Compile Include="OptionSets\synapselinkentitymetadatastate.cs" />
+    <Compile Include="OptionSets\synapselinkentitypartitionstrategy.cs" />
+    <Compile Include="OptionSets\synapselinkentitysource.cs" />
+    <Compile Include="OptionSets\synapselinkentitysyncstate.cs" />
+    <Compile Include="OptionSets\synapselinkexternaltablestate.cs" />
+    <Compile Include="OptionSets\synapselinkprofileentitytype.cs" />
+    <Compile Include="OptionSets\synapselinkprofilestate.cs" />
+    <Compile Include="OptionSets\synapselinkprofiletype.cs" />
+    <Compile Include="OptionSets\synapselinkschedulerecurrenceunit.cs" />
+    <Compile Include="OptionSets\synapselinkscheduletype.cs" />
+    <Compile Include="OptionSets\synapselinksynapsetablecreationstate.cs" />
+    <Compile Include="OptionSets\syncattributemapping_syncdirection.cs" />
+    <Compile Include="OptionSets\syncstatus.cs" />
+    <Compile Include="OptionSets\workflowlog_objecttypecode.cs" />
+    <Compile Include="OptionSets\workflow_runas.cs" />
+    <Compile Include="OptionSets\workflow_stage.cs" />
+    <Compile Include="OptionSets\yearlymonth_options.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
