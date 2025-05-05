@@ -2,8 +2,6 @@ using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Extensions;
 using Microsoft.Xrm.Sdk.PluginTelemetry;
 using Pg.LetsExercise.Plugins.Core;
-using Pg.LetsExercise.Domain;
-using Pg.LetsExercise.Infrastructure;
 using System;
 using System.Runtime.CompilerServices;
 using System.ServiceModel;
@@ -11,6 +9,7 @@ using Pg.LetsExercise.Domain.Repositories;
 using Pg.LetsExercise.Infrastructure.Repositories;
 using Pg.LetsExercis.Domain.Services;
 using Pg.LetsExercise.Domain.Services;
+using Pg.LetsExercise.Model;
 
 namespace Pg.LetsExercise.Plugins
 {
@@ -32,6 +31,13 @@ namespace Pg.LetsExercise.Plugins
             if (serviceProvider == null)
             {
                 throw new InvalidPluginExecutionException(nameof(serviceProvider));
+            }
+
+            var serviceFactory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
+            var proxyProvider = serviceFactory as IProxyTypesAssemblyProvider;
+            if (proxyProvider != null)
+            {
+                proxyProvider.ProxyTypesAssembly = typeof(DataverseContext).Assembly;
             }
 
             // Construct the local plug-in context.
