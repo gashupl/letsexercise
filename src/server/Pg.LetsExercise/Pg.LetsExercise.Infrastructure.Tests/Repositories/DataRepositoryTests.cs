@@ -7,8 +7,8 @@ using System.Collections.Generic;
 using System.Reflection;
 using Xunit;
 
-namespace Pg.LetsExercise.Plugins.Tests.Infrastructure
-{
+namespace Pg.LetsExercise.Infrastructure.Tests.Repositories
+{ 
     public class DataRepositoryTests
     {
         private readonly IOrganizationService _service;
