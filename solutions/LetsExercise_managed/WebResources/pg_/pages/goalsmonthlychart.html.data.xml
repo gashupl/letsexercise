@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{37fdf9c8-43a6-ef11-b8e8-6045bd9f9c28}</WebResourceId>
+  <Name>pg_/pages/goalsmonthlychart.html</Name>
+  <DisplayName>pg_/pages/goalsmonthlychart.html</DisplayName>
+  <LanguageCode>0</LanguageCode>
+  <WebResourceType>1</WebResourceType>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/pg_pagesgoalsmonthlycharthtml37FDF9C8-43A6-EF11-B8E8-6045BD9F9C28</FileName>
+</WebResource>

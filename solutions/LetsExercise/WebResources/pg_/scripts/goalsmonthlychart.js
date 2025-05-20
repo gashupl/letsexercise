@@ -1,0 +1,2 @@
+var LetsExercise;(()=>{"use strict";var e={};(()=>{var o=e;Object.defineProperty(o,"__esModule",{value:!0}),o.GoalsMonthlyChart=void 0;o.GoalsMonthlyChart=class{execute(){console.log("GoalsMonthlyChart.execute()");const e=window.parent.Xrm||window.top.Xrm;if(e){console.log("Xrm context is available");const o=e.Utility.getGlobalContext().userSettings.userId;console.log("Current User ID:",o)}else console.log("Xrm context is not available")}}})(),LetsExercise=e})();
+//# sourceMappingURL=maps/goalsmonthlychart.js.map

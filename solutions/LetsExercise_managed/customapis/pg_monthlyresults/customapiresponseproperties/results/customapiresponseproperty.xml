@@ -1,0 +1,11 @@
+<customapiresponseproperty uniquename="results">
+  <description default="JSON string with push-ups results between start and end month">
+    <label description="JSON string with push-ups results between start and end month" languagecode="1033" />
+  </description>
+  <displayname default="Results">
+    <label description="Results" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <name>results</name>
+  <type>10</type>
+</customapiresponseproperty>

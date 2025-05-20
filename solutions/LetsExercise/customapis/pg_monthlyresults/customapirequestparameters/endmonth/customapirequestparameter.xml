@@ -1,0 +1,12 @@
+<customapirequestparameter uniquename="endmonth">
+  <description default="End Month">
+    <label description="End Month" languagecode="1033" />
+  </description>
+  <displayname default="End Month">
+    <label description="End Month" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isoptional>0</isoptional>
+  <name>endmonth</name>
+  <type>10</type>
+</customapirequestparameter>
