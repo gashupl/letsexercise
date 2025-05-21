@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Pg.LetsExercise.Plugins.Core
+﻿namespace Pg.LetsExercise.Plugins.Core
 {
     public interface IDependencyLoader
     {
-        void Register(ILocalPluginContext localPluginContext); 
+        void Register<I, C>() where C : I;
+
+        I Get<I>() where I : class; 
+
     }
 }

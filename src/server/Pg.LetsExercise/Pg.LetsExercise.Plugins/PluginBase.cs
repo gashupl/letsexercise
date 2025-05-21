@@ -16,16 +16,14 @@ namespace Pg.LetsExercise.Plugins
     public abstract class PluginBase : IPlugin
     {
         protected string PluginClassName { get; }
-        public IDependencyLoader DependencyLoader { get; set; }
+        public virtual IDependencyLoader DependencyLoader { get; set; }
         public IRepository DataRepository { get; set; }
-        public IGoalCompletionService GoalCompletionService { get; set; }
 
         internal PluginBase(Type pluginClassName)
         {
             PluginClassName = pluginClassName.ToString();
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", Justification = "Execute")]
         public void Execute(IServiceProvider serviceProvider)
         {
             if (serviceProvider == null)
@@ -47,15 +45,8 @@ namespace Pg.LetsExercise.Plugins
                 $"Correlation Id: {localPluginContext.PluginExecutionContext.CorrelationId}, " +
                 $"Initiating User: {localPluginContext.PluginExecutionContext.InitiatingUserId}");
 
-            if(DependencyLoader == null)
-            {
-                RegisterDefaults(localPluginContext);
-            }
-            else
-            {
-                DependencyLoader.Register(localPluginContext);
-            }
-                
+            RegisterDefaults(localPluginContext);
+
             try
             {
                 // Invoke the custom implementation
@@ -78,8 +69,7 @@ namespace Pg.LetsExercise.Plugins
 
         public void RegisterDefaults(ILocalPluginContext localPluginContext)
         {
-            DataRepository = new DataRepository(localPluginContext.PluginUserService);
-            GoalCompletionService = new GoalCompletionService(DataRepository, localPluginContext.TracingService);   
+            this.DependencyLoader.Register<IRepository, DataRepository>();             
         }
 
         protected virtual void ExecuteDataversePlugin(ILocalPluginContext localPluginContext)

@@ -2,11 +2,24 @@
 using Pg.LetsExercise.Plugins.Core;
 using Pg.LetsExercise.Model;
 using System;
+using Pg.LetsExercis.Domain.Services;
+using Pg.LetsExercise.Domain.Services;
 
 namespace Pg.LetsExercise.Plugins
 {
-    internal class ExerciseGoalRetrieveMultipleHandler : PluginBase
+
+    public class ExerciseGoalRetrieveMultipleDependencyLoader : DependencyLoaderBase
     {
+        public ExerciseGoalRetrieveMultipleDependencyLoader()
+        {
+            Register<IGoalCompletionService, GoalCompletionService>();
+        }
+    }
+    public class ExerciseGoalRetrieveMultipleHandler : PluginBase
+    {
+
+        public override IDependencyLoader DependencyLoader => new ExerciseGoalRetrieveMultipleDependencyLoader();
+
         public ExerciseGoalRetrieveMultipleHandler(string unsecureConfiguration, string secureConfiguration)
             : base(typeof(ExerciseGoalRetrieveMultipleHandler))
         {
@@ -33,7 +46,9 @@ namespace Pg.LetsExercise.Plugins
                     foreach (Entity entity in businessEntityCollection.Entities)
                     {
                         var goal = entity.ToEntity<pg_exercisegoal>();
-                        goal.pg_completedpercentage = GoalCompletionService.GetCompletionPercentage(goal.Id);
+
+                        var goalCompletionService = DependencyLoader.Get<IGoalCompletionService>();
+                        goal.pg_completedpercentage = goalCompletionService.GetCompletionPercentage(goal.Id);
                     }
                 }
                 else

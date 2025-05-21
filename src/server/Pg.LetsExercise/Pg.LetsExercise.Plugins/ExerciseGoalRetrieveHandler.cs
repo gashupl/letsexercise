@@ -2,11 +2,24 @@ using Microsoft.Xrm.Sdk;
 using Pg.LetsExercise.Plugins.Core;
 using Pg.LetsExercise.Model;
 using System;
+using Pg.LetsExercise.Domain.Services;
+using Pg.LetsExercis.Domain.Services;
 
 namespace Pg.LetsExercise.Plugins
 {
+    public  class ExerciseGoalRetrieveDependencyLoader: DependencyLoaderBase
+    {
+        public ExerciseGoalRetrieveDependencyLoader()
+        {
+            Register<IGoalCompletionService, GoalCompletionService>();
+        }
+    }
+
     public class ExerciseGoalRetrieveHandler : PluginBase
     {
+
+        public override IDependencyLoader DependencyLoader => new ExerciseGoalRetrieveDependencyLoader();
+
         public ExerciseGoalRetrieveHandler(string unsecureConfiguration, string secureConfiguration)
             : base(typeof(ExerciseGoalRetrieveHandler))
         {
@@ -30,7 +43,9 @@ namespace Pg.LetsExercise.Plugins
                 if (outputEntity != null)
                 {
                     var goal = outputEntity.ToEntity<pg_exercisegoal>();
-                    goal.pg_completedpercentage = GoalCompletionService.GetCompletionPercentage(goal.Id);
+
+                    var goalCompletionService = DependencyLoader.Get<IGoalCompletionService>();
+                    goal.pg_completedpercentage = goalCompletionService.GetCompletionPercentage(goal.Id);
                 }
             }
             else
