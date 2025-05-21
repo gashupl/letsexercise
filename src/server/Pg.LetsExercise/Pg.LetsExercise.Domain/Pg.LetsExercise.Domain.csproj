@@ -96,10 +96,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dto\MonthlyResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Services\GoalCompletionService.cs" />
     <Compile Include="Services\IGoalCompletionService.cs" />
+    <Compile Include="Services\IInputParameterToDateService.cs" />
+    <Compile Include="Services\IMonthlyResultService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Pg.LetsExercise.Model\Pg.LetsExercise.Model.csproj">
