@@ -94,7 +94,7 @@ namespace Pg.LetsExercise.Domain.Tests.Services
             var expected = 50; // 50%
 
             //Act
-            var actual = GetActualPercentage(pg_exercisegoaltypeset.Daily); 
+            var actual = GetActualPercentage(pg_ExerciseGoalTypeSet.Daily); 
 
             //Assert
             Assert.Equal(expected, actual);
@@ -107,7 +107,7 @@ namespace Pg.LetsExercise.Domain.Tests.Services
             var expected = 50; // 50%
 
             //Act
-            var actual = GetActualPercentage(pg_exercisegoaltypeset.Weekly);
+            var actual = GetActualPercentage(pg_ExerciseGoalTypeSet.Weekly);
 
             //Assert
             Assert.Equal(expected, actual);
@@ -121,7 +121,7 @@ namespace Pg.LetsExercise.Domain.Tests.Services
             var expected = 50; // 50%
 
             //Act
-            var actual = GetActualPercentage(pg_exercisegoaltypeset.Monthly);
+            var actual = GetActualPercentage(pg_ExerciseGoalTypeSet.Monthly);
 
             //Assert
             Assert.Equal(expected, actual);
@@ -135,7 +135,7 @@ namespace Pg.LetsExercise.Domain.Tests.Services
             var expected = 50; // 50%
 
             //Act
-            var actual = GetActualPercentage(pg_exercisegoaltypeset.Yearly);
+            var actual = GetActualPercentage(pg_ExerciseGoalTypeSet.Yearly);
 
             //Assert
             Assert.Equal(expected, actual);
@@ -156,14 +156,14 @@ namespace Pg.LetsExercise.Domain.Tests.Services
             Assert.Equal("Not enough data to calculate goal completion", exception.Message);
         }
 
-        private int GetActualPercentage(pg_exercisegoaltypeset type)
+        private int GetActualPercentage(pg_ExerciseGoalTypeSet type)
         {
             var repo = GetMockedRepository(type);
             var service = new GoalCompletionService(repo, _tracingServiceMock.Object);
             return service.GetCompletionPercentage(Guid.NewGuid());
         }
 
-        private IRepository GetMockedRepository(pg_exercisegoaltypeset type)
+        private IRepository GetMockedRepository(pg_ExerciseGoalTypeSet type)
         {
 
             var list = new List<pg_exerciserecord> { new pg_exerciserecord { pg_scorenumber = 5 } }; 
@@ -173,24 +173,24 @@ namespace Pg.LetsExercise.Domain.Tests.Services
             {
                 pg_goaltype = type,
                 pg_scorenumber = 10, 
-                pg_Exercise = pg_exerciseset.Pushups, 
+                pg_Exercise = pg_ExerciseSet.PushUps, 
                 OwnerId = new EntityReference { Id = Guid.NewGuid() }   
             });
 
             repo.Setup(r => r.GetCurrentDayRecords(
-                It.IsAny<DateTime>(), It.IsAny<Guid>(), It.IsAny<pg_exerciseset>()))
+                It.IsAny<DateTime>(), It.IsAny<Guid>(), It.IsAny<pg_ExerciseSet>()))
                 .Returns(list);
 
             repo.Setup(r => r.GetCurrentWeekRecords(
-                It.IsAny<DateTime>(), It.IsAny<Guid>(), It.IsAny<pg_exerciseset>()))
+                It.IsAny<DateTime>(), It.IsAny<Guid>(), It.IsAny<pg_ExerciseSet>()))
                 .Returns(list);
 
             repo.Setup(r => r.GetCurrentMonthRecords(
-                It.IsAny<DateTime>(), It.IsAny<Guid>(), It.IsAny<pg_exerciseset>()))
+                It.IsAny<DateTime>(), It.IsAny<Guid>(), It.IsAny<pg_ExerciseSet>()))
                 .Returns(list);
 
             repo.Setup(r => r.GetCurrentYearRecords(
-                It.IsAny<DateTime>(), It.IsAny<Guid>(), It.IsAny<pg_exerciseset>()))
+                It.IsAny<DateTime>(), It.IsAny<Guid>(), It.IsAny<pg_ExerciseSet>()))
                 .Returns(list);
 
             return repo.Object; 

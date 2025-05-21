@@ -33,22 +33,22 @@ namespace Pg.LetsExercis.Domain.Services
             var now = DateTime.Now.ToUniversalTime(); 
             _tracingService.Trace($"Date now: {now}");
 
-            if(goal.pg_goaltype == pg_exercisegoaltypeset.Daily)
+            if(goal.pg_goaltype == pg_ExerciseGoalTypeSet.Daily)
             {
                 records 
                     = _repository.GetCurrentDayRecords(now, goal.OwnerId.Id, goal.pg_Exercise.Value);            
             }
-            else if (goal.pg_goaltype == pg_exercisegoaltypeset.Weekly)
+            else if (goal.pg_goaltype == pg_ExerciseGoalTypeSet.Weekly)
             {
                 records
                     = _repository.GetCurrentWeekRecords(now, goal.OwnerId.Id, goal.pg_Exercise.Value);
             }
-            else if(goal.pg_goaltype == pg_exercisegoaltypeset.Monthly)
+            else if(goal.pg_goaltype == pg_ExerciseGoalTypeSet.Monthly)
             {
                 records
                     = _repository.GetCurrentMonthRecords(now, goal.OwnerId.Id, goal.pg_Exercise.Value);
             }
-            else if(goal.pg_goaltype == pg_exercisegoaltypeset.Yearly)
+            else if(goal.pg_goaltype == pg_ExerciseGoalTypeSet.Yearly)
             {
                 records
                     = _repository.GetCurrentYearRecords(now, goal.OwnerId.Id, goal.pg_Exercise.Value);
@@ -58,7 +58,7 @@ namespace Pg.LetsExercis.Domain.Services
                 throw new InvalidPluginExecutionException("Invalid goal type");
             }
 
-            _tracingService.Trace($"Records count: {records.Count} for {pg_exercisegoaltypeset.Daily} type");
+            _tracingService.Trace($"Records count: {records.Count} for {pg_ExerciseGoalTypeSet.Daily} type");
 
             return GetPercentage(records, goal.pg_scorenumber.Value);
         }

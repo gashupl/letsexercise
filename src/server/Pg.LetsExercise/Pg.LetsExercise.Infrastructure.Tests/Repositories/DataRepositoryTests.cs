@@ -24,7 +24,7 @@ namespace Pg.LetsExercise.Infrastructure.Tests.Repositories
         public void GetCurrentDayRecords_ReturnsSingleRecord()
         {
             var repo = new DataRepository(_service); 
-            var actual = repo.GetCurrentDayRecords(new DateTime(2024, 01, 01, 11, 22, 33), _ownerId, pg_exerciseset.Pushups);
+            var actual = repo.GetCurrentDayRecords(new DateTime(2024, 01, 01, 11, 22, 33), _ownerId, pg_ExerciseSet.PushUps);
             Assert.Single(actual); 
         }
 
@@ -32,7 +32,7 @@ namespace Pg.LetsExercise.Infrastructure.Tests.Repositories
         public void GetCurrentDayRecords_ReturnsEmptyList()
         {
             var repo = new DataRepository(_service);
-            var actual = repo.GetCurrentDayRecords(new DateTime(2023, 01, 01), _ownerId, pg_exerciseset.Pushups);
+            var actual = repo.GetCurrentDayRecords(new DateTime(2023, 01, 01), _ownerId, pg_ExerciseSet.PushUps);
             Assert.Empty(actual);
         }
 
@@ -40,7 +40,7 @@ namespace Pg.LetsExercise.Infrastructure.Tests.Repositories
         public void GetCurrentWeekRecords_ReturnsSingleRecord()
         {
             var repo = new DataRepository(_service);
-            var actual = repo.GetCurrentWeekRecords(new DateTime(2024, 01, 02), _ownerId, pg_exerciseset.Pushups);
+            var actual = repo.GetCurrentWeekRecords(new DateTime(2024, 01, 02), _ownerId, pg_ExerciseSet.PushUps);
             Assert.Single(actual);
         }
 
@@ -48,7 +48,7 @@ namespace Pg.LetsExercise.Infrastructure.Tests.Repositories
         public void GetCurrentWeekRecords_ReturnsEmptyList()
         {
             var repo = new DataRepository(_service);
-            var actual = repo.GetCurrentWeekRecords(new DateTime(2024, 01, 8), _ownerId, pg_exerciseset.Pushups);
+            var actual = repo.GetCurrentWeekRecords(new DateTime(2024, 01, 8), _ownerId, pg_ExerciseSet.PushUps);
             Assert.Empty(actual);
         }
 
@@ -56,7 +56,7 @@ namespace Pg.LetsExercise.Infrastructure.Tests.Repositories
         public void GetCurrentMonthRecords_ReturnsSingleRecord()
         {
             var repo = new DataRepository(_service);
-            var actual = repo.GetCurrentMonthRecords(new DateTime(2024, 01, 8), _ownerId, pg_exerciseset.Pushups);
+            var actual = repo.GetCurrentMonthRecords(new DateTime(2024, 01, 8), _ownerId, pg_ExerciseSet.PushUps);
             Assert.Single(actual);
         }
 
@@ -64,7 +64,7 @@ namespace Pg.LetsExercise.Infrastructure.Tests.Repositories
         public void GetCurrentMonthRecords_ReturnsEmptyList()
         {
             var repo = new DataRepository(_service);
-            var actual = repo.GetCurrentMonthRecords(new DateTime(2024, 02, 01), _ownerId, pg_exerciseset.Pushups);
+            var actual = repo.GetCurrentMonthRecords(new DateTime(2024, 02, 01), _ownerId, pg_ExerciseSet.PushUps);
             Assert.Empty(actual);
         }
 
@@ -72,7 +72,7 @@ namespace Pg.LetsExercise.Infrastructure.Tests.Repositories
         public void GetCurrentYearRecords_ReturnsSingleRecord()
         {
             var repo = new DataRepository(_service);
-            var actual = repo.GetCurrentYearRecords(new DateTime(2024, 06, 8), _ownerId, pg_exerciseset.Pushups);
+            var actual = repo.GetCurrentYearRecords(new DateTime(2024, 06, 8), _ownerId, pg_ExerciseSet.PushUps);
             Assert.Single(actual);
         }
 
@@ -80,7 +80,7 @@ namespace Pg.LetsExercise.Infrastructure.Tests.Repositories
         public void GetCurrentYearRecords_ReturnsEmptyList()
         {
             var repo = new DataRepository(_service);
-            var actual = repo.GetCurrentYearRecords(new DateTime(2025, 01, 01), _ownerId, pg_exerciseset.Pushups);
+            var actual = repo.GetCurrentYearRecords(new DateTime(2025, 01, 01), _ownerId, pg_ExerciseSet.PushUps);
             Assert.Empty(actual);
         }
 
@@ -108,15 +108,15 @@ namespace Pg.LetsExercise.Infrastructure.Tests.Repositories
             {
                 Id = Guid.NewGuid(),
                 pg_date = new DateTime(2024, 1, 1),
-                pg_exercise = pg_exerciseset.Pushups,
+                pg_exercise = pg_ExerciseSet.PushUps,
                 OwnerId = new EntityReference(SystemUser.EntityLogicalName, _ownerId)
             }; 
 
             var goal = new pg_exercisegoal
             {
                 Id = _goalId,
-                pg_Exercise = pg_exerciseset.Pushups,
-                pg_goaltype = pg_exercisegoaltypeset.Daily,
+                pg_Exercise = pg_ExerciseSet.PushUps,
+                pg_goaltype = pg_ExerciseGoalTypeSet.Daily,
                 pg_scorenumber = 10,
                 OwnerId = new EntityReference(SystemUser.EntityLogicalName, _ownerId)
             };

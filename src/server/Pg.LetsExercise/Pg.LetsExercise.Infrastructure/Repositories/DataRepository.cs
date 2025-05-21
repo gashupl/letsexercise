@@ -17,7 +17,7 @@ namespace Pg.LetsExercise.Infrastructure.Repositories
             _service = service;
         }
 
-        public IList<pg_exerciserecord> GetCurrentDayRecords(DateTime now, Guid ownerId, pg_exerciseset exercise)
+        public IList<pg_exerciserecord> GetCurrentDayRecords(DateTime now, Guid ownerId, pg_ExerciseSet exercise)
         {
             var entities = this._service.RetrieveMultiple(
                 new QueryExpression(pg_exerciserecord.EntityLogicalName)
@@ -36,7 +36,7 @@ namespace Pg.LetsExercise.Infrastructure.Repositories
 
             return entities.Entities.Select(e => e.ToEntity<pg_exerciserecord>()).ToList();
         }
-        public IList<pg_exerciserecord> GetCurrentWeekRecords(DateTime now, Guid ownerId, pg_exerciseset exercise)
+        public IList<pg_exerciserecord> GetCurrentWeekRecords(DateTime now, Guid ownerId, pg_ExerciseSet exercise)
         {
             var startOfWeek = now.AddDays(-(int)now.DayOfWeek);
             var endOfWeek = startOfWeek.AddDays(7);
@@ -52,7 +52,7 @@ namespace Pg.LetsExercise.Infrastructure.Repositories
             }
         }
 
-        public IList<pg_exerciserecord> GetCurrentMonthRecords(DateTime now, Guid ownerId, pg_exerciseset exercise)
+        public IList<pg_exerciserecord> GetCurrentMonthRecords(DateTime now, Guid ownerId, pg_ExerciseSet exercise)
         {
             var firstDayOfMonth = new DateTime(now.Year, now.Month, 1);
             var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
@@ -68,7 +68,7 @@ namespace Pg.LetsExercise.Infrastructure.Repositories
             }
         }
 
-        public IList<pg_exerciserecord> GetCurrentYearRecords(DateTime now, Guid ownerId, pg_exerciseset exercise)
+        public IList<pg_exerciserecord> GetCurrentYearRecords(DateTime now, Guid ownerId, pg_ExerciseSet exercise)
         {
             DateTime firstDayOfYear = new DateTime(now.Year, 1, 1);
             DateTime lastDayOfYear = new DateTime(now.Year, 12, 31);

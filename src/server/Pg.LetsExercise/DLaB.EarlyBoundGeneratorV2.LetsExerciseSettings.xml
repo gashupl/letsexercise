@@ -10,7 +10,7 @@
   <EntityTypesFolder>Entities</EntityTypesFolder>
   <ExtensionConfig>
     <ActionPrefixesWhitelist />
-    <ActionsWhitelist>analyze</ActionsWhitelist>
+    <ActionsWhitelist>pg_monthlyresults</ActionsWhitelist>
     <ActionsToSkip />
     <AddDebuggerNonUserCode>true</AddDebuggerNonUserCode>
     <AddNewFilesToProject>true</AddNewFilesToProject>
@@ -26,12 +26,10 @@
     <CreateOneFilePerAction>true</CreateOneFilePerAction>
     <CreateOneFilePerEntity>true</CreateOneFilePerEntity>
     <CreateOneFilePerOptionSet>true</CreateOneFilePerOptionSet>
-    <DeleteFilesFromOutputFolders>false</DeleteFilesFromOutputFolders>
+    <DeleteFilesFromOutputFolders>true</DeleteFilesFromOutputFolders>
     <EntitiesToSkip />
-    <EntitiesWhitelist>account|
-contact|
-lead|
-opportunity|
+    <EntitiesWhitelist>pg_exercisegoal|
+pg_exerciserecord|
 systemuser</EntitiesWhitelist>
     <EntityAttributeSpecifiedNames />
     <EntityClassNameOverrides />
@@ -44,7 +42,7 @@ systemuser</EntitiesWhitelist>
     <GenerateConstructorsSansLogicalName>true</GenerateConstructorsSansLogicalName>
     <GenerateEntityRelationships>true</GenerateEntityRelationships>
     <GenerateEnumProperties>true</GenerateEnumProperties>
-    <GenerateGlobalOptionSets>true</GenerateGlobalOptionSets>
+    <GenerateGlobalOptionSets>false</GenerateGlobalOptionSets>
     <GenerateINotifyPattern>false</GenerateINotifyPattern>
     <GenerateOptionSetMetadataAttribute>true</GenerateOptionSetMetadataAttribute>
     <GenerateTypesAsInternal>false</GenerateTypesAsInternal>
@@ -60,7 +58,7 @@ systemuser</EntitiesWhitelist>
     <OptionSetLanguageCodeOverride
       xsi:nil="true" />
     <OptionSetNames />
-    <OutputRelativeDirectory>D:\source\repos\Turkey.CRM.Dynamics365\src\server\Odx.Bsi.Turkey.Crm\Odx.Bsi.Turkey.Crm.Model\</OutputRelativeDirectory>
+    <OutputRelativeDirectory>Pg.LetsExercise.Model\</OutputRelativeDirectory>
     <ProjectNameForEarlyBoundFiles />
     <PropertyEnumMappings />
     <ReadSerializedMetadata>false</ReadSerializedMetadata>
@@ -120,10 +118,10 @@ VoiceMail</TokenCapitalizationOverrides>
   <MetadataQueryProviderService>DLaB.ModelBuilderExtensions.MetadataQueryProviderService,DLaB.ModelBuilderExtensions</MetadataQueryProviderService>
   <NamingService>DLaB.ModelBuilderExtensions.NamingService,DLaB.ModelBuilderExtensions</NamingService>
   <OptionSetsTypesFolder>OptionSets</OptionSetsTypesFolder>
-  <Namespace>Odx.Bsi.Turkey.Crm.Model</Namespace>
+  <Namespace>Pg.LetsExercise.Model</Namespace>
   <ServiceContextName>DataverseContext</ServiceContextName>
   <SuppressGeneratedCodeAttribute>true</SuppressGeneratedCodeAttribute>
-  <SettingsVersion>2.2024.11.8</SettingsVersion>
+  <SettingsVersion>2.2025.4.20</SettingsVersion>
   <UpdateBuilderSettingsJson>true</UpdateBuilderSettingsJson>
   <Version>2.2025.4.20</Version>
 </Config>
