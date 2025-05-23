@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Pg.LetsExercis.Domain.Services
+namespace Pg.LetsExercise.Domain.Services
 {
     public class GoalCompletionService : IGoalCompletionService
     {

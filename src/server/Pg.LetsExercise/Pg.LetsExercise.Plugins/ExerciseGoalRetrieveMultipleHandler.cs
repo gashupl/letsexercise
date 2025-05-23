@@ -2,7 +2,6 @@
 using Pg.LetsExercise.Plugins.Core;
 using Pg.LetsExercise.Model;
 using System;
-using Pg.LetsExercis.Domain.Services;
 using Pg.LetsExercise.Domain.Services;
 
 namespace Pg.LetsExercise.Plugins

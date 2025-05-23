@@ -12,9 +12,9 @@ namespace Pg.LetsExercise.Infrastructure.Repositories
     {
         private readonly IOrganizationService _service;
 
-        public DataRepository(IOrganizationService service)
+        public DataRepository(IOrganizationServiceFactory orgSvcFactory)
         {
-            _service = service;
+            _service = orgSvcFactory.CreateOrganizationService(null); 
         }
 
         public IList<pg_exerciserecord> GetCurrentDayRecords(DateTime now, Guid ownerId, pg_ExerciseSet exercise)
@@ -93,7 +93,7 @@ namespace Pg.LetsExercise.Infrastructure.Repositories
                 return entity.ToEntity<pg_exercisegoal>();
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw new InvalidPluginExecutionException($"Goal with ID {goalId} not found");
             }

@@ -6,9 +6,6 @@ using System;
 using System.Runtime.CompilerServices;
 using System.ServiceModel;
 using Pg.LetsExercise.Domain.Repositories;
-using Pg.LetsExercise.Infrastructure.Repositories;
-using Pg.LetsExercis.Domain.Services;
-using Pg.LetsExercise.Domain.Services;
 using Pg.LetsExercise.Model;
 
 namespace Pg.LetsExercise.Plugins
@@ -45,7 +42,7 @@ namespace Pg.LetsExercise.Plugins
                 $"Correlation Id: {localPluginContext.PluginExecutionContext.CorrelationId}, " +
                 $"Initiating User: {localPluginContext.PluginExecutionContext.InitiatingUserId}");
 
-            RegisterDefaults(localPluginContext);
+            this.DependencyLoader.RegisterDefaults(localPluginContext);
 
             try
             {
@@ -65,11 +62,6 @@ namespace Pg.LetsExercise.Plugins
             {
                 localPluginContext.Trace($"Exiting {PluginClassName}.Execute()");
             }
-        }
-
-        public void RegisterDefaults(ILocalPluginContext localPluginContext)
-        {
-            this.DependencyLoader.Register<IRepository, DataRepository>();             
         }
 
         protected virtual void ExecuteDataversePlugin(ILocalPluginContext localPluginContext)

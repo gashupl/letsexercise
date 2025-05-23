@@ -3,7 +3,6 @@ using Pg.LetsExercise.Plugins.Core;
 using Pg.LetsExercise.Model;
 using System;
 using Pg.LetsExercise.Domain.Services;
-using Pg.LetsExercis.Domain.Services;
 
 namespace Pg.LetsExercise.Plugins
 {

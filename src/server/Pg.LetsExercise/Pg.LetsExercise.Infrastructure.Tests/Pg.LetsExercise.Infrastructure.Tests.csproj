@@ -156,13 +156,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\FakeOrganizationServiceFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\DataRepositoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-    <ItemGroup>
+  <ItemGroup>
     <Analyzer Include="..\packages\xunit.analyzers.1.7.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
     <Analyzer Include="..\packages\xunit.analyzers.1.7.0\analyzers\dotnet\cs\xunit.analyzers.fixes.dll" />
   </ItemGroup>

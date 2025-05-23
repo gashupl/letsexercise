@@ -1,20 +1,32 @@
-﻿using System;
+﻿using Microsoft.Xrm.Sdk;
+using Pg.LetsExercise.Domain.Repositories;
+using Pg.LetsExercise.Infrastructure.Repositories;
+using System;
 using System.Collections.Generic;
+using TinyIoC;
 
 namespace Pg.LetsExercise.Plugins.Core
 {
     public class DependencyLoaderBase : IDependencyLoader
     {
-        protected Dictionary<Type, Type> dependencies = new Dictionary<Type, Type>();
+        protected TinyIoCContainer container = new TinyIoCContainer(); 
+
+        public void RegisterDefaults(ILocalPluginContext context)
+        {
+            container.Register(context);
+            container.Register(context.OrgSvcFactory); 
+            container.Register(context.TracingService);
+            container.Register<IRepository, DataRepository>(); 
+        }
 
         public I Get<I>() where I : class
         {
-            return dependencies[typeof(I)] != null ? (I)Activator.CreateInstance(dependencies[typeof(I)]) : null;
+            return container.Resolve<I>();
         }
 
-        public void Register<I, C>() where C : I
+        public void Register<I, C>() where I : class where C : class, I
         {
-            dependencies.Add(typeof(I), typeof(C));
+            container.Register<I, C>();
         }
 
     }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xrm.Sdk;
 using Moq;
-using Pg.LetsExercis.Domain.Services;
+using Pg.LetsExercise.Domain.Services;
 using Pg.LetsExercise.Domain.Repositories;
 using Pg.LetsExercise.Model;
 using System;

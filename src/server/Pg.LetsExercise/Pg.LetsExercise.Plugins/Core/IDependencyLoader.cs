@@ -2,9 +2,10 @@
 {
     public interface IDependencyLoader
     {
-        void Register<I, C>() where C : I;
+        void RegisterDefaults(ILocalPluginContext context);
+
+        void Register<I, C>() where I : class where C : class, I; 
 
         I Get<I>() where I : class; 
-
     }
 }

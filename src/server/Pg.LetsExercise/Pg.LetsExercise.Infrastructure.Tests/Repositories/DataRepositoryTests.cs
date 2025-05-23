@@ -1,6 +1,7 @@
 ﻿using FakeXrmEasy;
 using Microsoft.Xrm.Sdk;
 using Pg.LetsExercise.Infrastructure.Repositories;
+using Pg.LetsExercise.Infrastructure.Tests.Core;
 using Pg.LetsExercise.Model;
 using System;
 using System.Collections.Generic;
@@ -11,19 +12,19 @@ namespace Pg.LetsExercise.Infrastructure.Tests.Repositories
 { 
     public class DataRepositoryTests
     {
-        private readonly IOrganizationService _service;
+        private readonly IOrganizationServiceFactory _serviceFactory;
         private readonly Guid _ownerId = Guid.NewGuid(); 
         private readonly Guid _goalId = Guid.NewGuid();
 
         public DataRepositoryTests()
         {
-            _service = InitDataService();
+            _serviceFactory = InitDataServiceFactory();
         }
         
         [Fact]
         public void GetCurrentDayRecords_ReturnsSingleRecord()
         {
-            var repo = new DataRepository(_service); 
+            var repo = new DataRepository(_serviceFactory); 
             var actual = repo.GetCurrentDayRecords(new DateTime(2024, 01, 01, 11, 22, 33), _ownerId, pg_ExerciseSet.PushUps);
             Assert.Single(actual); 
         }
@@ -31,7 +32,7 @@ namespace Pg.LetsExercise.Infrastructure.Tests.Repositories
         [Fact]
         public void GetCurrentDayRecords_ReturnsEmptyList()
         {
-            var repo = new DataRepository(_service);
+            var repo = new DataRepository(_serviceFactory);
             var actual = repo.GetCurrentDayRecords(new DateTime(2023, 01, 01), _ownerId, pg_ExerciseSet.PushUps);
             Assert.Empty(actual);
         }
@@ -39,7 +40,7 @@ namespace Pg.LetsExercise.Infrastructure.Tests.Repositories
         [Fact]
         public void GetCurrentWeekRecords_ReturnsSingleRecord()
         {
-            var repo = new DataRepository(_service);
+            var repo = new DataRepository(_serviceFactory);
             var actual = repo.GetCurrentWeekRecords(new DateTime(2024, 01, 02), _ownerId, pg_ExerciseSet.PushUps);
             Assert.Single(actual);
         }
@@ -47,7 +48,7 @@ namespace Pg.LetsExercise.Infrastructure.Tests.Repositories
         [Fact]
         public void GetCurrentWeekRecords_ReturnsEmptyList()
         {
-            var repo = new DataRepository(_service);
+            var repo = new DataRepository(_serviceFactory);
             var actual = repo.GetCurrentWeekRecords(new DateTime(2024, 01, 8), _ownerId, pg_ExerciseSet.PushUps);
             Assert.Empty(actual);
         }
@@ -55,7 +56,7 @@ namespace Pg.LetsExercise.Infrastructure.Tests.Repositories
         [Fact]
         public void GetCurrentMonthRecords_ReturnsSingleRecord()
         {
-            var repo = new DataRepository(_service);
+            var repo = new DataRepository(_serviceFactory);
             var actual = repo.GetCurrentMonthRecords(new DateTime(2024, 01, 8), _ownerId, pg_ExerciseSet.PushUps);
             Assert.Single(actual);
         }
@@ -63,7 +64,7 @@ namespace Pg.LetsExercise.Infrastructure.Tests.Repositories
         [Fact]
         public void GetCurrentMonthRecords_ReturnsEmptyList()
         {
-            var repo = new DataRepository(_service);
+            var repo = new DataRepository(_serviceFactory);
             var actual = repo.GetCurrentMonthRecords(new DateTime(2024, 02, 01), _ownerId, pg_ExerciseSet.PushUps);
             Assert.Empty(actual);
         }
@@ -71,7 +72,7 @@ namespace Pg.LetsExercise.Infrastructure.Tests.Repositories
         [Fact]
         public void GetCurrentYearRecords_ReturnsSingleRecord()
         {
-            var repo = new DataRepository(_service);
+            var repo = new DataRepository(_serviceFactory);
             var actual = repo.GetCurrentYearRecords(new DateTime(2024, 06, 8), _ownerId, pg_ExerciseSet.PushUps);
             Assert.Single(actual);
         }
@@ -79,7 +80,7 @@ namespace Pg.LetsExercise.Infrastructure.Tests.Repositories
         [Fact]
         public void GetCurrentYearRecords_ReturnsEmptyList()
         {
-            var repo = new DataRepository(_service);
+            var repo = new DataRepository(_serviceFactory);
             var actual = repo.GetCurrentYearRecords(new DateTime(2025, 01, 01), _ownerId, pg_ExerciseSet.PushUps);
             Assert.Empty(actual);
         }
@@ -87,7 +88,7 @@ namespace Pg.LetsExercise.Infrastructure.Tests.Repositories
         [Fact]
         public void GetGoal_ReturnGoal()
         {
-            var repo = new DataRepository(_service);
+            var repo = new DataRepository(_serviceFactory);
             var actual = repo.GetGoal(_goalId); 
             Assert.Equal(_goalId, actual.Id);
         }
@@ -95,11 +96,11 @@ namespace Pg.LetsExercise.Infrastructure.Tests.Repositories
         [Fact]
         public void GetGoal_MissingGoal_ThrowsException()
         {
-            var repo = new DataRepository(_service);
+            var repo = new DataRepository(_serviceFactory);
             Assert.Throws<InvalidPluginExecutionException>(() => repo.GetGoal(Guid.NewGuid()));
         }
 
-        public IOrganizationService InitDataService()
+        public IOrganizationServiceFactory InitDataServiceFactory()
         {
             var context = new XrmFakedContext(); 
             context.ProxyTypesAssembly = Assembly.GetAssembly(typeof(pg_exerciserecord));
@@ -122,7 +123,7 @@ namespace Pg.LetsExercise.Infrastructure.Tests.Repositories
             };
 
             context.Initialize(new List<Entity>() { record, goal });
-            return context.GetFakedOrganizationService();
+            return new FakeOrganizationServiceFactory(context.GetFakedOrganizationService());
 
         }
 
