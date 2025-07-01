@@ -47,7 +47,7 @@ namespace Pg.LetsExercise.Plugins
 
                         localPluginContext.TracingService.Trace("Get IGoalCompletionService service");
                         var goalCompletionService = DependencyLoader.Get<IGoalCompletionService>();
-                        localPluginContext.TracingService.Trace("Set completed percentage");
+                        localPluginContext.TracingService.Trace($"Set completed percentage for {goal.Id}");
                         goal.pg_completedpercentage = goalCompletionService.GetCompletionPercentage(goal.Id);
                     }
                 }

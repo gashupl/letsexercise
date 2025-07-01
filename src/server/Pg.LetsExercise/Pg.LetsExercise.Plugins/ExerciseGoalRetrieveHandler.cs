@@ -49,7 +49,8 @@ namespace Pg.LetsExercise.Plugins
             }
             else
             {
-                localPluginContext.TracingService.Trace("Cannot read BusinessEntity output param or param is not an Entity");
+                localPluginContext.TracingService.Trace
+                    ("Invalid conditions for ExerciseGoalRetrieveHandler logic execution");
             }
 
         }

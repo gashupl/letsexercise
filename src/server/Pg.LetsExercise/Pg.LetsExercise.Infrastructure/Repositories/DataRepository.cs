@@ -93,9 +93,14 @@ namespace Pg.LetsExercise.Infrastructure.Repositories
                 return entity.ToEntity<pg_exercisegoal>();
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new InvalidPluginExecutionException($"Goal with ID {goalId} not found");
+                var message = ex.Message; 
+                if (ex.InnerException != null)
+                {
+                    message += $" Inner Exception: {ex.InnerException.Message}";
+                }
+                throw new InvalidPluginExecutionException($"Cannot retrieve goal with ID {goalId}: {ex.Message}", ex); 
             }
         }
     }
