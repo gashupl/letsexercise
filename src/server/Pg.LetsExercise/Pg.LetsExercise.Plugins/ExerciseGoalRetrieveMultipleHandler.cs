@@ -41,12 +41,12 @@ namespace Pg.LetsExercise.Plugins
                     var businessEntityCollection
                         = (EntityCollection)context.OutputParameters[OutputParameters.BusinessEntityCollection];
 
+                    localPluginContext.TracingService.Trace("Get IGoalCompletionService service");
+                    var goalCompletionService = DependencyLoader.Get<IGoalCompletionService>();
+
                     foreach (Entity entity in businessEntityCollection.Entities)
                     {
                         var goal = entity.ToEntity<pg_exercisegoal>();
-
-                        localPluginContext.TracingService.Trace("Get IGoalCompletionService service");
-                        var goalCompletionService = DependencyLoader.Get<IGoalCompletionService>();
                         localPluginContext.TracingService.Trace($"Set completed percentage for {goal.Id}");
                         goal.pg_completedpercentage = goalCompletionService.GetCompletionPercentage(goal.Id);
                     }
