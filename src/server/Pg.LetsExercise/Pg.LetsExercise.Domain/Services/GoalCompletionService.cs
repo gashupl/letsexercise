@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xrm.Sdk;
 using Pg.LetsExercise.Domain.Repositories;
-using Pg.LetsExercise.Domain.Services;
 using Pg.LetsExercise.Model;
 using System;
 using System.Collections.Generic;

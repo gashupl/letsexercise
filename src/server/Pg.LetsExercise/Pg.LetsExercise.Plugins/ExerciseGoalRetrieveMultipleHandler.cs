@@ -16,7 +16,6 @@ namespace Pg.LetsExercise.Plugins
     }
     public class ExerciseGoalRetrieveMultipleHandler : PluginBase
     {
-
         public override IDependencyLoader DependencyLoader => new ExerciseGoalRetrieveMultipleDependencyLoader();
 
         public ExerciseGoalRetrieveMultipleHandler(string unsecureConfiguration, string secureConfiguration)
@@ -46,7 +45,9 @@ namespace Pg.LetsExercise.Plugins
                     {
                         var goal = entity.ToEntity<pg_exercisegoal>();
 
+                        localPluginContext.TracingService.Trace("Get IGoalCompletionService service");
                         var goalCompletionService = DependencyLoader.Get<IGoalCompletionService>();
+                        localPluginContext.TracingService.Trace("Set completed percentage");
                         goal.pg_completedpercentage = goalCompletionService.GetCompletionPercentage(goal.Id);
                     }
                 }
