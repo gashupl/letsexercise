@@ -1,0 +1,18 @@
+<customapi uniquename="pg_monthlyresults">
+  <allowedcustomprocessingsteptype>2</allowedcustomprocessingsteptype>
+  <bindingtype>0</bindingtype>
+  <description default="Returns sums of push-ups from start month to end month">
+    <label description="Returns sums of push-ups from start month to end month" languagecode="1033" />
+  </description>
+  <displayname default="Monthly Results">
+    <label description="Monthly Results" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isfunction>1</isfunction>
+  <isprivate>0</isprivate>
+  <name>pg_monthlyresults</name>
+  <plugintypeid>
+    <plugintypeexportkey>A100A790517044A131FBCC4DF777984DDE1D1C2203F66F93354ACB148722976D</plugintypeexportkey>
+  </plugintypeid>
+  <workflowsdkstepenabled>0</workflowsdkstepenabled>
+</customapi>
