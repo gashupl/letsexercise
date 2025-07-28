@@ -103,6 +103,7 @@
     <Compile Include="Services\IGoalCompletionService.cs" />
     <Compile Include="Services\IInputParameterToDateService.cs" />
     <Compile Include="Services\IMonthlyResultService.cs" />
+    <Compile Include="Services\InputParameterToDateService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Pg.LetsExercise.Model\Pg.LetsExercise.Model.csproj">
