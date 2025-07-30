@@ -103,5 +103,23 @@ namespace Pg.LetsExercise.Infrastructure.Repositories
                 throw new InvalidPluginExecutionException($"Cannot retrieve goal with ID {goalId}: {ex.Message}", ex); 
             }
         }
+
+        public IList<pg_exerciserecord> GetSelectedMonthRecords(int year, int month, Guid ownerId, pg_ExerciseSet exercise)
+        {
+            var firstDayOfMonth = new DateTime(year, month, 1);
+            var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+
+            using (var context = new DataverseContext(_service))
+            {
+                var query = context.pg_exerciserecordSet
+                    .Where(e => e.OwnerId.Id == ownerId
+                                && e.pg_exercise == exercise
+                                && e.pg_date.Value >= firstDayOfMonth
+                                && e.pg_date.Value <= lastDayOfMonth)
+                    .Select(ep => ep);
+
+                return query.ToList<pg_exerciserecord>();
+            }
+        }
     }
 }

@@ -138,6 +138,7 @@
     <Compile Include="Services\GoalCompletionServiceTests.cs" />
     <Compile Include="Services\InputParameterToDateServiceTests.cs" />
     <Compile Include="Services\ParseToJsonServiceTests.cs" />
+    <Compile Include="Services\SumResultsServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
