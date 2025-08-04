@@ -20,7 +20,8 @@ namespace Pg.LetsExercise.Plugins.CustomApi
     {
         public override IDependencyLoader DependencyLoader => new MonthlyResultsDependencyLoader();
 
-        public MonthlyResultsHandler(Type pluginClassName) : base(pluginClassName)
+        public MonthlyResultsHandler(string unsecureConfiguration, string secureConfiguration)
+            : base(typeof(ExerciseGoalRetrieveHandler))
         {
         }
 
