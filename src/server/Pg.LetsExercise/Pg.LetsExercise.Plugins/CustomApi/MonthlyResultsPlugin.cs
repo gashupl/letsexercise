@@ -45,7 +45,6 @@ namespace Pg.LetsExercise.Plugins.CustomApi
         {
             if (localPluginContext == null)
             {
-                localPluginContext.TracingService.Trace("LocalPluginContext is null.");
                 throw new InvalidOperationException(nameof(localPluginContext));
             }
 

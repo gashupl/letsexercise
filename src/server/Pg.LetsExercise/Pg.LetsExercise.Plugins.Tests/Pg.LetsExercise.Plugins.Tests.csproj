@@ -131,6 +131,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\PluginHandlerTestBase.cs" />
     <Compile Include="CustomApi\MonthlyResultsHandlerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -146,14 +147,16 @@
       <Project>{3CC9405F-CF3F-4FF1-B5C9-0C50A4696B89}</Project>
       <Name>Pg.LetsExercise.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Pg.LetsExercise.Model\Pg.LetsExercise.Model.csproj">
+      <Project>{AECD79A5-77F3-44E1-BB55-E21003630D5E}</Project>
+      <Name>Pg.LetsExercise.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Pg.LetsExercise.Plugins\Pg.LetsExercise.Plugins.csproj">
       <Project>{FFC2188D-A1A5-1B39-F285-7ADEB997D0E1}</Project>
       <Name>Pg.LetsExercise.Plugins</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Core\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
