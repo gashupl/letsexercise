@@ -1,6 +1,4 @@
-﻿using static Pg.LetsExercise.Plugins.PluginBase;
-
-namespace Pg.LetsExercise.Plugins.Core
+﻿namespace Pg.LetsExercise.Plugins.Core
 {
     public interface IDependencyLoader
     {

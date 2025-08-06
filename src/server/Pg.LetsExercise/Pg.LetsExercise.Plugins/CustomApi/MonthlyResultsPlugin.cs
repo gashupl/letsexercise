@@ -16,39 +16,51 @@ namespace Pg.LetsExercise.Plugins.CustomApi
         }
     }
 
-    public class MonthlyResultsHandler : PluginBase
+    public class MonthlyResultsPlugin : PluginBase<MonthlyResultHandler>
     {
         public override IDependencyLoader DependencyLoader => new MonthlyResultsDependencyLoader();
 
-        public MonthlyResultsHandler(string unsecureConfiguration, string secureConfiguration)
-            : base(typeof(ExerciseGoalRetrieveHandler))
+        public MonthlyResultsPlugin(string unsecureConfiguration, string secureConfiguration)
+            : base(typeof(ExerciseGoalRetrievePlugin))
         {
         }
+    }
 
-        protected override void ExecuteDataversePlugin(ILocalPluginContext localPluginContext)
+    public class MonthlyResultHandler : PluginHandlerBase
+    {
+        private readonly IInputParameterToDateService _inputParameterToDateService;
+        private readonly IParseToJsonService _parseToJsonService;
+        private readonly ISumResultsService _sumResultsService; 
+
+        public MonthlyResultHandler(IInputParameterToDateService inputParameterToDateService, IParseToJsonService parseToJsonService,
+            ISumResultsService sumResultsService)
         {
+            _inputParameterToDateService = inputParameterToDateService; 
+            _parseToJsonService = parseToJsonService;
+            _sumResultsService = sumResultsService; 
+        }
+        public override bool CanExecute() => true; 
 
+        public override void Execute()
+        {
             if (localPluginContext == null)
             {
                 localPluginContext.TracingService.Trace("LocalPluginContext is null.");
-                throw new ArgumentNullException(nameof(localPluginContext));
+                throw new InvalidOperationException(nameof(localPluginContext));
             }
+
             var inputs = localPluginContext.PluginExecutionContext.InputParameters;
             if (inputs.TryGetValue(pg_monthlyresultsRequest.Fields.startmonth, out var startMonth)
                 && inputs.TryGetValue(pg_monthlyresultsRequest.Fields.endmonth, out var endMonth))
             {
 
-                var inputParameterToDateService = DependencyLoader.Get<IInputParameterToDateService>();
-                var parseToJsonService = DependencyLoader.Get<IParseToJsonService>();
-                var sumResultsService = DependencyLoader.Get<ISumResultsService>();
-
-                var startMonthDate = inputParameterToDateService.GetDate(startMonth.ToString());
-                var endMonthDate = inputParameterToDateService.GetDate(endMonth.ToString());
+                var startMonthDate = _inputParameterToDateService.GetDate(startMonth.ToString());
+                var endMonthDate = _inputParameterToDateService.GetDate(endMonth.ToString());
 
                 localPluginContext.TracingService.Trace($"Parsed input params: {startMonthDate} & {endMonthDate}");
 
-                var monthlyResults = sumResultsService.GetMonthlyResults(startMonthDate, endMonthDate, localPluginContext.PluginExecutionContext.InitiatingUserId);
-                var parsedMonthyResults = parseToJsonService.Parse(monthlyResults);
+                var monthlyResults = _sumResultsService.GetMonthlyResults(startMonthDate, endMonthDate, localPluginContext.PluginExecutionContext.InitiatingUserId);
+                var parsedMonthyResults = _parseToJsonService.Parse(monthlyResults);
 
                 localPluginContext.TracingService.Trace($"Parsed monthly results: {parsedMonthyResults}");
                 localPluginContext.PluginExecutionContext.OutputParameters[pg_monthlyresultsResponse.Fields.Results_1] = parsedMonthyResults;
@@ -58,8 +70,6 @@ namespace Pg.LetsExercise.Plugins.CustomApi
                 localPluginContext.TracingService.Trace("Invalid input parameters for MonthlyResultsHandler logic execution");
                 throw new InvalidPluginExecutionException("Invalid input parameters for MonthlyResultsHandler logic execution");
             }
-
-
         }
     }
 }

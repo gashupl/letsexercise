@@ -14,17 +14,28 @@ namespace Pg.LetsExercise.Plugins
             Register<IGoalCompletionService, GoalCompletionService>();
         }
     }
-    public class ExerciseGoalRetrieveMultipleHandler : PluginBase
+    public class ExerciseGoalRetrieveMultiplePlugin : PluginBase<ExerciseGoalRetrieveMultipleHandler>
     {
         public override IDependencyLoader DependencyLoader => new ExerciseGoalRetrieveMultipleDependencyLoader();
 
-        public ExerciseGoalRetrieveMultipleHandler(string unsecureConfiguration, string secureConfiguration)
-            : base(typeof(ExerciseGoalRetrieveMultipleHandler))
+        public ExerciseGoalRetrieveMultiplePlugin(string unsecureConfiguration, string secureConfiguration)
+            : base(typeof(ExerciseGoalRetrieveMultiplePlugin))
         {
         }
+    }
 
-        // Entry point for custom business logic execution
-        protected override void ExecuteDataversePlugin(ILocalPluginContext localPluginContext)
+    public class ExerciseGoalRetrieveMultipleHandler : PluginHandlerBase
+    {
+        private readonly IGoalCompletionService _goalCompletionService;
+        public ExerciseGoalRetrieveMultipleHandler(IGoalCompletionService goalCompletionService)
+        {
+            _goalCompletionService = goalCompletionService ?? throw new ArgumentNullException(nameof(goalCompletionService));
+        }
+
+
+        public override bool CanExecute() => true; 
+
+        public override void Execute()
         {
             if (localPluginContext == null)
             {
@@ -33,7 +44,7 @@ namespace Pg.LetsExercise.Plugins
 
             var context = localPluginContext.PluginExecutionContext;
 
-            if (context.Depth == 1 && 
+            if (context.Depth == 1 &&
                 context.OutputParameters.Contains(OutputParameters.BusinessEntityCollection) && context.OutputParameters[OutputParameters.BusinessEntityCollection] is EntityCollection)
             {
                 if (context.OutputParameters.Contains(OutputParameters.BusinessEntityCollection))
@@ -42,13 +53,12 @@ namespace Pg.LetsExercise.Plugins
                         = (EntityCollection)context.OutputParameters[OutputParameters.BusinessEntityCollection];
 
                     localPluginContext.TracingService.Trace("Get IGoalCompletionService service");
-                    var goalCompletionService = DependencyLoader.Get<IGoalCompletionService>();
 
                     foreach (Entity entity in businessEntityCollection.Entities)
                     {
                         var goal = entity.ToEntity<pg_exercisegoal>();
                         localPluginContext.TracingService.Trace($"Set completed percentage for {goal.Id}");
-                        goal.pg_completedpercentage = goalCompletionService.GetCompletionPercentage(goal.Id);
+                        goal.pg_completedpercentage = _goalCompletionService.GetCompletionPercentage(goal.Id);
                     }
                 }
                 else
@@ -60,8 +70,6 @@ namespace Pg.LetsExercise.Plugins
             {
                 localPluginContext.TracingService.Trace("Cannot read BusinessEntityCollection output param or param is not an EntityCollection");
             }
-
-
 
         }
     }
