@@ -28,15 +28,16 @@ namespace Pg.LetsExercise.Domain.Tests.Services
         [Fact]
         public void Parse_FilledList_ReturnsExpectedJson()
         {
+            var expected = "[{\"MonthCodeName\":\"Jan\",\"MonthFriendlyName\":\"January\",\"Result\":10},{\"MonthCodeName\":\"Feb\",\"MonthFriendlyName\":\"February\",\"Result\":20}]"; 
             var list = new List<MonthlyResult>
             {
                 new MonthlyResult { MonthCodeName = "Jan", MonthFriendlyName = "January", Result = 10 },
                 new MonthlyResult { MonthCodeName = "Feb", MonthFriendlyName = "February", Result = 20 }
             };
 
-            var json = _service.Parse(list);
-            var expected = JsonConvert.SerializeObject(list);
-            Assert.Equal(expected, json);
+            var actual = _service.Parse(list);
+           
+            Assert.Equal(expected, actual);
         }
     }
 }
