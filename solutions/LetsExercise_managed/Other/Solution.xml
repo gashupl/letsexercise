@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.25042.222" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25042.222" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25043.00214">
+<ImportExportXml version="9.2.25071.192" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25071.192" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25071.00202">
   <SolutionManifest>
     <UniqueName>LetsExercise</UniqueName>
     <LocalizedNames>
@@ -93,20 +93,20 @@
       <RootComponent type="80" schemaName="pg_LetsExerciseAdmin" behavior="0" />
       <RootComponent type="9" schemaName="pg_exercisegoaltypeset" behavior="0" />
       <RootComponent type="9" schemaName="pg_exerciseset" behavior="0" />
-      <RootComponent type="91" id="{f0fff53c-dac1-ee11-9079-000d3a2279a0}" schemaName="Pg.LetsExercise.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6a64eaa1e1b84173" behavior="0" />
-      <RootComponent type="92" id="{17f54c80-dac1-ee11-9079-000d3a2279a0}" behavior="0" />
-      <RootComponent type="92" id="{8839a575-dac1-ee11-9079-000d3a2279a0}" behavior="0" />
+      <RootComponent type="92" id="{3fb5c79e-c971-f011-b4cb-0022488b25cc}" behavior="0" />
+      <RootComponent type="92" id="{e6f71792-c971-f011-b4cb-0022488b25cc}" behavior="0" />
+      <RootComponent type="92" id="{fa579d83-5973-f011-b4cb-0022488b25cc}" behavior="0" />
     </RootComponents>
     <MissingDependencies>
       <MissingDependency>
-        <Required type="SettingDefinition" displayName="EnableRoleBasedOfflineProfileAccess" solution="SettingDefinitionsData (9.2.2502.2502222)" id.uniquename="EnableRoleBasedOfflineProfileAccess">
-          <package appName="AppModule" version="9.2.2502.2502222">AppModuleSolutionAnchor (9.2.2502.2502222)</package>
+        <Required type="SettingDefinition" displayName="EnableRoleBasedOfflineProfileAccess" solution="SettingDefinitionsData (9.2.2505.2505231)" id.uniquename="EnableRoleBasedOfflineProfileAccess">
+          <package appName="AppModule" version="9.2.2505.2505231">AppModuleSolutionAnchor (9.2.2505.2505231)</package>
         </Required>
         <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=pg_LetsExerciseAdmin,settingdefinitionid.uniquename=EnableRoleBasedOfflineProfileAccess" id.parentappmoduleid.uniquename="pg_LetsExerciseAdmin" id.settingdefinitionid.uniquename="EnableRoleBasedOfflineProfileAccess" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="SettingDefinition" displayName="ServerMode" solution="SettingDefinitionsData (9.2.2502.2502222)" id.uniquename="ServerMode">
-          <package appName="AppModule" version="9.2.2502.2502222">AppModuleSolutionAnchor (9.2.2502.2502222)</package>
+        <Required type="SettingDefinition" displayName="ServerMode" solution="SettingDefinitionsData (9.2.2505.2505231)" id.uniquename="ServerMode">
+          <package appName="AppModule" version="9.2.2505.2505231">AppModuleSolutionAnchor (9.2.2505.2505231)</package>
         </Required>
         <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=pg_LetsExerciseAdmin,settingdefinitionid.uniquename=ServerMode" id.parentappmoduleid.uniquename="pg_LetsExerciseAdmin" id.settingdefinitionid.uniquename="ServerMode" />
       </MissingDependency>
