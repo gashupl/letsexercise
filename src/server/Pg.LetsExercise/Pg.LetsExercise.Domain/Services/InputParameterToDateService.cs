@@ -1,9 +1,15 @@
-﻿using System;
+﻿using Microsoft.Xrm.Sdk;
+using Pg.LetsExercise.Domain.Repositories;
+using System;
 
 namespace Pg.LetsExercise.Domain.Services
 {
-    public class InputParameterToDateService : IInputParameterToDateService
+    public class InputParameterToDateService : ServiceBase, IInputParameterToDateService
     {
+        public InputParameterToDateService(IRepository repository, ITracingService tracingService) : base(repository, tracingService)
+        {
+        }
+
         public DateTime GetDate(string inputParameter)
         {
             if (string.IsNullOrWhiteSpace(inputParameter))

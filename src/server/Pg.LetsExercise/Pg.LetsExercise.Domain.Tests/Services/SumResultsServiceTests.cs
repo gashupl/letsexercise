@@ -2,6 +2,7 @@
 using Moq;
 using Pg.LetsExercise.Domain.Repositories;
 using Pg.LetsExercise.Domain.Services;
+using Pg.LetsExercise.Domain.Tests.Core;
 using Pg.LetsExercise.Model;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using Xunit;
 
 namespace Pg.LetsExercise.Domain.Tests.Services
 {
-    public class SumResultsServiceTests
+    public class SumResultsServiceTests : ServiceTestBase
     {
         private readonly SumResultsService _service;
         private readonly Guid _ownerId = Guid.NewGuid();

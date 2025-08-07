@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Pg.LetsExercise.Domain.Dto;
 using Pg.LetsExercise.Domain.Services;
+using Pg.LetsExercise.Domain.Tests.Core;
+using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace Pg.LetsExercise.Domain.Tests.Services
 {
-    public class ParseToJsonServiceTests
+    public class ParseToJsonServiceTests : ServiceTestBase
     {
-        private readonly ParseToJsonService _service = new ParseToJsonService();
+        private readonly ParseToJsonService _service = new ParseToJsonService(null, null);
 
         [Fact]
         public void Parse_Null_ThrowsArgumentNullException()

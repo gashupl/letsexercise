@@ -7,22 +7,17 @@ using System.Linq;
 
 namespace Pg.LetsExercise.Domain.Services
 {
-    public class GoalCompletionService : IGoalCompletionService
+    public class GoalCompletionService : ServiceBase, IGoalCompletionService
     {
-        private readonly IRepository _repository;
-        private readonly ITracingService _tracingService;
-
-        public GoalCompletionService(IRepository repository, ITracingService tracingService)
+        public GoalCompletionService(IRepository repository, ITracingService tracingService) : base(repository, tracingService)
         {
-            _repository = repository;
-            _tracingService = tracingService;
         }
 
         public int GetCompletionPercentage(Guid goalId)
         {
-            _tracingService.Trace($"GetCompletionPercentage executed with ID: {goalId}");
+            tracingService.Trace($"GetCompletionPercentage executed with ID: {goalId}");
 
-            var goal = _repository.GetGoal(goalId);
+            var goal = repository.GetGoal(goalId);
             if(goal.pg_Exercise == null || goal.pg_scorenumber == null)
             {
                 throw new InvalidPluginExecutionException("Not enough data to calculate goal completion");
@@ -30,34 +25,30 @@ namespace Pg.LetsExercise.Domain.Services
 
             IList<pg_exerciserecord> records = null;
             var now = DateTime.Now.ToUniversalTime(); 
-            _tracingService.Trace($"Date now: {now}");
+            tracingService.Trace($"Date now: {now}");
 
             if(goal.pg_goaltype == pg_ExerciseGoalTypeSet.Daily)
             {
-                records 
-                    = _repository.GetCurrentDayRecords(now, goal.OwnerId.Id, goal.pg_Exercise.Value);            
+                records = repository.GetCurrentDayRecords(now, goal.OwnerId.Id, goal.pg_Exercise.Value);            
             }
             else if (goal.pg_goaltype == pg_ExerciseGoalTypeSet.Weekly)
             {
-                records
-                    = _repository.GetCurrentWeekRecords(now, goal.OwnerId.Id, goal.pg_Exercise.Value);
+                records = repository.GetCurrentWeekRecords(now, goal.OwnerId.Id, goal.pg_Exercise.Value);
             }
             else if(goal.pg_goaltype == pg_ExerciseGoalTypeSet.Monthly)
             {
-                records
-                    = _repository.GetCurrentMonthRecords(now, goal.OwnerId.Id, goal.pg_Exercise.Value);
+                records = repository.GetCurrentMonthRecords(now, goal.OwnerId.Id, goal.pg_Exercise.Value);
             }
             else if(goal.pg_goaltype == pg_ExerciseGoalTypeSet.Yearly)
             {
-                records
-                    = _repository.GetCurrentYearRecords(now, goal.OwnerId.Id, goal.pg_Exercise.Value);
+                records = repository.GetCurrentYearRecords(now, goal.OwnerId.Id, goal.pg_Exercise.Value);
             }
             else
             {
                 throw new InvalidPluginExecutionException("Invalid goal type");
             }
 
-            _tracingService.Trace($"Records count: {records.Count} for {pg_ExerciseGoalTypeSet.Daily} type");
+            tracingService.Trace($"Records count: {records.Count} for {pg_ExerciseGoalTypeSet.Daily} type");
 
             return GetPercentage(records, goal.pg_scorenumber.Value);
         }

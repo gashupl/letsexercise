@@ -134,6 +134,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\ServiceTestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\GoalCompletionServiceTests.cs" />
     <Compile Include="Services\InputParameterToDateServiceTests.cs" />

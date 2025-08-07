@@ -1,16 +1,17 @@
 ﻿using Pg.LetsExercise.Domain.Services;
+using Pg.LetsExercise.Domain.Tests.Core;
 using System;
 using Xunit;
 
 namespace Pg.LetsExercise.Domain.Tests.Services
 {
-    public class InputParameterToDateServiceTests
+    public class InputParameterToDateServiceTests : ServiceTestBase
     {
         private readonly IInputParameterToDateService _service;
 
-        public InputParameterToDateServiceTests()
+        public InputParameterToDateServiceTests() : base()
         {
-            _service = new InputParameterToDateService();
+            _service = new InputParameterToDateService(null, null);
         }
 
         [Theory]

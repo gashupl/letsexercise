@@ -8,20 +8,16 @@ using System.Linq;
 
 namespace Pg.LetsExercise.Domain.Services
 {
-    public class SumResultsService : ISumResultsService
+    public class SumResultsService : ServiceBase, ISumResultsService
     {
-        private readonly IRepository _repository;
-        private readonly ITracingService _tracingService;
 
-        public SumResultsService(IRepository repository, ITracingService tracingService)
+        public SumResultsService(IRepository repository, ITracingService tracingService) : base(repository, tracingService)
         {
-            _repository = repository;
-            _tracingService = tracingService;
         }
 
         public List<MonthlyResult> GetMonthlyResults(DateTime startDate, DateTime endDate, Guid ownerId)
         {
-            _tracingService.Trace($"GetMonthlyResults executed with startDate: {startDate} and endDate: {endDate}.");
+            tracingService.Trace($"GetMonthlyResults executed with startDate: {startDate} and endDate: {endDate}.");
 
             var results = new List<MonthlyResult>(); 
             var current = new DateTime(startDate.Year, startDate.Month, 1);
@@ -31,7 +27,7 @@ namespace Pg.LetsExercise.Domain.Services
                 int year = current.Year;
                 int month = current.Month;
 
-                var records = _repository.GetSelectedMonthRecords(year, month, ownerId, Model.pg_ExerciseSet.PushUps);
+                var records = repository.GetSelectedMonthRecords(year, month, ownerId, Model.pg_ExerciseSet.PushUps);
                 var result = new MonthlyResult()
                 {
                     MonthCodeName = $"{year}-{month:D2}",
@@ -40,13 +36,13 @@ namespace Pg.LetsExercise.Domain.Services
                 }; 
                 results.Add(result);
 
-                _tracingService.Trace($"Result {result.Result} with code name: {result.MonthCodeName}, " +
+                tracingService.Trace($"Result {result.Result} with code name: {result.MonthCodeName}, " +
                     $"friendly name: {result.MonthFriendlyName} added to returned collection");
 
                 current = current.AddMonths(1);
             }
 
-            _tracingService.Trace($"GetMonthlyResults execution completed.");
+            tracingService.Trace($"GetMonthlyResults execution completed.");
             return results; 
         }
     }

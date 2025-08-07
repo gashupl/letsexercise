@@ -110,6 +110,7 @@
     <Compile Include="Services\IParseToJsonService.cs" />
     <Compile Include="Services\ISumResultsService.cs" />
     <Compile Include="Services\ParseToJsonService.cs" />
+    <Compile Include="Services\ServiceBase.cs" />
     <Compile Include="Services\SumResultsService.cs" />
   </ItemGroup>
   <ItemGroup>
