@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using Pg.LetsExercise.Domain.Repositories;
 using System;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace Pg.LetsExercise.Domain.Services
 {
@@ -13,10 +14,19 @@ namespace Pg.LetsExercise.Domain.Services
 
         public string Parse(object data)
         {
+            
             if (data == null)
+            {
+                tracingService.Trace($"Data argument is null");
                 throw new ArgumentNullException(nameof(data));
+            }
 
-            return JsonConvert.SerializeObject(data);
+            tracingService.Trace($"ParseToJsonService.Parse executed with data object: {data.ToString()}");
+
+            var json = JsonConvert.SerializeObject(data);
+            tracingService.Trace($"json: {json}");
+            tracingService.Trace($"ParseToJsonService.Parse execution completed.");
+            return json; 
         }
     }
 }

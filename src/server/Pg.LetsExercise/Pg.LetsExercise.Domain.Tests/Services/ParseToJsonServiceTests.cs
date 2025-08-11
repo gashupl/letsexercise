@@ -10,7 +10,12 @@ namespace Pg.LetsExercise.Domain.Tests.Services
 {
     public class ParseToJsonServiceTests : ServiceTestBase
     {
-        private readonly ParseToJsonService _service = new ParseToJsonService(null, null);
+        private readonly ParseToJsonService _service;
+
+        public ParseToJsonServiceTests()
+        {
+            _service = new ParseToJsonService(null, this.tracingService);
+        }
 
         [Fact]
         public void Parse_Null_ThrowsArgumentNullException()
