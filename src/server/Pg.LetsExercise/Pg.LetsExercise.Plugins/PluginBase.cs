@@ -38,7 +38,7 @@ namespace Pg.LetsExercise.Plugins
 
             try
             {
-                localPluginContext.Trace("Resolving dependencies before plugin execution..."); 
+                localPluginContext.Trace("Resolving dependencies before plugin execution...");
                 var pluginHandler = DependencyLoaderBase.Container.Resolve<T>();
                 pluginHandler.Init(localPluginContext);
 
@@ -62,6 +62,13 @@ namespace Pg.LetsExercise.Plugins
                 localPluginContext.Trace($"Exception: {orgServiceFault.ToString()}");
 
                 throw new InvalidPluginExecutionException($"OrganizationServiceFault: {orgServiceFault.Message}", orgServiceFault);
+            }
+            catch (Exception ex)
+            {
+                localPluginContext.Trace($"Exception: {ex.ToString()}");
+                // Log the exception to the tracing service
+                localPluginContext.TracingService?.Trace($"Exception: {ex.Message}");
+                localPluginContext.TracingService?.Trace($"Stack Trace: {ex.StackTrace}");
             }
             finally
             {
