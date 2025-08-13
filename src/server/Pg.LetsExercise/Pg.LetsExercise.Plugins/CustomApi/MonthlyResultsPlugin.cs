@@ -61,8 +61,7 @@ namespace Pg.LetsExercise.Plugins.CustomApi
                 var monthlyResults = _sumResultsService.GetMonthlyResults(startMonthDate, endMonthDate, localPluginContext.PluginExecutionContext.InitiatingUserId);
 
                 localPluginContext.TracingService.Trace($"Parsing {monthlyResults?.Count} monthly results...");
-                var parsedMonthyResults = _parseToJsonService.Parse(monthlyResults);
-                localPluginContext.TracingService.Trace($"Parsed monthly results: {parsedMonthyResults}");
+                var parsedMonthyResults = _parseToJsonService.Parse(monthlyResults); 
                 localPluginContext.PluginExecutionContext.OutputParameters["results"] = parsedMonthyResults;
             }
             else

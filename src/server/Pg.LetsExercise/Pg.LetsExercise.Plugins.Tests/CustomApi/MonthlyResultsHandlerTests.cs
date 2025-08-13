@@ -1,5 +1,4 @@
-﻿using Microsoft.Crm.Sdk.Messages;
-using Microsoft.Xrm.Sdk;
+﻿using Microsoft.Xrm.Sdk;
 using Moq;
 using Pg.LetsExercise.Domain.Dto;
 using Pg.LetsExercise.Domain.Services;
@@ -94,7 +93,7 @@ namespace Pg.LetsExercise.Plugins.Tests.CustomApi
             handler.Execute();
 
             //Assert
-            var isResponseSet = localContext.PluginExecutionContext.OutputParameters.TryGetValue(pg_monthlyresultsResponse.Fields.Results_1, out var output);
+            var isResponseSet = localContext.PluginExecutionContext.OutputParameters.TryGetValue("results", out var output);
             Assert.True(isResponseSet);
             Assert.Equal(expectedResult, output);
 

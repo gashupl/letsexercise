@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using Pg.LetsExercise.Domain.Dto;
+﻿using Pg.LetsExercise.Domain.Dto;
 using Pg.LetsExercise.Domain.Services;
 using Pg.LetsExercise.Domain.Tests.Core;
 using System;
