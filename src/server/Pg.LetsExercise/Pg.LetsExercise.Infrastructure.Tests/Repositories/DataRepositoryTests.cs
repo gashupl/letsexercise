@@ -62,10 +62,26 @@ namespace Pg.LetsExercise.Infrastructure.Tests.Repositories
         }
 
         [Fact]
+        public void GetSelectedMonthRecords_ReturnsSingleRecord()
+        {
+            var repo = new DataRepository(_serviceFactory);
+            var actual = repo.GetSelectedMonthRecords(2024, 01, _ownerId, pg_ExerciseSet.PushUps);
+            Assert.Single(actual);
+        }
+
+        [Fact]
         public void GetCurrentMonthRecords_ReturnsEmptyList()
         {
             var repo = new DataRepository(_serviceFactory);
-            var actual = repo.GetCurrentMonthRecords(new DateTime(2024, 02, 01), _ownerId, pg_ExerciseSet.PushUps);
+            var actual = repo.GetCurrentMonthRecords(new DateTime(2024, 2, 01), _ownerId, pg_ExerciseSet.PushUps);
+            Assert.Empty(actual);
+        }
+
+        [Fact]
+        public void GetSelectedMonthRecords_ReturnsEmptyList()
+        {
+            var repo = new DataRepository(_serviceFactory);
+            var actual = repo.GetSelectedMonthRecords(2024, 2, _ownerId, pg_ExerciseSet.PushUps);
             Assert.Empty(actual);
         }
 

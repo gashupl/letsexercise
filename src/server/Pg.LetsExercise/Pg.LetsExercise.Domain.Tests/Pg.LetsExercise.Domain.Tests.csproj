@@ -59,6 +59,9 @@
     <Reference Include="Moq, Version=4.20.72.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.20.72\lib\net462\Moq.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="NuGet.Frameworks, Version=6.5.0.154, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\NuGet.Frameworks.6.5.0\lib\netstandard2.0\NuGet.Frameworks.dll</HintPath>
     </Reference>
@@ -131,13 +134,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\ServiceTestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\GoalCompletionServiceTests.cs" />
+    <Compile Include="Services\InputParameterToDateServiceTests.cs" />
+    <Compile Include="Services\ParseToJsonServiceTests.cs" />
+    <Compile Include="Services\SumResultsServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-    <ItemGroup>
+  <ItemGroup>
     <Analyzer Include="..\packages\xunit.analyzers.1.7.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
     <Analyzer Include="..\packages\xunit.analyzers.1.7.0\analyzers\dotnet\cs\xunit.analyzers.fixes.dll" />
   </ItemGroup>
@@ -158,6 +166,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\xunit.core.2.6.3\build\xunit.core.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.6.3\build\xunit.core.props'))" />
     <Error Condition="!Exists('..\packages\xunit.core.2.6.3\build\xunit.core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.6.3\build\xunit.core.targets'))" />
-   <Error Condition="!Exists('..\packages\xunit.runner.visualstudio.2.5.5\build\net462\xunit.runner.visualstudio.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.runner.visualstudio.2.5.5\build\net462\xunit.runner.visualstudio.props'))" />
+    <Error Condition="!Exists('..\packages\xunit.runner.visualstudio.2.5.5\build\net462\xunit.runner.visualstudio.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.runner.visualstudio.2.5.5\build\net462\xunit.runner.visualstudio.props'))" />
   </Target>
+  <Import Project="..\packages\xunit.core.2.6.3\build\xunit.core.targets" Condition="Exists('..\packages\xunit.core.2.6.3\build\xunit.core.targets')" />
 </Project>
