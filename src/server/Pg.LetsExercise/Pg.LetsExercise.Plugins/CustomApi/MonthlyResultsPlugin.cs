@@ -63,8 +63,7 @@ namespace Pg.LetsExercise.Plugins.CustomApi
                 localPluginContext.TracingService.Trace($"Parsing {monthlyResults?.Count} monthly results...");
                 var parsedMonthyResults = _parseToJsonService.Parse(monthlyResults);
                 localPluginContext.TracingService.Trace($"Parsed monthly results: {parsedMonthyResults}");
-
-                localPluginContext.PluginExecutionContext.OutputParameters[pg_monthlyresultsResponse.Fields.Results_1] = parsedMonthyResults;
+                localPluginContext.PluginExecutionContext.OutputParameters["results"] = parsedMonthyResults;
             }
             else
             {
