@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="Pg.LetsExercise.Plugins.CustomApi.MonthlyResultsPlugin: pg_monthlyresults of any Entity" SdkMessageProcessingStepId="{fa579d83-5973-f011-b4cb-0022488b25cc}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SdkMessageName>pg_monthlyresults</SdkMessageName>
+  <PluginTypeExportKey>FE13D6855F9B2E4A2042909879EE05C6A1CAB4F88E7F6C4BD9A453AA21E7B114</PluginTypeExportKey>
+  <AsyncAutoDelete>0</AsyncAutoDelete>
+  <Description>Pg.LetsExercise.Plugins.CustomApi.MonthlyResultsPlugin: pg_monthlyresults of any Entity</Description>
+  <FilteringAttributes></FilteringAttributes>
+  <InvocationSource>0</InvocationSource>
+  <Mode>0</Mode>
+  <Rank>1</Rank>
+  <EventHandlerTypeCode>4602</EventHandlerTypeCode>
+  <Stage>40</Stage>
+  <IsCustomizable>1</IsCustomizable>
+  <IsHidden>0</IsHidden>
+  <SupportedDeployment>0</SupportedDeployment>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <SdkMessageProcessingStepImages />
+</SdkMessageProcessingStep>

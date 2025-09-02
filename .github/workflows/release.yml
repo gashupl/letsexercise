@@ -1,0 +1,23 @@
+name: Release to Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to deploy (e.g., 1.2.3.4)'
+        required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    #   - name: Download Artifact from Release
+    #     run: |
+    #       echo "Downloading ${{ github.event.inputs.version }}"
+    #       curl -L -o app.txt \
+    #         https://github.com/${{ github.repository }}/releases/download/${{ github.event.inputs.version }}/app.txt
+
+      - name: Deploy to Test
+        run: |
+          echo "Deploying version ${{ github.event.inputs.version }} to test..."
