@@ -1,4 +1,73 @@
+import { Chart, ChartConfiguration } from 'chart.js/auto';
+
 export class GoalsMonthlyChart {
+
+    private myChart: Chart | null = null;
+
+    public initChart(): void {
+
+        const labels = [
+            'January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December'
+        ];
+        const values = [0,0,0,0,0,0,0,0,0,0,0,0];
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'My First Dataset',
+                data: values,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(201, 203, 207, 0.2)'
+                ],
+                borderColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(255, 159, 64)',
+                    'rgb(255, 205, 86)',
+                    'rgb(75, 192, 192)',
+                    'rgb(54, 162, 235)',
+                    'rgb(153, 102, 255)',
+                    'rgb(201, 203, 207)'
+                ],
+                borderWidth: 1
+            }]
+        };
+        const config: ChartConfiguration<'bar', number[], string> = {
+            type: 'bar',
+            data: data,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+        
+        const canvas = document.getElementById('myChart') as HTMLCanvasElement;
+        if (canvas) {
+            this.myChart = new Chart(canvas, config);
+        }
+
+        function getRandomNumber(): number {
+            return Math.floor(Math.random() * 101);
+        }
+
+        const updateChartData = () => {
+            if (this.myChart) {
+                this.myChart.data.datasets[0].data = labels.map(() => getRandomNumber());
+                this.myChart.update();
+            }
+        };
+
+        setInterval(updateChartData, 1000);
+    }
+
     public async execute(): Promise<void>
     {
         console.log("GoalsMonthlyChart.execute()");
