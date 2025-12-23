@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.25071.192" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25071.192" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25071.00202">
+<ImportExportXml version="9.2.25113.156" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25113.156" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25113.00156">
   <SolutionManifest>
     <UniqueName>LetsExercise</UniqueName>
     <LocalizedNames>
@@ -99,14 +99,14 @@
     </RootComponents>
     <MissingDependencies>
       <MissingDependency>
-        <Required type="SettingDefinition" displayName="EnableRoleBasedOfflineProfileAccess" solution="SettingDefinitionsData (9.2.2505.2505231)" id.uniquename="EnableRoleBasedOfflineProfileAccess">
-          <package appName="AppModule" version="9.2.2505.2505231">AppModuleSolutionAnchor (9.2.2505.2505231)</package>
+        <Required type="SettingDefinition" displayName="EnableRoleBasedOfflineProfileAccess" solution="SettingDefinitionsData (9.2.2508.2508132)" id.uniquename="EnableRoleBasedOfflineProfileAccess">
+          <package appName="AppModule" version="9.2.2508.2508132">AppModuleSolutionAnchor (9.2.2508.2508132)</package>
         </Required>
         <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=pg_LetsExerciseAdmin,settingdefinitionid.uniquename=EnableRoleBasedOfflineProfileAccess" id.parentappmoduleid.uniquename="pg_LetsExerciseAdmin" id.settingdefinitionid.uniquename="EnableRoleBasedOfflineProfileAccess" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="SettingDefinition" displayName="ServerMode" solution="SettingDefinitionsData (9.2.2505.2505231)" id.uniquename="ServerMode">
-          <package appName="AppModule" version="9.2.2505.2505231">AppModuleSolutionAnchor (9.2.2505.2505231)</package>
+        <Required type="SettingDefinition" displayName="ServerMode" solution="SettingDefinitionsData (9.2.2508.2508132)" id.uniquename="ServerMode">
+          <package appName="AppModule" version="9.2.2508.2508132">AppModuleSolutionAnchor (9.2.2508.2508132)</package>
         </Required>
         <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=pg_LetsExerciseAdmin,settingdefinitionid.uniquename=ServerMode" id.parentappmoduleid.uniquename="pg_LetsExerciseAdmin" id.settingdefinitionid.uniquename="ServerMode" />
       </MissingDependency>
