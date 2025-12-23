@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart.js Bar Chart Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script src="../scripts/goalsmonthlychart.js"></script>
+</head>
+
+<body>
+    <h1>Autorefreshed chart with Chart.js library</h1>
+    <canvas id="myChart" width="400" height="200"></canvas>
+    <script>
+        if (LetsExercise && LetsExercise.GoalsMonthlyChart) {
+            const chart = new LetsExercise.GoalsMonthlyChart();
+            chart.initChart();
+        } else {
+            console.error("LetsExercise.GoalsMonthlyChart is not defined.");
+        }
+    </script>
+</body>
+
+</html>
