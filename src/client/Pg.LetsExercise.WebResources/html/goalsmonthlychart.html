@@ -11,11 +11,27 @@
 
 <body>
     <h1>Monthly push-ups chart</h1>
+    <div style="margin: 20px 0; text-align: left;">
+        <button id="prevMonthBtn" style="margin-right: 20px; padding: 10px 15px; cursor: pointer;">← Previous Month</button>
+        <button id="nextMonthBtn" style="padding: 10px 15px; cursor: pointer;">Next Month →</button>
+    </div>
     <canvas id="myChart" width="400" height="200"></canvas>
     <script>
         if (LetsExercise && LetsExercise.GoalsMonthlyChart) {
             const chart = new LetsExercise.GoalsMonthlyChart();
             chart.initChart();
+            
+            // Bind event handlers
+            const prevBtn = document.getElementById('prevMonthBtn');
+            const nextBtn = document.getElementById('nextMonthBtn');
+            
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => chart.switchOneMonthBackward());
+            }
+            
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => chart.switchOneMonthForward());
+            }
         } else {
             console.error("LetsExercise.GoalsMonthlyChart is not defined.");
         }

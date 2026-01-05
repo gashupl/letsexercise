@@ -3,6 +3,7 @@ import { Chart, ChartConfiguration } from 'chart.js/auto';
 export class GoalsMonthlyChart {
 
     private myChart: Chart | null = null;
+    private currentEndDate: Date = new Date();
     private backgroundColors = [
         'rgba(255, 99, 132, 0.2)',
         'rgba(255, 159, 64, 0.2)',
@@ -67,9 +68,8 @@ export class GoalsMonthlyChart {
             console.log("Xrm context is available");
             const userId = XrmContext.Utility.getGlobalContext().userSettings.userId;
 
-            let currentDate = new Date();
-            let startMonth = this.getMonthInYYYYMM(new Date(currentDate.getFullYear(), currentDate.getMonth() - 12, 1));
-            let endMonth = this.getMonthInYYYYMM(currentDate);
+            let startMonth = this.getMonthInYYYYMM(new Date(this.currentEndDate.getFullYear(), this.currentEndDate.getMonth() - 12, 1));
+            let endMonth = this.getMonthInYYYYMM(this.currentEndDate);
 
             let results = await this.getMonthlyResults(XrmContext, startMonth, endMonth);
             console.log(results);
@@ -133,6 +133,26 @@ export class GoalsMonthlyChart {
         const year = date.getFullYear();
         const month = (date.getMonth() + 1).toString().padStart(2, '0');
         return `${year}-${month}`;
+    }
+
+    public async switchOneMonthBackward(): Promise<void> {
+        console.log("switchOneMonthBackward called");
+       // this.currentEndDate = new Date(this.currentEndDate.getFullYear(), this.currentEndDate.getMonth() - 1, 1);
+        await this.refreshChart();
+    }
+
+    public async switchOneMonthForward(): Promise<void> {
+       // this.currentEndDate = new Date(this.currentEndDate.getFullYear(), this.currentEndDate.getMonth() + 1, 1);
+       console.log("switchOneMonthForward called"); 
+       await this.refreshChart();
+    }
+
+    private async refreshChart(): Promise<void> {
+        // if (this.myChart) {
+        //     const newData = await this.getData();
+        //     this.myChart.data = newData;
+        //     this.myChart.update();
+        // }
     }
 
 }
