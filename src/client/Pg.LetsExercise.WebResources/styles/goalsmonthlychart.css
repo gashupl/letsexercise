@@ -1,4 +1,18 @@
 h1 {
     font-family: 'Segoe UI', 'Segoe UI Web (West European)', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 16px; 
+    font-size: 18px; 
+}
+
+.button-container {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.nav-button {
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+#prevMonthBtn {
+    margin-right: 20px;
 }
