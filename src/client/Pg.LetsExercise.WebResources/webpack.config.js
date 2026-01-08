@@ -28,7 +28,8 @@ module.exports = {
         new CleanWebpackPlugin(), 
         new CopyWebpackPlugin({
             patterns: [
-                { from: 'html/goalsmonthlychart.html', to: 'pages/' }
+                { from: 'html/goalsmonthlychart.html', to: 'pages/' },
+                { from: 'styles/goalsmonthlychart.css', to: 'styles/' }
             ]
         })
     ],
