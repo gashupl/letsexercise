@@ -55,7 +55,7 @@ export class GoalsMonthlyChart {
             console.log("Xrm context is available");
             const userId = XrmContext.Utility.getGlobalContext().userSettings.userId;
 
-            let startMonth = this.getMonthInYYYYMM(new Date(this.currentEndDate.getFullYear(), this.currentEndDate.getMonth() - 12, 1));
+            let startMonth = this.getMonthInYYYYMM(new Date(this.currentEndDate.getFullYear(), this.currentEndDate.getMonth() - 11, 1));
             let endMonth = this.getMonthInYYYYMM(this.currentEndDate);
 
             let results = await this.getMonthlyResults(XrmContext, startMonth, endMonth);
