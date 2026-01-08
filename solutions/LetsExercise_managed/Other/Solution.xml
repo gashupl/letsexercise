@@ -88,6 +88,7 @@
       <RootComponent type="61" schemaName="pg_/pages/goalsmonthlychart.html" behavior="0" />
       <RootComponent type="61" schemaName="pg_/scripts/goalsmonthlychart.js" behavior="0" />
       <RootComponent type="61" schemaName="pg_/scripts/letsexercise-main.js" behavior="0" />
+      <RootComponent type="61" schemaName="pg_/styles/goalsmonthlychart.css" behavior="0" />
       <RootComponent type="62" schemaName="pg_LetsExerciseAdmin" behavior="0" />
       <RootComponent type="66" schemaName="pg_Pg.LetsExercise.CircleProgressControl" behavior="0" />
       <RootComponent type="80" schemaName="pg_LetsExerciseAdmin" behavior="0" />
