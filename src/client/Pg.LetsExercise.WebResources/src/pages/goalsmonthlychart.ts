@@ -43,19 +43,6 @@ export class GoalsMonthlyChart {
         if (canvas) {
             this.myChart = new Chart(canvas, config);
         }
-
-        // function getRandomNumber(): number {
-        //     return Math.floor(Math.random() * 101);
-        // }
-
-        // const updateChartData = () => {
-        //     if (this.myChart) {
-        //         this.myChart.data.datasets[0].data = labels.map(() => getRandomNumber());
-        //         this.myChart.update();
-        //     }
-        // };
-
-        // setInterval(updateChartData, 1000);
     }
 
     public async getData(): Promise<any> {
@@ -137,22 +124,23 @@ export class GoalsMonthlyChart {
 
     public async switchOneMonthBackward(): Promise<void> {
         console.log("switchOneMonthBackward called");
-       // this.currentEndDate = new Date(this.currentEndDate.getFullYear(), this.currentEndDate.getMonth() - 1, 1);
+        this.currentEndDate = new Date(this.currentEndDate.getFullYear(), this.currentEndDate.getMonth() - 1, 1);
         await this.refreshChart();
     }
 
     public async switchOneMonthForward(): Promise<void> {
-       // this.currentEndDate = new Date(this.currentEndDate.getFullYear(), this.currentEndDate.getMonth() + 1, 1);
+        this.currentEndDate = new Date(this.currentEndDate.getFullYear(), this.currentEndDate.getMonth() + 1, 1);
        console.log("switchOneMonthForward called"); 
        await this.refreshChart();
     }
 
     private async refreshChart(): Promise<void> {
-        // if (this.myChart) {
-        //     const newData = await this.getData();
-        //     this.myChart.data = newData;
-        //     this.myChart.update();
-        // }
+        console.log("refreshChart called"); 
+        if (this.myChart) {
+            const newData = await this.getData();
+            this.myChart.data = newData;
+            this.myChart.update();
+        }
     }
 
 }
