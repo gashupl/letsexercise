@@ -3,6 +3,9 @@
 	<FileToFile 
 		map="WebResources\pg_\pages\goalsmonthlychart.html" 
 		to="..\..\src\client\Pg.LetsExercise.WebResources\WebResources\pages\goalsmonthlychart.html"/>
+		<FileToFile 
+		map="WebResources\pg_\styles\goalsmonthlychart.css" 
+		to="..\..\src\client\Pg.LetsExercise.WebResources\WebResources\styles\goalsmonthlychart.css"/>
 	<FileToFile 
 		map="WebResources\pg_\scripts\goalsmonthlychart.js" 
 		to="..\..\src\client\Pg.LetsExercise.WebResources\WebResources\scripts\goalsmonthlychart.js"/>
