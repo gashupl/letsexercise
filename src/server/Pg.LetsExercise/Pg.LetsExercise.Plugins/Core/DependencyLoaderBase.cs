@@ -12,12 +12,10 @@ namespace Pg.LetsExercise.Plugins.Core
 
         public void RegisterDefaults(LocalPluginContext localContext)
         {
-            localContext.Trace("Registering default dependencies...");
             var userOrganizationService = localContext.OrgSvcFactory.CreateOrganizationService(Guid.Empty);
             var dataRepository = new DataRepository(localContext.OrgSvcFactory);
 
             Container.Register(localContext);
-            Container.Register(localContext.Logger);
             Container.Register(localContext.OrgSvcFactory);
             Container.Register(userOrganizationService);
             Container.Register(localContext.PluginUserService);

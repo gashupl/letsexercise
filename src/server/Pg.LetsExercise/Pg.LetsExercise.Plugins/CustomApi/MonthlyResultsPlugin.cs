@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.PluginTelemetry;
 using Pg.LetsExercise.Domain.Services;
 using Pg.LetsExercise.Model;
 using Pg.LetsExercise.Plugins.Core;
@@ -56,17 +57,17 @@ namespace Pg.LetsExercise.Plugins.CustomApi
                 var startMonthDate = _inputParameterToDateService.GetDate(startMonth.ToString());
                 var endMonthDate = _inputParameterToDateService.GetDate(endMonth.ToString());
 
-                localPluginContext.TracingService.Trace($"Parsed input params: {startMonthDate} & {endMonthDate}");
+                localPluginContext.Trace(LogLevel.Trace, "Parsed input params: {startMonthDate} & {endMonthDate}", startMonthDate, endMonthDate);
 
                 var monthlyResults = _sumResultsService.GetMonthlyResults(startMonthDate, endMonthDate, localPluginContext.PluginExecutionContext.InitiatingUserId);
 
-                localPluginContext.TracingService.Trace($"Parsing {monthlyResults?.Count} monthly results...");
+                localPluginContext.Trace(LogLevel.Trace, $"Parsing {monthlyResults?.Count} monthly results...");
                 var parsedMonthyResults = _parseToJsonService.Parse(monthlyResults); 
                 localPluginContext.PluginExecutionContext.OutputParameters["results"] = parsedMonthyResults;
             }
             else
             {
-                localPluginContext.TracingService.Trace("Invalid input parameters for MonthlyResultsHandler logic execution");
+                localPluginContext.Trace(LogLevel.Trace, "Invalid input parameters for MonthlyResultsHandler logic execution");
                 throw new InvalidPluginExecutionException("Invalid input parameters for MonthlyResultsHandler logic execution");
             }
         }
