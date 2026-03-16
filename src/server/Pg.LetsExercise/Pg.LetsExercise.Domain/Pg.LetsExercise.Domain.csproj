@@ -108,8 +108,10 @@
     <Compile Include="Services\IMonthlyResultService.cs" />
     <Compile Include="Services\InputParameterToDateService.cs" />
     <Compile Include="Services\IParseToJsonService.cs" />
+    <Compile Include="Services\IPluginTracingService.cs" />
     <Compile Include="Services\ISumResultsService.cs" />
     <Compile Include="Services\ParseToJsonService.cs" />
+    <Compile Include="Services\PluginTracingService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
     <Compile Include="Services\SumResultsService.cs" />
   </ItemGroup>
