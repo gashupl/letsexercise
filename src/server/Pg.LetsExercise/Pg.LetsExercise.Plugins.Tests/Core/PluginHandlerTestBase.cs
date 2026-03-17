@@ -33,7 +33,7 @@ namespace Pg.LetsExercise.Plugins.Tests.Core
             tracingServiceMock.Setup(ts => ts.Trace(It.IsAny<LogLevel>(), It.IsAny<string>()));
 
             var localPluginContextMock = new Mock<ILocalPluginContext>();
-            localPluginContextMock.Setup(c => c.TracingService)
+            localPluginContextMock.Setup(c => c.PluginTracingService)
                 .Returns(tracingServiceMock.Object);
 
             localPluginContextMock.Setup(c => c.PluginExecutionContext.OutputParameters)

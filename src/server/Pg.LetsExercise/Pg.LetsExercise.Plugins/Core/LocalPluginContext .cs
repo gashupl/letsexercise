@@ -49,7 +49,7 @@ namespace Pg.LetsExercise.Plugins.Core
         /// </summary>
         public IOrganizationServiceFactory OrgSvcFactory { get; }
 
-        public IPluginTracingService TracingService { get; }
+        public IPluginTracingService PluginTracingService { get; }
 
         /// <summary>
         /// Helper object that stores the services available in this plug-in.
@@ -68,7 +68,7 @@ namespace Pg.LetsExercise.Plugins.Core
             var logger = serviceProvider.Get<ILogger>();
             var tracingService = serviceProvider.GetService(typeof(ITracingService)) as ITracingService;
 
-            TracingService = new PluginTracingService(tracingService, logger);
+            PluginTracingService = new PluginTracingService(tracingService, logger);
 
             NotificationService = serviceProvider.Get<IServiceEndpointNotificationService>();
 
@@ -96,11 +96,11 @@ namespace Pg.LetsExercise.Plugins.Core
         /// </summary>
         public void Trace(LogLevel logLevel, string format, params object[] args)
         {
-            if (string.IsNullOrWhiteSpace(format) || TracingService == null)
+            if (string.IsNullOrWhiteSpace(format) || PluginTracingService == null)
             {
                 return;
             }
-            TracingService.Trace(logLevel, format, args);
+            PluginTracingService.Trace(logLevel, format, args);
         }
     }
 }

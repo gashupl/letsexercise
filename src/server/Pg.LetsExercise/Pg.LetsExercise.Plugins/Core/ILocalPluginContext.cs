@@ -36,7 +36,7 @@ namespace Pg.LetsExercise.Plugins.Core
         /// <summary>
         /// Provides logging run-time trace information for plug-ins.
         /// </summary>
-        IPluginTracingService TracingService { get; }
+        IPluginTracingService PluginTracingService { get; }
 
         /// <summary>
         /// General Service Provide for things not accounted for in the base class.
