@@ -3,6 +3,7 @@ using Pg.LetsExercise.Plugins.Core;
 using Pg.LetsExercise.Model;
 using System;
 using Pg.LetsExercise.Domain.Services;
+using Microsoft.Xrm.Sdk.PluginTelemetry;
 
 namespace Pg.LetsExercise.Plugins
 {
@@ -32,7 +33,6 @@ namespace Pg.LetsExercise.Plugins
             _goalCompletionService = goalCompletionService ?? throw new ArgumentNullException(nameof(goalCompletionService));
         }
 
-
         public override bool CanExecute() => true; 
 
         public override void Execute()
@@ -52,12 +52,12 @@ namespace Pg.LetsExercise.Plugins
                     var businessEntityCollection
                         = (EntityCollection)context.OutputParameters[OutputParameters.BusinessEntityCollection];
 
-                    localPluginContext.TracingService.Trace("Get IGoalCompletionService service");
+                    localPluginContext.Trace(LogLevel.Trace, "Get IGoalCompletionService service");
 
                     foreach (Entity entity in businessEntityCollection.Entities)
                     {
                         var goal = entity.ToEntity<pg_exercisegoal>();
-                        localPluginContext.TracingService.Trace($"Set completed percentage for {goal.Id}");
+                        localPluginContext.Trace(LogLevel.Trace, "Set completed percentage for {goalId}", goal.Id);
                         goal.pg_completedpercentage = _goalCompletionService.GetCompletionPercentage(goal.Id);
                     }
                 }
@@ -68,7 +68,8 @@ namespace Pg.LetsExercise.Plugins
             }
             else
             {
-                localPluginContext.TracingService.Trace("Cannot read BusinessEntityCollection output param or param is not an EntityCollection");
+                localPluginContext.Trace(LogLevel.Error, 
+                    "Cannot read BusinessEntityCollection output param or param is not an EntityCollection");
             }
 
         }

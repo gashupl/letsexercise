@@ -3,6 +3,7 @@ using Pg.LetsExercise.Plugins.Core;
 using Pg.LetsExercise.Model;
 using System;
 using Pg.LetsExercise.Domain.Services;
+using Microsoft.Xrm.Sdk.PluginTelemetry;
 
 namespace Pg.LetsExercise.Plugins
 {
@@ -39,7 +40,7 @@ namespace Pg.LetsExercise.Plugins
         {
             if (localPluginContext == null)
             {
-                localPluginContext.TracingService.Trace("LocalPluginContext is null.");
+                localPluginContext.Trace(LogLevel.Error, "LocalPluginContext is null.");
                 throw new ArgumentNullException(nameof(localPluginContext));
             }
 
@@ -59,8 +60,8 @@ namespace Pg.LetsExercise.Plugins
             }
             else
             {
-                localPluginContext.TracingService.Trace
-                    ("Invalid conditions for ExerciseGoalRetrieveHandler logic execution");
+                localPluginContext.Trace(LogLevel.Error, 
+                    "Invalid conditions for ExerciseGoalRetrieveHandler logic execution");
             }
         }
     }

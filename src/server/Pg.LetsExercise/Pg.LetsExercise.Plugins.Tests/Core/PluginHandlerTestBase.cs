@@ -1,5 +1,8 @@
 ﻿using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.PluginTelemetry;
 using Moq;
+using Pg.LetsExercise.Domain.Services;
+using Pg.LetsExercise.Plugins.Core;
 
 namespace Pg.LetsExercise.Plugins.Tests.Core
 {
@@ -26,11 +29,11 @@ namespace Pg.LetsExercise.Plugins.Tests.Core
 
         private Mock<ILocalPluginContext> CreateLocalPluginHandlerMock()
         {
-            var tracingServiceMock = new Mock<ITracingService>();
-            tracingServiceMock.Setup(ts => ts.Trace(It.IsAny<string>()));
+            var tracingServiceMock = new Mock<IPluginTracingService>();
+            tracingServiceMock.Setup(ts => ts.Trace(It.IsAny<LogLevel>(), It.IsAny<string>()));
 
             var localPluginContextMock = new Mock<ILocalPluginContext>();
-            localPluginContextMock.Setup(c => c.TracingService)
+            localPluginContextMock.Setup(c => c.PluginTracingService)
                 .Returns(tracingServiceMock.Object);
 
             localPluginContextMock.Setup(c => c.PluginExecutionContext.OutputParameters)

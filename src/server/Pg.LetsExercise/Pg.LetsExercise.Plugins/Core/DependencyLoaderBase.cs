@@ -12,16 +12,16 @@ namespace Pg.LetsExercise.Plugins.Core
 
         public void RegisterDefaults(LocalPluginContext localContext)
         {
-            localContext.Trace("Registering default dependencies...");
             var userOrganizationService = localContext.OrgSvcFactory.CreateOrganizationService(Guid.Empty);
+            var tracingService = localContext.ServiceProvider.GetService(typeof(ITracingService)) as ITracingService;
             var dataRepository = new DataRepository(localContext.OrgSvcFactory);
 
             Container.Register(localContext);
-            Container.Register(localContext.Logger);
             Container.Register(localContext.OrgSvcFactory);
             Container.Register(userOrganizationService);
             Container.Register(localContext.PluginUserService);
-            Container.Register(localContext.TracingService);
+            Container.Register(tracingService);
+            Container.Register(localContext.PluginTracingService);
             Container.Register<IRepository>(dataRepository); 
         }
 
